@@ -4,16 +4,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Splash from './components/Splash';
 import Home from './components/Home';
 import { NavigationContainer } from '@react-navigation/native';
+import SplashNavigator from './components/Navigators/SplashNavigator';
 
-const Stack = createStackNavigator();
-console.log(Stack);
+
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
-      <Stack.Screen name="Home" component={Home}></Stack.Screen>
-    </Stack.Navigator>
+    <SplashNavigator></SplashNavigator>
     </NavigationContainer>
   );
 };
