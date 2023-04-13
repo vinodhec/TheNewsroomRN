@@ -9,7 +9,7 @@ const Splash = () => {
     <View>
       <Text>Splash</Text>
       <Button title="Go to Home" onPress={()=>{
-        navigation.navigate('Home')
+        navigation.navigate('Main')
       }}></Button>
     </View>
   )

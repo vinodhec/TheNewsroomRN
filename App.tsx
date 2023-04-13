@@ -1,16 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Splash from './components/Splash';
-import Home from './components/Home';
-import { NavigationContainer } from '@react-navigation/native';
+import Splash from './components/SplashScreen';
+import Home from './components/HomeScreen';
+import {NavigationContainer} from '@react-navigation/native';
 import SplashNavigator from './components/Navigators/SplashNavigator';
-
 
 const App = () => {
   return (
     <NavigationContainer>
-    <SplashNavigator></SplashNavigator>
+      <SplashNavigator></SplashNavigator>
     </NavigationContainer>
   );
 };
