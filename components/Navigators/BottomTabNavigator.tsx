@@ -1,7 +1,7 @@
-import {View, Text, StyleSheet, Button, Pressable} from 'react-native';
+import {View,  StyleSheet} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../HomeScreen';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import HighlightScreen from '../HighlightScreen';

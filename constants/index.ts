@@ -1,5 +1,5 @@
 import ROUTES from './routes';
 
 import COLORS from './colors';
-
-export {ROUTES, COLORS};
+const disableEmulator = true
+export {ROUTES, COLORS,disableEmulator};

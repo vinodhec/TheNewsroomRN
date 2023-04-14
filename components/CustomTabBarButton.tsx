@@ -8,21 +8,20 @@ const CustomTabBarButton = props => {
   
   
     return (
-      <View style={[styles.btnWrapper]}>
+      <TouchableOpacity
+      activeOpacity={1}
+      onPress={onPress}
+      style={[styles.btnWrapper]}>
     
     
         <View style={[styles.activeWrapper,{ backgroundColor:accessibilityState.selected ? COLORS.white:'transparent'}] }>
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={onPress}
-            style={[styles.activeBtn]}
-            >
-            <View>{children}</View>
-          </TouchableOpacity>
+          
+            <View  style={[styles.activeBtn]}>{children}</View>
+          
         </View>
     
 
-      </View>
+      </TouchableOpacity>
     );
   
 };

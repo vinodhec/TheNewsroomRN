@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
 import React from 'react';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -13,6 +13,8 @@ const TopTabNavigator = () => {
     <Tab.Navigator
       // tabBar={(props)=><CustomTopTabBar  {...props}></CustomTopTabBar>}
       screenOptions={{
+        lazy:true,
+        lazyPlaceholder:()=><ActivityIndicator></ActivityIndicator> ,
         tabBarGap: 0,
         tabBarScrollEnabled: true,
         tabBarIndicatorStyle: {
