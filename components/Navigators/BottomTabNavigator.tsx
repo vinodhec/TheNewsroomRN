@@ -29,9 +29,9 @@ const BottomTabNavigator = () => {
               <TouchableOpacity>
                 <Icon name={'search'} size={22} color={COLORS.white} />
               </TouchableOpacity>
-              <Pressable>
+              <TouchableOpacity>
                 <Icon name={'ios-moon-sharp'} size={22} color={COLORS.white} />
-              </Pressable>
+              </TouchableOpacity>
             </View>
           ),
           headerTintColor: COLORS.white,
