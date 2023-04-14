@@ -1,4 +1,4 @@
-export const ROUTES={
+export default {
     HOME:'Home',
     SPLASH:'Splash',
     HIGHLIGHT:'Highlight',
