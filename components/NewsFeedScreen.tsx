@@ -31,7 +31,8 @@ const NewsFeedScreen = () => {
         "timestamp": {
             "seconds": 1667648433,
             "nanoseconds": 903000000
-        }
+        },
+        "id": "00nLX4VKNNuBd3qNjZI9"
     }]);
   // useEffect(() => {
   //   FirestoreService.getDocuments('news', {

@@ -26,6 +26,7 @@
     "react-native-share": "^8.2.1",
     "react-native-svg": "^12.3.0",
     "react-native-tab-view": "^3.5.1",
+    "react-native-tts": "^4.1.0",
     "react-native-vector-icons": "^9.2.0",
     "react-native-view-shot": "^3.6.0",
     "rxjs": "^7.8.0"

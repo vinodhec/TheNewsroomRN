@@ -7,19 +7,48 @@ import {
   Touchable,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {COLORS} from '../constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ring from './Ring';
+import Tts from 'react-native-tts';
 
 const iconSizes = {size: 22, color: COLORS.primary};
 const NewsItem = props => {
   const {title, content, imageUrl, category, source, caption} = props ?? {};
   console.log({imageUrl});
+  const [speakStatus, setSpeakStatus] = useState('');
+
+  const readText = async () => {
+    Tts.stop();
+    Tts.speak(
+      'title :' +
+        title +
+        'Category: ' +
+        category +
+        'content: ' +
+        content +
+        'Source:' +
+        source,
+    );
+  };
+  useEffect(() => {
+    Tts.addEventListener('tts-start', event => {
+      Tts.speak('Starting to read');
+      setSpeakStatus('started');
+    });
+    Tts.addEventListener('tts-finish', event => {
+      setSpeakStatus('read completed');
+      setSpeakStatus('finished');
+    });
+    Tts.addEventListener('tts-cancel', event => {
+      Tts.speak('cancelled');
+      setSpeakStatus('Cancelled reading');
+    });
+  }, []);
   return (
     <View style={styles.newsContainer}>
-        
       <Text style={styles.title}>{title}</Text>
 
       <View
@@ -29,12 +58,28 @@ const NewsItem = props => {
           alignItems: 'center',
         }}>
         <Text style={styles.category}>{category}</Text>
-        
-        <TouchableOpacity style={{width:40, height:40, justifyContent:'center',alignItems:'center'}}>
-        {[...Array(3).keys()].map((_, index) => (
-          <Ring key={index} index={index} />
-        ))}
-          <Icon name="mic" {...iconSizes}></Icon>
+
+        <TouchableOpacity
+          onPress={() => {
+            console.log('hekl');
+            Tts.speak('Hello, world!');
+          }}
+          style={{
+            width: 40,
+            height: 40,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          { speakStatus === 'started' && [...Array(3).keys()].map((_, index) => (
+            <Ring key={index} index={index} />
+          )) }
+          <Icon
+            onPress={() => {
+              console.log('hekl');
+              Tts.speak('Hello, world!');
+            }}
+            name="mic"
+            {...iconSizes}></Icon>
         </TouchableOpacity>
       </View>
 
@@ -50,13 +95,16 @@ const NewsItem = props => {
           marginTop: 16,
           justifyContent: 'space-between',
         }}>
-        <Text
-          style={[styles.category, {textDecorationLine: 'underline'}]}
+        <TouchableOpacity
           onPress={() => {
+            console.log(source);
             Linking.openURL(source);
           }}>
-          {caption}
-        </Text>
+          <Text style={[styles.category, {textDecorationLine: 'underline'}]}>
+            {' '}
+            {caption}
+          </Text>
+        </TouchableOpacity>
         <View
           style={{
             flexDirection: 'row',
