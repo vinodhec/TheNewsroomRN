@@ -5,8 +5,7 @@ import Svg, {Path} from 'react-native-svg';
 
 const CustomTabBarButton = props => {
   const {route, children, accessibilityState, onPress} = props;
-  console.log({c: props.children,accessibilityState});
-
+  
   
     return (
       <View style={[styles.btnWrapper]}>

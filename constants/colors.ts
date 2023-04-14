@@ -5,7 +5,7 @@ export default {
     // bottomTabBG: '#c20',
     white: '#FFFFFF',
     dark: '#444',
-    bgColor: '#82ccdd',
+    bgColor: '#F2F2F2',
     warning: '#f0d500',
     danger: '#FF0D0E',
     gray: '#666666',
