@@ -20,9 +20,24 @@ const NewsItem = props => {
   console.log({imageUrl});
   const [speakStatus, setSpeakStatus] = useState('');
 
-  const readText = async () => {
+  const stopText = async () => {
+    setSpeakStatus('stopped');
     Tts.stop();
-    Tts.speak(
+  };
+
+  useEffect(() => {
+    Tts.addEventListener('tts-finish', event => {
+      if (speakStatus !== 'stopped') {
+        setSpeakStatus('stopped');
+      }
+    });
+  }, []);
+
+  const readText = async () => {
+    setSpeakStatus('started');
+
+    Tts.stop();
+    await Tts.speak(
       'title :' +
         title +
         'Category: ' +
@@ -32,21 +47,9 @@ const NewsItem = props => {
         'Source:' +
         source,
     );
+    // setSpeakStatus('stopped');
   };
-  useEffect(() => {
-    Tts.addEventListener('tts-start', event => {
-      Tts.speak('Starting to read');
-      setSpeakStatus('started');
-    });
-    Tts.addEventListener('tts-finish', event => {
-      setSpeakStatus('read completed');
-      setSpeakStatus('finished');
-    });
-    Tts.addEventListener('tts-cancel', event => {
-      Tts.speak('cancelled');
-      setSpeakStatus('Cancelled reading');
-    });
-  }, []);
+
   return (
     <View style={styles.newsContainer}>
       <Text style={styles.title}>{title}</Text>
@@ -61,8 +64,12 @@ const NewsItem = props => {
 
         <TouchableOpacity
           onPress={() => {
-            console.log('hekl');
-            Tts.speak('Hello, world!');
+            // console.lo('hekl');
+            if (speakStatus !== 'started') {
+              readText();
+            } else {
+              stopText();
+            }
           }}
           style={{
             width: 40,
@@ -70,19 +77,14 @@ const NewsItem = props => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          { speakStatus === 'started' && [...Array(3).keys()].map((_, index) => (
-            <Ring key={index} index={index} />
-          )) }
-          <Icon
-            onPress={() => {
-              console.log('hekl');
-              Tts.speak('Hello, world!');
-            }}
-            name="mic"
-            {...iconSizes}></Icon>
+          {speakStatus === 'started' &&
+            [...Array(3).keys()].map((_, index) => (
+              <Ring key={index} index={index} />
+            ))}
+          <Icon name={'mic'} {...iconSizes}></Icon>
         </TouchableOpacity>
       </View>
-
+      <Text>{speakStatus}</Text>
       {imageUrl && (
         <Image
           style={{width: '100%', height: 200, marginTop: 12}}
