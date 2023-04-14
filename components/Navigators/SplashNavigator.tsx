@@ -9,8 +9,9 @@ const Stack = createStackNavigator();
 const SplashNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown:false}}>
-      <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
+    
       <Stack.Screen name="Main" component={BottomTabNavigator} ></Stack.Screen>
+      <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
     </Stack.Navigator>
   )
 }

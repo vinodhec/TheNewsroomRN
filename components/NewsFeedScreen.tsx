@@ -15,8 +15,9 @@ const NewsFeedScreen = () => {
             "seconds": 1636595854,
             "nanoseconds": 857000000
         },
+        source:'https://www.maadiveedu.com',caption:'BBC',
         "content": "Duraisamy subway connecting T.Nagar with Ashok Nagar and West Mambalam submerged after heavy overnight rains.",
-        "caption": "",
+        
         "category": "Entertainment ",
 
         "id": "00nLX4VKNNuBd3qNjZI7"
@@ -24,8 +25,8 @@ const NewsFeedScreen = () => {
     {
       "title": "Subway Submerged.. !!:Tamil Nadu ",
       "content": "Duraisamy subway connecting T.Nagar with Ashok Nagar and West Mambalam submerged after heavy overnight rains.",
-
-        "caption": "",
+      source:'https://www.maadiveedu.com',caption:'BBC',
+        
         "category": "Entertainment ",
         "timestamp": {
             "seconds": 1667648433,
@@ -51,7 +52,7 @@ const NewsFeedScreen = () => {
       }}>
       <ScrollView contentContainerStyle={{flex:1, padding:16}} >
         {newsItems?.map((news: any) => {
-          return <NewsItem {...news}></NewsItem>
+          return <NewsItem {...news} key={news?.id}></NewsItem>
         })}
       </ScrollView>
     </View>
