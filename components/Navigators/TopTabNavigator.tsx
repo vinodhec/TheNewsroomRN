@@ -24,7 +24,8 @@ const TopTabNavigator = () => {
         },
         tabBarItemStyle: {
           width: 'auto',
-          padding: 8,
+          padding: 8
+          
         },
         tabBarLabelStyle: {textTransform: 'capitalize'},
         tabBarActiveTintColor: COLORS.primary,

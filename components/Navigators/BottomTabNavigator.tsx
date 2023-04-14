@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Button, Pressable} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../HomeScreen';
@@ -11,6 +11,7 @@ import {COLORS, ROUTES} from '../../constants';
 import colors from '../../constants/colors';
 
 import CustomTabBarButton from '../CustomTabBarButton';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -19,6 +20,22 @@ const BottomTabNavigator = () => {
       // tabBar={props => <CustomTabBar {...props} />}
       screenOptions={({route}) => {
         return {
+          headerTitle: 'The Newsroom',
+          headerStyle: {
+            backgroundColor: '#C82128',
+          },
+          headerRight: () => (
+            <View style={{flexDirection: 'row',justifyContent:'space-between', width:64,marginRight:24}}>
+              <TouchableOpacity>
+                <Icon name={'search'} size={22} color={COLORS.white} />
+              </TouchableOpacity>
+              <Pressable>
+                <Icon name={'ios-moon-sharp'} size={22} color={COLORS.white} />
+              </Pressable>
+            </View>
+          ),
+          headerTintColor: COLORS.white,
+
           tabBarShowLabel: false,
           tabBarStyle: styles.tabBarStyle,
           tabBarInactiveTintColor: COLORS.white,
@@ -46,8 +63,6 @@ const BottomTabNavigator = () => {
         name={ROUTES.HOME}
         component={TopTabNavigator}
         options={{
-          headerTitle: 'The Newsroom',
-
           tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
         }}
       />
@@ -55,31 +70,22 @@ const BottomTabNavigator = () => {
         name={ROUTES.HIGHLIGHT}
         component={HighlightScreen}
         options={{
-          headerTitle: 'The Newsroom',
-
           tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
         }}
-       
       />
       <Tab.Screen
         name={ROUTES.GROUP}
         component={HighlightScreen}
         options={{
-          headerTitle: 'The Newsroom',
-
           tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
         }}
-      
       />
       <Tab.Screen
         name={ROUTES.MENU}
         component={MenuScreen}
         options={{
-          headerTitle: 'The Newsroom',
-
           tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
         }}
-       
       />
     </Tab.Navigator>
   );
