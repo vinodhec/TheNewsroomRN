@@ -105,7 +105,7 @@ console.log({viewableItems})
           <Icon name={'mic'} {...iconSizes}></Icon>
         </TouchableOpacity>
       </View>
-      <Text>{speakStatus}</Text>
+      
       {imageUrl && (
         <Image
           style={{width: '100%', height: 200, marginTop: 12}}
