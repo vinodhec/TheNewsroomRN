@@ -1,5 +1,6 @@
 import {
   Image,
+  ImageBackground,
   Linking,
   Pressable,
   StyleSheet,
@@ -7,26 +8,40 @@ import {
   Touchable,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {COLORS} from '../constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ring from './Ring';
 import Tts from 'react-native-tts';
-import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
-
+import Animated, {useAnimatedStyle, withTiming} from 'react-native-reanimated';
+import ViewShot from 'react-native-view-shot';
+import Share from 'react-native-share';
+import RNFetchBlob from 'rn-fetch-blob';
 const iconSizes = {size: 22, color: COLORS.primary};
-const NewsItem = (props) => {
+const NewsItem = props => {
+  const {
+    title,
+    content,
+    imageUrl,
+    category,
+    source,
+    caption,
+    viewableItems,
+    id,
+  } = props ?? {};
+  const ref = useRef();
 
-  
-  const {title, content, imageUrl, category, source, caption,viewableItems,id } = props ?? {};
-console.log({viewableItems})
+  const onCapture = useCallback(uri => {
+    console.log('do something with ', uri);
+  }, []);
+
   const rStyle = useAnimatedStyle(() => {
     const isVisible = Boolean(
       viewableItems.value
-        .filter((item) => item.isViewable)
-        .find((viewableItem) => viewableItem.item.id === id)
-    )
+        .filter(item => item.isViewable)
+        .find(viewableItem => viewableItem.item.id === id),
+    );
 
     return {
       opacity: withTiming(isVisible ? 1 : 0),
@@ -38,12 +53,45 @@ console.log({viewableItems})
     };
   }, []);
 
-  console.log({imageUrl});
   const [speakStatus, setSpeakStatus] = useState('');
 
   const stopText = async () => {
     setSpeakStatus('stopped');
     Tts.stop();
+  };
+
+  const [isWatermark, setIsWatermark] = useState(false);
+
+  const getBase64FromURL = async imageUrl => {
+    const resp = await RNFetchBlob.fetch('GET', imageUrl);
+
+    let base64image = resp.data;
+    return 'data:image/png;base64,' + base64image;
+
+    // .catch(err => errorHandler(err));
+  };
+
+  const shareNews = async (isFromWhatsapp = false) => {
+    let image;
+    if (imageUrl) {
+      image = await getBase64FromURL(imageUrl);
+    }
+
+    const shareOptions = {
+      title: 'Share via',
+      message: content?.slice(0, 100) + '\nThe Newsroom',
+      url: image,
+      type: 'image/*',
+      social: Share.Social.WHATSAPP,
+    };
+
+    if (!isFromWhatsapp) {
+      Share.shareSingle(shareOptions).then(data => {
+        console.log(data);
+      });
+    } else {
+      Share.open(shareOptions);
+    }
   };
 
   useEffect(() => {
@@ -58,21 +106,13 @@ console.log({viewableItems})
     setSpeakStatus('started');
 
     Tts.stop();
-    await Tts.speak(
-      'title :' +
-        title +
-        'Category: ' +
-        category +
-        'content: ' +
-        content +
-        'Source:' +
-        source,
-    );
+    await Tts.speak(content);
     // setSpeakStatus('stopped');
   };
+  const image = {uri: 'https://reactjs.org/logo-og.png'};
 
   return (
-    <Animated.View style={[styles.newsContainer,rStyle]}>
+    <Animated.View style={[styles.newsContainer, rStyle]}>
       <Text style={styles.title}>{title}</Text>
 
       <View
@@ -105,7 +145,7 @@ console.log({viewableItems})
           <Icon name={'mic'} {...iconSizes}></Icon>
         </TouchableOpacity>
       </View>
-      
+
       {imageUrl && (
         <Image
           style={{width: '100%', height: 200, marginTop: 12}}
@@ -143,15 +183,11 @@ console.log({viewableItems})
             },
             {
               name: 'md-share-social-sharp',
-              onPress: () => {
-                console.log('test');
-              },
+              onPress: shareNews.bind(this, true),
             },
             {
               name: 'logo-whatsapp',
-              onPress: () => {
-                console.log('test');
-              },
+              onPress: shareNews.bind(this, false),
             },
           ].map(({name, onPress}) => {
             return (
