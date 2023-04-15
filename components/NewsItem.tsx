@@ -13,10 +13,31 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ring from './Ring';
 import Tts from 'react-native-tts';
+import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
 const iconSizes = {size: 22, color: COLORS.primary};
-const NewsItem = props => {
-  const {title, content, imageUrl, category, source, caption} = props ?? {};
+const NewsItem = (props) => {
+
+  
+  const {title, content, imageUrl, category, source, caption,viewableItems,id } = props ?? {};
+console.log({viewableItems})
+  const rStyle = useAnimatedStyle(() => {
+    const isVisible = Boolean(
+      viewableItems.value
+        .filter((item) => item.isViewable)
+        .find((viewableItem) => viewableItem.item.id === id)
+    )
+
+    return {
+      opacity: withTiming(isVisible ? 1 : 0),
+      transform: [
+        {
+          scale: withTiming(isVisible ? 1 : 0.6),
+        },
+      ],
+    };
+  }, []);
+
   console.log({imageUrl});
   const [speakStatus, setSpeakStatus] = useState('');
 
@@ -51,7 +72,7 @@ const NewsItem = props => {
   };
 
   return (
-    <View style={styles.newsContainer}>
+    <Animated.View style={[styles.newsContainer,rStyle]}>
       <Text style={styles.title}>{title}</Text>
 
       <View
@@ -141,7 +162,7 @@ const NewsItem = props => {
           })}
         </View>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 
@@ -153,6 +174,13 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     padding: 16,
     borderRadius: 6,
+    shadowColor: COLORS.black,
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
   },
   category: {
     fontWeight: '400',
