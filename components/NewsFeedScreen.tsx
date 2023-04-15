@@ -116,7 +116,7 @@ const NewsFeedScreen = () => {
         viewableItems.value = vItems;
       }}
       renderItem={({item}) => {
-        const inputRange = [-1, 0];
+        
         return <NewsItem {...item} key={item?.id}  viewableItems={viewableItems} ></NewsItem>;
       }}
       contentContainerStyle={{ padding: 16}}></FlatList>
