@@ -13,8 +13,8 @@ const TopTabNavigator = () => {
     <Tab.Navigator
       // tabBar={(props)=><CustomTopTabBar  {...props}></CustomTopTabBar>}
       screenOptions={{
-        lazy:true,
-        lazyPlaceholder:()=><ActivityIndicator></ActivityIndicator> ,
+        lazy: true,
+        lazyPlaceholder: () => <ActivityIndicator></ActivityIndicator>,
         tabBarGap: 0,
         tabBarScrollEnabled: true,
         tabBarIndicatorStyle: {
@@ -26,8 +26,7 @@ const TopTabNavigator = () => {
         },
         tabBarItemStyle: {
           width: 'auto',
-          padding: 8
-          
+          padding: 8,
         },
         tabBarLabelStyle: {textTransform: 'capitalize'},
         tabBarActiveTintColor: COLORS.primary,
@@ -50,7 +49,12 @@ const TopTabNavigator = () => {
         'World',
       ].map((value, index) => {
         return (
-          <Tab.Screen key={index} name={value} component={NewsFeedScreen} />
+          <Tab.Screen
+            initialParams={{category: value}}
+            key={index}
+            name={value}
+            component={NewsFeedScreen}
+          />
         );
       })}
     </Tab.Navigator>
