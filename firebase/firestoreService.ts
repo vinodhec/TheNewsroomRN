@@ -1,5 +1,5 @@
 import app from './firebase'
-import { getFirestore, collection, addDoc, getDoc, doc, getDocs, limit as dbLimit, orderBy as dbOrderBy, query as dbQuery, where, connectFirestoreEmulator, GeoPoint, serverTimestamp, collectionGroup, setDoc, startAfter, getCountFromServer, updateDoc, deleteDoc, onSnapshot, initializeFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDoc, doc, getDocs, limit as dbLimit, orderBy as dbOrderBy, query as dbQuery, where, connectFirestoreEmulator, GeoPoint, serverTimestamp, collectionGroup, setDoc, startAfter, getCountFromServer, updateDoc, deleteDoc, onSnapshot, initializeFirestore, startAt } from "firebase/firestore";
 
 import { concatMap, from, lastValueFrom, map, Observable, of } from 'rxjs';
 import { omit } from 'lodash';
