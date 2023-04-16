@@ -25,9 +25,10 @@ const NewsItem = props => {
     content,
     imageUrl,
     category,
+    isBookmarked,
     source,
     caption,
-    viewableItems,
+    addToBookMark,
     speechStatus,
     id,
   } = props ?? {};
@@ -163,9 +164,9 @@ const NewsItem = props => {
           }}>
           {[
             {
-              name: 'bookmarks',
+              name: isBookmarked?'mic': 'bookmarks',
               onPress: () => {
-                console.log('test');
+                addToBookMark(id)
               },
             },
             {

@@ -7,15 +7,19 @@ import NewsItem from './NewsItem';
 import {useSharedValue} from 'react-native-reanimated';
 import Tts from 'react-native-tts';
 import LazyLoad from './LazyLoad';
+import {useAppDispatch, useAppSelector} from '../app/hooks';
+import {selectGlobalValue, update} from '../features/global/globalSlice';
 
 const NewsFeedScreen = ({route}) => {
-  
-  const [category, setCategory] = useState('')
+  const dispatch = useAppDispatch();
+
+  const [category, setCategory] = useState('');
+  const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
 
   React.useEffect(() => {
-    const temp =route.params?.category ;
+    const temp = route.params?.category;
     if (temp) {
-     setCategory(temp === 'All' ? '':temp );
+      setCategory(temp === 'All' ? '' : temp);
     }
   }, [route.params?.category]);
 
@@ -38,22 +42,38 @@ const NewsFeedScreen = ({route}) => {
     });
   }, []);
 
-  
+  const addToBookMark = id => {
+    console.log(bookmarks, id);
+    let value;
+    if (bookmarks.includes(id)) {
+      value = bookmarks.filter(bid => bid != id);
+    } else {
+      value = [...bookmarks, id];
+    }
+    dispatch(
+      update({
+        valueType: 'bookmarks',
+
+        value,
+      } as any),
+    );
+  };
 
   useEffect(() => {}, []);
   return (
     <LazyLoad
       collectionName={'news'}
-      options={{limit:5,query:[['category',"==",category]]}}
+      options={{limit: 5, query: [['category', '==', category]]}}
       dontChangeOnOptions={false}
-      updateItems={()=>{}}
+      updateItems={() => {}}
       content={({item}) => {
         return (
           <NewsItem
             {...item}
             key={item?.id}
+            isBookmarked={bookmarks?.includes(item?.id)}
             speechStatus={speechStatus}
-            ></NewsItem>
+            addToBookMark={addToBookMark}></NewsItem>
         );
       }}></LazyLoad>
     // <FlatList
@@ -75,4 +95,3 @@ export default NewsFeedScreen;
 function setCategory(category: any) {
   throw new Error('Function not implemented.');
 }
-

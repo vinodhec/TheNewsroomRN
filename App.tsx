@@ -1,15 +1,22 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import Splash from './components/SplashScreen';
-import Home from './components/HomeScreen';
+import {Provider} from 'react-redux';
+import {store} from './app/store';
+import {PersistGate} from 'redux-persist/integration/react';
+import {persistStore} from 'redux-persist';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashNavigator from './components/Navigators/SplashNavigator';
-
+let persistor = persistStore(store);
 const App = () => {
   return (
     <NavigationContainer>
-      <SplashNavigator></SplashNavigator>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          {/* <div style={{position:'fixed',right:0,top:'100px'}}> <SketchPicker  color={hex}       onChangeComplete={ handleColorChange } ></SketchPicker></div> */}
+
+          <SplashNavigator></SplashNavigator>
+        </PersistGate>
+      </Provider>
     </NavigationContainer>
   );
 };
