@@ -28,39 +28,28 @@ const NewsItem = props => {
     source,
     caption,
     viewableItems,
+    speechStatus,
     id,
   } = props ?? {};
   const ref = useRef();
 
-  const onCapture = useCallback(uri => {
-    console.log('do something with ', uri);
-  }, []);
 
-  const rStyle = useAnimatedStyle(() => {
-    const isVisible = Boolean(
-      viewableItems.value
-        .filter(item => item.isViewable)
-        .find(viewableItem => viewableItem.item.id === id),
-    );
-
-    return {
-      opacity: withTiming(isVisible ? 1 : 0),
-      transform: [
-        {
-          scale: withTiming(isVisible ? 1 : 0.6),
-        },
-      ],
-    };
-  }, []);
 
   const [speakStatus, setSpeakStatus] = useState('');
 
+  useEffect(()=>{
+    
+    if(['cancelled','stopped'].includes(speechStatus) && speakStatus ==='started' ){
+      setSpeakStatus('stopped')
+    }
+
+  },[speechStatus])
   const stopText = async () => {
     setSpeakStatus('stopped');
     Tts.stop();
   };
 
-  const [isWatermark, setIsWatermark] = useState(false);
+  
 
   const getBase64FromURL = async imageUrl => {
     const resp = await RNFetchBlob.fetch('GET', imageUrl);
@@ -94,25 +83,23 @@ const NewsItem = props => {
     }
   };
 
-  useEffect(() => {
-    Tts.addEventListener('tts-finish', event => {
-      if (speakStatus !== 'stopped') {
-        setSpeakStatus('stopped');
-      }
-    });
-  }, []);
 
   const readText = async () => {
-    setSpeakStatus('started');
+    
 
-    Tts.stop();
+    stopText();
+    
     await Tts.speak(content);
+    setTimeout(()=>{
+      setSpeakStatus('started');  
+    },500)
+    
     // setSpeakStatus('stopped');
   };
-  const image = {uri: 'https://reactjs.org/logo-og.png'};
+  
 
   return (
-    <Animated.View style={[styles.newsContainer, rStyle]}>
+    <View style={[styles.newsContainer]}>
       <Text style={styles.title}>{title}</Text>
 
       <View
@@ -198,7 +185,7 @@ const NewsItem = props => {
           })}
         </View>
       </View>
-    </Animated.View>
+    </View>
   );
 };
 

@@ -4,7 +4,8 @@ import {COLORS} from '../constants';
 import FirestoreService from '../firebase/firestoreService';
 import {ScrollView} from 'react-native-gesture-handler';
 import NewsItem from './NewsItem';
-import { useSharedValue } from 'react-native-reanimated';
+import {useSharedValue} from 'react-native-reanimated';
+import Tts from 'react-native-tts';
 
 const NewsFeedScreen = () => {
   const [newsItems, setNewsItems] = useState([
@@ -98,28 +99,52 @@ const NewsFeedScreen = () => {
     },
   ]);
   const viewableItems = useSharedValue<ViewToken[]>([]);
+  const onViewCallBack = React.useCallback(viewableItems => {
+    console.log(viewableItems);
+    // Use viewable items in state or as intended
+  }, []); // any dependencies that require the function to be "redeclared"
 
-  // useEffect(() => {
-  //   FirestoreService.getDocuments('news', {
-  //     limit: 3,
-  //     isCollectionGroup: false,
-  //   }).then(data => {
-  //     setNewsItems(data);
-  //     console.log(JSON.stringify(data));
-  //   });
-  // }, []);
+  const [speechStatus, setSpeechStatus] = useState('stppped')
+  useEffect(() => {
+    Tts.addEventListener('tts-start', event => {
+      setSpeechStatus('started')
+    });
+    Tts.addEventListener('tts-finish', event => {
+      // if (speakStatus && speakStatus !== 'stopped') {
+      //   setSpeakStatus('stopped');
+      // }
+      setSpeechStatus('stopped')
+    });
+    Tts.addEventListener('tts-cancel', event => {
+      // if (speakStatus &&  speakStatus !== 'cancelled') {
+      //   setSpeakStatus('cancelled');
+      // }
+      setSpeechStatus('cancelled')
+    });
+  }, []);
+
+  useEffect(() => {
+    FirestoreService.getDocuments('news', {
+      limit: 3,
+      isCollectionGroup: false,
+      orderBy: 'timestamp',
+      orderByDir: 'desc',
+    }).then(data => {
+      setNewsItems([...data]);
+      console.log(JSON.stringify(data));
+    });
+  }, []);
   return (
     <FlatList
       data={newsItems}
       keyExtractor={item => item?.id}
-      onViewableItemsChanged={({ viewableItems: vItems }) => {
-        viewableItems.value = vItems;
-      }}
+      // onViewableItemsChanged={({ viewableItems: vItems }) => {
+      //   viewableItems.value = vItems;
+      // }}
       renderItem={({item}) => {
-        
-        return <NewsItem {...item} key={item?.id}  viewableItems={viewableItems} ></NewsItem>;
+        return <NewsItem {...item} key={item?.id} speechStatus={speechStatus}></NewsItem>;
       }}
-      contentContainerStyle={{ padding: 16}}></FlatList>
+      contentContainerStyle={{padding: 16}}></FlatList>
   );
 };
 
