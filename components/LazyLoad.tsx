@@ -23,8 +23,10 @@ const LazyLoad = ({
   const getTitles = (data: any) => data.map((data: any) => data.id);
   const [loading, setLoading] = useState(false);
   const getQueryResults = (loadMore = false) => {
+    
     if (!loading && (!loadMore || result.hasNext)) {
-      setLoading(true);
+        console.log(loading, loadMore,options)
+        setLoading(true);
 
       FirestoreService.getDocuments(collectionName, {
         ...options,
@@ -32,12 +34,13 @@ const LazyLoad = ({
         orderBy: 'timestamp',
         orderByDir: 'desc',
       }).then(results => {
+        setLoading(false);
         const {docs, cursorId} = results;
 
         setItems((pp: any) => (cursorId && loadMore ? [...pp, ...docs] : docs));
 
         setResults(results);
-        setLoading(false);
+        
       });
     }
   };
@@ -45,10 +48,11 @@ const LazyLoad = ({
 
   useEffect(() => {
     getQueryResults();
+    
   }, [JSON.stringify(options)]);
 
   useEffect(() => {
-    console.log('total', getTitles(items));
+    // console.log('total', getTitles(items));
     // updateItems(items);
   }, [items]);
 

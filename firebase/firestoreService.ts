@@ -132,7 +132,7 @@ const getQueries = (collectionName, options) => {
         formattedQueries.push(startAfter(cursorId))
     }
 
-
+console.log({formattedQueries})
 
     let collectionRef = dbQuery(getCollectionRef(collectionName, isCollectionGroup), ...formattedQueries)
 

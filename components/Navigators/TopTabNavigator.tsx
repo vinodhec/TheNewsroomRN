@@ -42,7 +42,7 @@ const TopTabNavigator = () => {
       {[
         'All',
         'India',
-        'TamilNadu',
+        'Tamil Nadu',
         'Sports',
         'Entertainment',
         'Finance',

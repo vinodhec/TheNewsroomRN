@@ -12,16 +12,10 @@ import {selectGlobalValue, update} from '../features/global/globalSlice';
 
 const NewsFeedScreen = ({route}) => {
   const dispatch = useAppDispatch();
-
-  const [category, setCategory] = useState('');
+  const temp = route.params?.category;
+  const [category, setCategory] = useState(temp === 'All' ? '' : temp);
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
 
-  React.useEffect(() => {
-    const temp = route.params?.category;
-    if (temp) {
-      setCategory(temp === 'All' ? '' : temp);
-    }
-  }, [route.params?.category]);
 
   const [speechStatus, setSpeechStatus] = useState('stopped');
   useEffect(() => {
@@ -64,7 +58,7 @@ const NewsFeedScreen = ({route}) => {
     <LazyLoad
       collectionName={'news'}
       options={{limit: 5, query: [['category', '==', category]]}}
-      dontChangeOnOptions={false}
+      
       updateItems={() => {}}
       content={({item}) => {
         return (
