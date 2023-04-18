@@ -5,10 +5,12 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import NewsFeedScreen from '../NewsFeedScreen';
 import CustomTopTabBar from '../CustomTopTabBar';
 import {COLORS} from '../../constants';
+import { useColorScheme } from 'nativewind';
 
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigator = () => {
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   return (
     <Tab.Navigator
       // tabBar={(props)=><CustomTopTabBar  {...props}></CustomTopTabBar>}
@@ -20,6 +22,9 @@ const TopTabNavigator = () => {
         tabBarIndicatorStyle: {
           height: 0,
         },
+        tabBarContentContainerStyle:{
+          backgroundColor: colorScheme !=='dark'? COLORS.white : '#21232980', 
+        },
         tabBarStyle: {
           backgroundColor: COLORS.bgColor,
           padding: 0,
@@ -30,7 +35,7 @@ const TopTabNavigator = () => {
         },
         tabBarLabelStyle: {textTransform: 'capitalize'},
         tabBarActiveTintColor: COLORS.primary,
-        tabBarInactiveTintColor: '#21232980',
+        tabBarInactiveTintColor: colorScheme ==='dark'? COLORS.white : '#21232980',
 
         // tabBarIndicatorStyle​:{height:10}
 

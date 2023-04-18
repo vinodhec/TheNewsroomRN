@@ -2,7 +2,9 @@ import {useEffect, useState} from 'react';
 
 import FirestoreService from '../firebase/firestoreService';
 import {FlatList} from 'react-native-gesture-handler';
-import {ActivityIndicator, View} from 'react-native';
+import {ActivityIndicator, Text, View} from 'react-native';
+import { styled } from 'nativewind';
+const StyledView = styled(View)
 
 const LazyLoad = ({
   content,
@@ -63,9 +65,10 @@ const LazyLoad = ({
       // onViewableItemsChanged={({ viewableItems: vItems }) => {
       //   viewableItems.value = vItems;
       // }}
+      // ItemSeparatorComponent={()=><StyledView className="border-solid divide-solid bg-red-600 flex flex-1  w-full"  ></StyledView>}
       onEndReached={getQueryResults.bind(this, true)}
       renderItem={content}
-      contentContainerStyle={{padding: 16}}
+      contentContainerStyle={{padding: 8, marginTop:16}}
       ListFooterComponent={() => {
         return (
           <View style={{flex: 1}}>

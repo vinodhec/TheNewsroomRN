@@ -11,13 +11,17 @@ import {COLORS, ROUTES} from '../../constants';
 import colors from '../../constants/colors';
 
 import CustomTabBarButton from '../CustomTabBarButton';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import PressableOpacity from '../PressableOpacity';
+import { useColorScheme } from 'nativewind';
+
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
+
+  const { colorScheme, toggleColorScheme } = useColorScheme();
+
   return (
     <Tab.Navigator
-      // tabBar={props => <CustomTabBar {...props} />}
       screenOptions={({route}) => {
         return {
           headerTitle: 'The Newsroom',
@@ -26,12 +30,12 @@ const BottomTabNavigator = () => {
           },
           headerRight: () => (
             <View style={{flexDirection: 'row',justifyContent:'space-between', width:64,marginRight:24}}>
-              <TouchableOpacity>
+              <PressableOpacity>
                 <Icon name={'search'} size={22} color={COLORS.white} />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Icon name={'ios-moon-sharp'} size={22} color={COLORS.white} />
-              </TouchableOpacity>
+              </PressableOpacity>
+              <PressableOpacity onPress={toggleColorScheme }>
+                <Icon name={colorScheme ==='dark'?'sunny-outline':'ios-moon-sharp'} size={22} color={COLORS.white} />
+              </PressableOpacity>
             </View>
           ),
           headerTintColor: COLORS.white,

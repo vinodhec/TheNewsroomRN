@@ -1,6 +1,7 @@
-import { Animated, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Animated, StyleSheet, View } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants';
+import PressableOpacity from './PressableOpacity';
 
 const CustomTopTabBar = (props) => {
     console.log({props})
@@ -45,7 +46,7 @@ const CustomTopTabBar = (props) => {
             });
     
             return (
-              <TouchableOpacity
+              <PressableOpacity
                 accessibilityRole="button"
                 accessibilityState={isFocused ? { selected: true } : {}}
                 accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -57,7 +58,7 @@ const CustomTopTabBar = (props) => {
                 <Animated.Text  style={{color:isFocused?COLORS.primary:COLORS.black }}>
                   {label}
                 </Animated.Text>
-              </TouchableOpacity>
+              </PressableOpacity>
             );
           })}
         </View>

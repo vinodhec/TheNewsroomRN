@@ -1,14 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, ImageBackground} from 'react-native';
-import {COLORS, ROUTES} from '../constants';
-import Svg, {Path} from 'react-native-svg';
+import {StyleSheet, View} from 'react-native';
+import {COLORS} from '../constants';
+import PressableOpacity from './PressableOpacity';
 
 const CustomTabBarButton = props => {
   const {route, children, accessibilityState, onPress} = props;
   
   
     return (
-      <TouchableOpacity
+      <PressableOpacity
       activeOpacity={1}
       onPress={onPress}
       style={[styles.btnWrapper]}>
@@ -21,7 +21,7 @@ const CustomTabBarButton = props => {
         </View>
     
 
-      </TouchableOpacity>
+      </PressableOpacity>
     );
   
 };

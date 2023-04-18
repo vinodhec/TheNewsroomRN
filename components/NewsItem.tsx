@@ -1,23 +1,14 @@
-import {
-  Image,
-  ImageBackground,
-  Linking,
-  Pressable,
-  StyleSheet,
-  Text,
-  Touchable,
-  View,
-} from 'react-native';
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {Image, Linking, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import {COLORS} from '../constants';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ring from './Ring';
 import Tts from 'react-native-tts';
-import Animated, {useAnimatedStyle, withTiming} from 'react-native-reanimated';
-import ViewShot from 'react-native-view-shot';
 import Share from 'react-native-share';
 import RNFetchBlob from 'rn-fetch-blob';
+import PressableOpacity from './PressableOpacity';
+import {StyledView} from './StyledComponents';
+
 const iconSizes = {size: 22, color: COLORS.primary};
 const NewsItem = props => {
   const {
@@ -34,23 +25,20 @@ const NewsItem = props => {
   } = props ?? {};
   const ref = useRef();
 
-
-
   const [speakStatus, setSpeakStatus] = useState('');
 
-  useEffect(()=>{
-    
-    if(['cancelled','stopped'].includes(speechStatus) && speakStatus ==='started' ){
-      setSpeakStatus('stopped')
+  useEffect(() => {
+    if (
+      ['cancelled', 'stopped'].includes(speechStatus) &&
+      speakStatus === 'started'
+    ) {
+      setSpeakStatus('stopped');
     }
-
-  },[speechStatus])
+  }, [speechStatus]);
   const stopText = async () => {
     setSpeakStatus('stopped');
     Tts.stop();
   };
-
-  
 
   const getBase64FromURL = async imageUrl => {
     const resp = await RNFetchBlob.fetch('GET', imageUrl);
@@ -84,34 +72,44 @@ const NewsItem = props => {
     }
   };
 
-
   const readText = async () => {
-    
-
     stopText();
-    
+
     await Tts.speak(content);
-    setTimeout(()=>{
-      setSpeakStatus('started');  
-    },500)
-    
+    setTimeout(() => {
+      setSpeakStatus('started');
+    }, 500);
+
     // setSpeakStatus('stopped');
   };
-  
+  // backgroundColor: COLORS.white,
+  // marginBottom: 16,
+  // padding: 16,
+  // borderRadius: 6,
+  // shadowColor: COLORS.black,
+  // shadowOffset: {
+  //   width: 0,
+  //   height: 10,
+  // },
+  // shadowOpacity: 0.3,
+  // shadowRadius: 20,
 
   return (
-    <View style={[styles.newsContainer]}>
-      <Text style={styles.title}>{title}</Text>
+    <StyledView
+      className="mb-4 p-2 py-4 shadow-black bg-white rounded-md"
+      style={styles.newsContainer}>
+      <Text className="text-black font-black mb-0 dark:text-white">{title}</Text>
 
       <View
+      className='mt-0'
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <Text style={styles.category}>{category}</Text>
+        <Text className="text-red-500 text-xs">{category}</Text>
 
-        <TouchableOpacity
+        <PressableOpacity
           onPress={() => {
             // console.lo('hekl');
             if (speakStatus !== 'started') {
@@ -121,17 +119,15 @@ const NewsItem = props => {
             }
           }}
           style={{
-            width: 40,
-            height: 40,
-            justifyContent: 'center',
-            alignItems: 'center',
+            width: 20,
+            height: 20,
           }}>
           {speakStatus === 'started' &&
             [...Array(3).keys()].map((_, index) => (
               <Ring key={index} index={index} />
             ))}
           <Icon name={'mic'} {...iconSizes}></Icon>
-        </TouchableOpacity>
+        </PressableOpacity>
       </View>
 
       {imageUrl && (
@@ -139,14 +135,15 @@ const NewsItem = props => {
           style={{width: '100%', height: 200, marginTop: 12}}
           source={{uri: imageUrl}}></Image>
       )}
-      <Text style={styles.content}>{content}</Text>
-      <View
+      <Text className='text-black dark:text-white' style={styles.content}>{content}</Text>
+      <StyledView
+       className='mt-4 flex-row'
         style={{
           flexDirection: 'row',
           marginTop: 16,
           justifyContent: 'space-between',
         }}>
-        <TouchableOpacity
+        <PressableOpacity
           onPress={() => {
             console.log(source);
             Linking.openURL(source);
@@ -155,7 +152,7 @@ const NewsItem = props => {
             {' '}
             {caption}
           </Text>
-        </TouchableOpacity>
+        </PressableOpacity>
         <View
           style={{
             flexDirection: 'row',
@@ -164,9 +161,9 @@ const NewsItem = props => {
           }}>
           {[
             {
-              name: isBookmarked?'mic': 'bookmarks',
+              name: isBookmarked ? 'mic' : 'bookmarks',
               onPress: () => {
-                addToBookMark(id)
+                addToBookMark(id);
               },
             },
             {
@@ -179,14 +176,14 @@ const NewsItem = props => {
             },
           ].map(({name, onPress}) => {
             return (
-              <TouchableOpacity key={name} onPress={onPress}>
+              <PressableOpacity key={name} onPress={onPress}>
                 <Icon name={name} {...iconSizes}></Icon>
-              </TouchableOpacity>
+              </PressableOpacity>
             );
           })}
         </View>
-      </View>
-    </View>
+      </StyledView>
+    </StyledView>
   );
 };
 
@@ -194,11 +191,7 @@ export default NewsItem;
 
 const styles = StyleSheet.create({
   newsContainer: {
-    backgroundColor: COLORS.white,
-    marginBottom: 16,
-    padding: 16,
-    borderRadius: 6,
-    shadowColor: COLORS.black,
+    
     shadowOffset: {
       width: 0,
       height: 10,
@@ -209,9 +202,6 @@ const styles = StyleSheet.create({
   category: {
     fontWeight: '400',
     fontSize: 11,
-
-    /* identical to box height, or 150% */
-
     color: 'rgba(200, 33, 40, 0.8)',
   },
   content: {
@@ -220,7 +210,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     marginTop: 12,
 
-    color: '#212329',
+    
   },
   title: {
     color: '#212329',

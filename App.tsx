@@ -12,9 +12,8 @@ const App = () => {
     <NavigationContainer>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          {/* <div style={{position:'fixed',right:0,top:'100px'}}> <SketchPicker  color={hex}       onChangeComplete={ handleColorChange } ></SketchPicker></div> */}
 
-          <SplashNavigator></SplashNavigator>
+          <SplashNavigator ></SplashNavigator>
         </PersistGate>
       </Provider>
     </NavigationContainer>

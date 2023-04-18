@@ -9,6 +9,7 @@ import Tts from 'react-native-tts';
 import LazyLoad from './LazyLoad';
 import {useAppDispatch, useAppSelector} from '../app/hooks';
 import {selectGlobalValue, update} from '../features/global/globalSlice';
+import { StyledView } from './StyledComponents';
 
 const NewsFeedScreen = ({route}) => {
   const dispatch = useAppDispatch();
@@ -19,16 +20,16 @@ const NewsFeedScreen = ({route}) => {
 
   const [speechStatus, setSpeechStatus] = useState('stopped');
   useEffect(() => {
-    Tts.addEventListener('tts-start', event => {
+    Tts.addEventListener('tts-start', (event) => {
       setSpeechStatus('started');
     });
-    Tts.addEventListener('tts-finish', event => {
+    Tts.addEventListener('tts-finish', (event) => {
       // if (speakStatus && speakStatus !== 'stopped') {
       //   setSpeakStatus('stopped');
       // }
       setSpeechStatus('stopped');
     });
-    Tts.addEventListener('tts-cancel', event => {
+    Tts.addEventListener('tts-cancel', (event) => {
       // if (speakStatus &&  speakStatus !== 'cancelled') {
       //   setSpeakStatus('cancelled');
       // }
@@ -55,10 +56,11 @@ const NewsFeedScreen = ({route}) => {
 
   useEffect(() => {}, []);
   return (
+    <StyledView className='dark:bg-black'>
     <LazyLoad
+
       collectionName={'news'}
       options={{limit: 5, query: [['category', '==', category]]}}
-      
       updateItems={() => {}}
       content={({item}) => {
         return (
@@ -70,6 +72,7 @@ const NewsFeedScreen = ({route}) => {
             addToBookMark={addToBookMark}></NewsItem>
         );
       }}></LazyLoad>
+      </StyledView>
     // <FlatList
     //   data={newsItems}
     //   keyExtractor={item => item?.id}
@@ -86,6 +89,3 @@ const NewsFeedScreen = ({route}) => {
 };
 
 export default NewsFeedScreen;
-function setCategory(category: any) {
-  throw new Error('Function not implemented.');
-}
