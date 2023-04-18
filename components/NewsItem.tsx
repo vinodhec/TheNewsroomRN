@@ -161,7 +161,7 @@ const NewsItem = props => {
           }}>
           {[
             {
-              name: isBookmarked ? 'mic' : 'bookmarks',
+              name: isBookmarked ?  'bookmarks':'ios-bookmarks-outline',
               onPress: () => {
                 addToBookMark(id);
               },
