@@ -13,6 +13,7 @@ import colors from '../../constants/colors';
 import CustomTabBarButton from '../CustomTabBarButton';
 import PressableOpacity from '../PressableOpacity';
 import { useColorScheme } from 'nativewind';
+import HomeScreenNavigator from './HomeScreenNavigator';
 
 
 const Tab = createBottomTabNavigator();
@@ -28,6 +29,7 @@ const BottomTabNavigator = () => {
           headerStyle: {
             backgroundColor: '#C82128',
           },
+          tabBarHideOnKeyboard: true,
           headerRight: () => (
             <View style={{flexDirection: 'row',justifyContent:'space-between', width:64,marginRight:24}}>
               <PressableOpacity>
@@ -65,7 +67,7 @@ const BottomTabNavigator = () => {
       }}>
       <Tab.Screen
         name={ROUTES.HOME}
-        component={TopTabNavigator}
+        component={HomeScreenNavigator}
         options={{
           tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
         }}

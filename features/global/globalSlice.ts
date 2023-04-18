@@ -2,11 +2,21 @@ import { MiddlewareArray, createAsyncThunk, createSlice } from '@reduxjs/toolkit
 
 
 export interface GlobalState {
-  bookmarks:string[]
+  bookmarks:string[],
+  categories:string[]
 }
 
 const initialState: GlobalState = {
-  bookmarks:[]
+  bookmarks:[],
+  categories:[
+    'All',
+    'India',
+    'Tamil Nadu',
+    'Sports',
+    'Entertainment',
+    'Finance',
+    'World',
+  ]
 };
 
 // The function below is called a thunk and allows us to perform async logic. It

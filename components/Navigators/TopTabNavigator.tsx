@@ -6,11 +6,15 @@ import NewsFeedScreen from '../NewsFeedScreen';
 import CustomTopTabBar from '../CustomTopTabBar';
 import {COLORS} from '../../constants';
 import { useColorScheme } from 'nativewind';
+import { useAppSelector } from '../../app/hooks';
+import { selectGlobalValue } from '../../features/global/globalSlice';
 
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigator = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
+  const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
+console.log(categories)
   return (
     <Tab.Navigator
       // tabBar={(props)=><CustomTopTabBar  {...props}></CustomTopTabBar>}
@@ -44,15 +48,7 @@ const TopTabNavigator = () => {
 
         // tabBarStyle: {backgroundColor: 'powderblue'},
       }}>
-      {[
-        'All',
-        'India',
-        'Tamil Nadu',
-        'Sports',
-        'Entertainment',
-        'Finance',
-        'World',
-      ].map((value, index) => {
+      {categories.map((value, index) => {
         return (
           <Tab.Screen
             initialParams={{category: value}}

@@ -3,5 +3,7 @@ export default {
     SPLASH:'Splash',
     HIGHLIGHT:'Highlight',
     GROUP:'Group',
-    MENU:'Menu'
+    MENU:'Menu',
+    ADD:'AddNews',
+    NEWSFEED:'Newsfeed'
 }

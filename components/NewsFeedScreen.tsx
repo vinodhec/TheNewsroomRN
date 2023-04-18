@@ -1,35 +1,36 @@
 import {View, Text, FlatList, Animated, ViewToken} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
-import {COLORS} from '../constants';
+import {COLORS, ROUTES} from '../constants';
 import FirestoreService from '../firebase/firestoreService';
 import {ScrollView} from 'react-native-gesture-handler';
 import NewsItem from './NewsItem';
 import {useSharedValue} from 'react-native-reanimated';
 import Tts from 'react-native-tts';
+import Icon from 'react-native-vector-icons/Ionicons';
 import LazyLoad from './LazyLoad';
 import {useAppDispatch, useAppSelector} from '../app/hooks';
 import {selectGlobalValue, update} from '../features/global/globalSlice';
-import { StyledView } from './StyledComponents';
+import {StyledView} from './StyledComponents';
+import PressableOpacity from './PressableOpacity';
 
-const NewsFeedScreen = ({route}) => {
+const NewsFeedScreen = ({route,navigation}) => {
   const dispatch = useAppDispatch();
   const temp = route.params?.category;
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
 
-
   const [speechStatus, setSpeechStatus] = useState('stopped');
   useEffect(() => {
-    Tts.addEventListener('tts-start', (event) => {
+    Tts.addEventListener('tts-start', event => {
       setSpeechStatus('started');
     });
-    Tts.addEventListener('tts-finish', (event) => {
+    Tts.addEventListener('tts-finish', event => {
       // if (speakStatus && speakStatus !== 'stopped') {
       //   setSpeakStatus('stopped');
       // }
       setSpeechStatus('stopped');
     });
-    Tts.addEventListener('tts-cancel', (event) => {
+    Tts.addEventListener('tts-cancel', event => {
       // if (speakStatus &&  speakStatus !== 'cancelled') {
       //   setSpeakStatus('cancelled');
       // }
@@ -56,23 +57,38 @@ const NewsFeedScreen = ({route}) => {
 
   useEffect(() => {}, []);
   return (
-    <StyledView className='dark:bg-black'>
-    <LazyLoad
-
-      collectionName={'news'}
-      options={{limit: 5, query: [['category', '==', category]]}}
-      updateItems={() => {}}
-      content={({item}) => {
-        return (
-          <NewsItem
-            {...item}
-            key={item?.id}
-            isBookmarked={bookmarks?.includes(item?.id)}
-            speechStatus={speechStatus}
-            addToBookMark={addToBookMark}></NewsItem>
-        );
-      }}></LazyLoad>
-      </StyledView>
+    <StyledView className="dark:bg-black">
+      <PressableOpacity
+      onPress={()=>{
+        navigation.navigate(ROUTES.ADD)
+      }}
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: 80,
+          position: 'absolute',
+          bottom: 80,
+          right: 10,
+          height: 80,
+          zIndex: 1028,
+        }}>
+        <Icon name="ios-add-circle-sharp" color={COLORS.primary} size={80} />
+      </PressableOpacity>
+      <LazyLoad
+        collectionName={'news'}
+        options={{limit: 5, query: [['category', '==', category]]}}
+        updateItems={() => {}}
+        content={({item}) => {
+          return (
+            <NewsItem
+              {...item}
+              key={item?.id}
+              isBookmarked={bookmarks?.includes(item?.id)}
+              speechStatus={speechStatus}
+              addToBookMark={addToBookMark}></NewsItem>
+          );
+        }}></LazyLoad>
+    </StyledView>
     // <FlatList
     //   data={newsItems}
     //   keyExtractor={item => item?.id}
