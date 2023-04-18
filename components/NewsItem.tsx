@@ -96,7 +96,7 @@ const NewsItem = props => {
 
   return (
     <StyledView
-      className="mb-4 p-2 py-4 shadow-black bg-white rounded-md"
+      className="mb-4 p-2 py-4 shadow-black bg-white dark:bg-black rounded-md"
       style={styles.newsContainer}>
       <Text className="text-black font-black mb-0 dark:text-white">{title}</Text>
 

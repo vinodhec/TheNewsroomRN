@@ -3,7 +3,8 @@ import {useEffect, useState} from 'react';
 import FirestoreService from '../firebase/firestoreService';
 import {FlatList} from 'react-native-gesture-handler';
 import {ActivityIndicator, Text, View} from 'react-native';
-import { styled } from 'nativewind';
+import { styled, useColorScheme } from 'nativewind';
+import { COLORS } from '../constants';
 const StyledView = styled(View)
 
 const LazyLoad = ({
@@ -14,7 +15,7 @@ const LazyLoad = ({
   updateItems,
 }: any) => {
   const [items, setItems] = useState([]);
-
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   const [result, setResults] = useState({
     hasNext: false,
     cursorId: null,
@@ -68,7 +69,7 @@ const LazyLoad = ({
       // ItemSeparatorComponent={()=><StyledView className="border-solid divide-solid bg-red-600 flex flex-1  w-full"  ></StyledView>}
       onEndReached={getQueryResults.bind(this, true)}
       renderItem={content}
-      contentContainerStyle={{padding: 8, marginTop:16}}
+      contentContainerStyle={{padding: 8, marginTop:16, backgroundColor:colorScheme !=='dark'? 'transparent':COLORS.white}}
       ListFooterComponent={() => {
         return (
           <View style={{flex: 1}}>

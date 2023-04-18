@@ -7,10 +7,9 @@ import Animated, {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated';
-import { COLORS } from '../constants';
+import {COLORS} from '../constants';
 
-const SIZE =10;
-
+const SIZE = 10;
 
 type RingPropType = {
   index: number;
@@ -64,8 +63,9 @@ const styles = StyleSheet.create({
     width: SIZE,
     borderRadius: SIZE / 2,
     backgroundColor: COLORS.primary,
-    position: 'absolute',left:5,
-    top:5
+    position: 'absolute',
+    left: 5,
+    top: 5,
   },
 });
 
