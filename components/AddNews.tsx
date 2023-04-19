@@ -47,9 +47,9 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
   const values = watch();
   console.log({values});
 
-  const onSubmit = values => {
+  const onSubmit = async( values) => {
     console.log({values});
-    FirestoreService.createDocument(COLLECTIONS.GROUPS, {
+  const {path} = await  FirestoreService.createDocument(COLLECTIONS.GROUPS, {
       description: values?.description,
       title: values?.groupTitle,
       label: values?.label,
@@ -63,6 +63,7 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
             description: values?.description,
             title: values?.groupTitle,
             label: values?.label,
+            id:path
           },
         ],
       } as any),

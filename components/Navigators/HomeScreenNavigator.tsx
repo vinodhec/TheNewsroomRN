@@ -8,7 +8,7 @@ import TopTabNavigator from './TopTabNavigator';
 const Stack = createStackNavigator();
 const HomeScreenNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName={ROUTES.ADD}>
+    <Stack.Navigator screenOptions={{headerShown:false}} >
       <Stack.Screen name={ROUTES.NEWSFEED} component={TopTabNavigator}></Stack.Screen>
       <Stack.Screen name={ROUTES.ADD} component={AddNews}></Stack.Screen>
     </Stack.Navigator>

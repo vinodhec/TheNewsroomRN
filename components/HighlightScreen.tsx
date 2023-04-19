@@ -1,6 +1,5 @@
 import {View, Text} from 'react-native';
-import React, {useEffect} from 'react';
-import FirestoreService from '../firebase/firestoreService';
+import React from 'react';
 import {COLLECTIONS} from '../constants/collections';
 import {StyledView} from './StyledComponents';
 import LazyLoad from './LazyLoad';

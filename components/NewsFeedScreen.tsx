@@ -17,6 +17,9 @@ import { COLLECTIONS } from '../constants/collections';
 const NewsFeedScreen = ({route,navigation}) => {
   const dispatch = useAppDispatch();
   const temp = route.params?.category;
+  const groups = route.params?.groups;
+  const id = route.params?.id;
+
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
 
@@ -59,7 +62,7 @@ const NewsFeedScreen = ({route,navigation}) => {
   useEffect(() => {}, []);
   return (
     <StyledView className="dark:bg-black">
-      <PressableOpacity
+    {!groups?.id  &&  <PressableOpacity
       onPress={()=>{
         navigation.navigate(ROUTES.ADD)
       }}
@@ -74,10 +77,10 @@ const NewsFeedScreen = ({route,navigation}) => {
           zIndex: 1028,
         }}>
         <Icon name="ios-add-circle-sharp" color={COLORS.primary} size={80} />
-      </PressableOpacity>
+      </PressableOpacity>}
       <LazyLoad
         collectionName={COLLECTIONS.NEWS}
-        options={{limit: 5, query: [['category', '==', category]]}}
+        options={{limit: 5, query: [['category', '==', category],['groups', '==', groups?.id],['id', '==', id]]}}
         updateItems={() => {}}
         content={({item}) => {
           return (
