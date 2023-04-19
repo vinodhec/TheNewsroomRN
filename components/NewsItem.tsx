@@ -4,10 +4,11 @@ import {COLORS} from '../constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Ring from './Ring';
 import Tts from 'react-native-tts';
-import Share from 'react-native-share';
-import RNFetchBlob from 'rn-fetch-blob';
+
+
 import PressableOpacity from './PressableOpacity';
 import {StyledView} from './StyledComponents';
+import ShareIcon from './ShareIcon';
 
 const iconSizes = {size: 22, color: COLORS.primary};
 const NewsItem = props => {
@@ -40,37 +41,7 @@ const NewsItem = props => {
     Tts.stop();
   };
 
-  const getBase64FromURL = async imageUrl => {
-    const resp = await RNFetchBlob.fetch('GET', imageUrl);
 
-    let base64image = resp.data;
-    return 'data:image/png;base64,' + base64image;
-
-    // .catch(err => errorHandler(err));
-  };
-
-  const shareNews = async (isFromWhatsapp = false) => {
-    let image;
-    if (imageUrl) {
-      image = await getBase64FromURL(imageUrl);
-    }
-
-    const shareOptions = {
-      title: 'Share via',
-      message: content?.slice(0, 100) + '\nThe Newsroom',
-      url: image,
-      type: 'image/*',
-      social: Share.Social.WHATSAPP,
-    };
-
-    if (!isFromWhatsapp) {
-      Share.shareSingle(shareOptions).then(data => {
-        console.log(data);
-      });
-    } else {
-      Share.open(shareOptions);
-    }
-  };
 
   const readText = async () => {
     stopText();
@@ -153,35 +124,7 @@ const NewsItem = props => {
             {caption}
           </Text>
         </PressableOpacity>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            flex: 0.35,
-          }}>
-          {[
-            {
-              name: isBookmarked ?  'bookmarks':'ios-bookmarks-outline',
-              onPress: () => {
-                addToBookMark(id);
-              },
-            },
-            {
-              name: 'md-share-social-sharp',
-              onPress: shareNews.bind(this, true),
-            },
-            {
-              name: 'logo-whatsapp',
-              onPress: shareNews.bind(this, false),
-            },
-          ].map(({name, onPress}) => {
-            return (
-              <PressableOpacity key={name} onPress={onPress}>
-                <Icon name={name} {...iconSizes}></Icon>
-              </PressableOpacity>
-            );
-          })}
-        </View>
+        <ShareIcon isBookmarked={isBookmarked} addToBookMark={addToBookMark} id={id} content={content} imageUrl={imageUrl}></ShareIcon>
       </StyledView>
     </StyledView>
   );

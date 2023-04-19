@@ -19,7 +19,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import PressableOpacity from './PressableOpacity';
 import FirestoreService from '../firebase/firestoreService';
 import {COLLECTIONS} from '../constants/collections';
-import { ROUTES } from '../constants';
+import {ROUTES} from '../constants';
 
 const Input = fields => {
   const {name, control, label, ...others} = fields;
@@ -122,21 +122,24 @@ const AddNews = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useAppDispatch();
 
-  const [showHighlight, setShowHighlight] = useState(false);
-  const [showGroup, setShowGroup] = useState(false);
   const values = watch();
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
   const groups: any = useAppSelector(selectGlobalValue('groups')) ?? [];
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
+    const {path} = await FirestoreService.createDocument(
+      COLLECTIONS.NEWS,
+      data,
+    );
 
-    
-    const {path} = await FirestoreService.createDocument(COLLECTIONS.NEWS, data)
-    
-      Alert.alert('Success','News has been posted',[{text:'Ok',onPress:()=>{
-        navigation.navigate(ROUTES.NEWSFEED)
-      }}]);
-    
+    Alert.alert('Success', 'News has been posted', [
+      {
+        text: 'Ok',
+        onPress: () => {
+          navigation.navigate(ROUTES.NEWSFEED);
+        },
+      },
+    ]);
   };
   return (
     <ScrollView
@@ -184,9 +187,9 @@ const AddNews = ({navigation}) => {
             <StyledView className="justify-end flex-row mt-2">
               <Switch
                 onValueChange={() => {
-                  setShowHighlight(prev => !prev);
+                  setValue('showHighlight', !values['showHighlight']);
                 }}
-                value={showHighlight}
+                value={values['showHighlight']}
               />
               <Text>Highlight News</Text>
             </StyledView>
@@ -198,7 +201,7 @@ const AddNews = ({navigation}) => {
           style: {height: 120},
           numberOfLines: 5,
           showOnCondition: true,
-          onlyIf: showHighlight,
+          onlyIf: values['showHighlight'],
         },
         {
           customComponent: (
@@ -206,13 +209,13 @@ const AddNews = ({navigation}) => {
               <StyledView className="justify-end flex-row mt-2">
                 <Switch
                   onValueChange={() => {
-                    setShowGroup(prev => !prev);
+                    setValue('showGroup', !values['showGroup']);
                   }}
-                  value={showGroup}
+                  value={values['showGroup']}
                 />
                 <Text>Group News</Text>
               </StyledView>
-              {showGroup && (
+              {values['showGroup'] && (
                 <PressableOpacity
                   className="bg-red-600 p-2 rounded-sm "
                   onPress={() => setModalVisible(true)}>
@@ -224,7 +227,7 @@ const AddNews = ({navigation}) => {
         },
         {
           showOnCondition: true,
-          onlyIf: showGroup,
+          onlyIf: values['showGroup'],
           customComponent: (
             <Dropdown
               style={[styles.dropdown, isFocus && {borderColor: 'blue'}]}

@@ -10,7 +10,7 @@ const StyledView = styled(View)
 const LazyLoad = ({
   content,
   collectionName,
-
+  transformItems,
   options,
   updateItems,
 }: any) => {
@@ -57,11 +57,12 @@ const LazyLoad = ({
   useEffect(() => {
     // console.log('total', getTitles(items));
     // updateItems(items);
+    
   }, [items]);
 
   return (
     <FlatList
-      data={items}
+      data={transformItems ? transformItems(items): items}
       keyExtractor={(item: any) => item?.id }
       // onViewableItemsChanged={({ viewableItems: vItems }) => {
       //   viewableItems.value = vItems;

@@ -30,6 +30,7 @@ const BottomTabNavigator = () => {
             backgroundColor: '#C82128',
           },
           tabBarHideOnKeyboard: true,
+          unmountOnBlur :true,
           headerRight: () => (
             <View style={{flexDirection: 'row',justifyContent:'space-between', width:64,marginRight:24}}>
               <PressableOpacity>
