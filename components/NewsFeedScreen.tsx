@@ -12,6 +12,7 @@ import {useAppDispatch, useAppSelector} from '../app/hooks';
 import {selectGlobalValue, update} from '../features/global/globalSlice';
 import {StyledView} from './StyledComponents';
 import PressableOpacity from './PressableOpacity';
+import { COLLECTIONS } from '../constants/collections';
 
 const NewsFeedScreen = ({route,navigation}) => {
   const dispatch = useAppDispatch();
@@ -75,7 +76,7 @@ const NewsFeedScreen = ({route,navigation}) => {
         <Icon name="ios-add-circle-sharp" color={COLORS.primary} size={80} />
       </PressableOpacity>
       <LazyLoad
-        collectionName={'news'}
+        collectionName={COLLECTIONS.NEWS}
         options={{limit: 5, query: [['category', '==', category]]}}
         updateItems={() => {}}
         content={({item}) => {

@@ -3,7 +3,8 @@ import { MiddlewareArray, createAsyncThunk, createSlice } from '@reduxjs/toolkit
 
 export interface GlobalState {
   bookmarks:string[],
-  categories:string[]
+  categories:string[],
+  groups:string[]
 }
 
 const initialState: GlobalState = {
@@ -16,7 +17,9 @@ const initialState: GlobalState = {
     'Entertainment',
     'Finance',
     'World',
-  ]
+  ],
+  groups:[]
+
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -48,8 +51,12 @@ export const globalSlice = createSlice({
 
     // Use the PayloadAction type to declare the contents of `action.payload`
     update: (state: any, { payload }: any) => {
+      
       const { valueType, value } = payload
       state[valueType] = value;
+      console.log(state);
+      return state
+
     },
 
   }, extraReducers: (builder) => {
