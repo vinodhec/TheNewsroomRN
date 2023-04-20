@@ -137,7 +137,7 @@ const AddNews = ({navigation}) => {
       {
         text: 'Ok',
         onPress: () => {
-          navigation.navigate(ROUTES.NEWSFEED);
+          navigation.push(ROUTES.NEWSFEED);
         },
       },
     ]);

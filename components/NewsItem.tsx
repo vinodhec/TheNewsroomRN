@@ -2,13 +2,16 @@ import {Image, Linking, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {COLORS} from '../constants';
 import Icon from 'react-native-vector-icons/Ionicons';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Ring from './Ring';
 import Tts from 'react-native-tts';
+
 
 
 import PressableOpacity from './PressableOpacity';
 import {StyledView} from './StyledComponents';
 import ShareIcon from './ShareIcon';
+import moment from 'moment';
 
 const iconSizes = {size: 22, color: COLORS.primary};
 const NewsItem = props => {
@@ -23,6 +26,7 @@ const NewsItem = props => {
     addToBookMark,
     speechStatus,
     id,
+    timestamp
   } = props ?? {};
   const ref = useRef();
 
@@ -78,7 +82,15 @@ const NewsItem = props => {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <Text className="text-red-500 text-xs">{category}</Text>
+        <Text className="text-red-500 text-xs">{category} | {moment(timestamp.toDate()).calendar(
+         {
+          sameDay: 'hh:mm A',
+          nextDay: '[Tomorrow]',
+          nextWeek: 'dddd',
+          lastDay: '[Yesterday]',
+          lastWeek: '[Last] dddd',
+          sameElse: 'DD/MM/YYYY'
+      })}</Text>
 
         <PressableOpacity
           onPress={() => {
@@ -97,7 +109,7 @@ const NewsItem = props => {
             [...Array(3).keys()].map((_, index) => (
               <Ring key={index} index={index} />
             ))}
-          <Icon name={'mic'} {...iconSizes}></Icon>
+          <MaterialIcon name={'text-to-speech'} {...iconSizes}></MaterialIcon>
         </PressableOpacity>
       </View>
 
