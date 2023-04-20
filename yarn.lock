@@ -6957,6 +6957,11 @@
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
 
+"react-native-custom-switch@^1.0.7":
+  "integrity" "sha512-K4QDvh20F9KVQFmTr/PAta8JN2WofO7Ks4ZIq2U3EHKlRXMoMP0AplrV4oR5oRclaw9ltWecivrK/xWX85HC8A=="
+  "resolved" "https://registry.npmjs.org/react-native-custom-switch/-/react-native-custom-switch-1.0.7.tgz"
+  "version" "1.0.7"
+
 "react-native-element-dropdown@^2.9.0":
   "integrity" "sha512-2Y/bmoFPTdKOUXbYloEKpMTWYE2VHrvva/5tgEuHqAlfAtGGr3r/ob0L0YYH1am5N0n1PKo3+eLf0c79QUSzYw=="
   "resolved" "https://registry.npmjs.org/react-native-element-dropdown/-/react-native-element-dropdown-2.9.0.tgz"

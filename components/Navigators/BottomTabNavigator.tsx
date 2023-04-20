@@ -15,6 +15,7 @@ import PressableOpacity from '../PressableOpacity';
 import { useColorScheme } from 'nativewind';
 import HomeScreenNavigator from './HomeScreenNavigator';
 import GroupScreenNavigator from './GroupScreenNavigator';
+import MenuScreenNavigator from './MenuScreenNavigator';
 
 
 const Tab = createBottomTabNavigator();
@@ -90,7 +91,7 @@ const BottomTabNavigator = () => {
       />
       <Tab.Screen
         name={ROUTES.MENU}
-        component={MenuScreen}
+        component={MenuScreenNavigator}
         options={{
           tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
         }}

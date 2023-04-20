@@ -7,5 +7,14 @@ export default {
     ADD:'AddNews',
     NEWSFEED:'Newsfeed',
     GROUPDETAILS:'Groupdetails',
-    GROUPSUMMARY:'Groupsummary'
+    GROUPSUMMARY:'Groupsummary',
+    BOOKMARKS:'Bookmarks',
+    ABOUTUS:'Aboutus',
+    THEMES:'Themes',
+    SETTINGS:'Settings',
+    CONTACT:'Contact',
+    FEEDBACK:'Feedback',
+    PRIVACY:'Privacy',
+    ONTHISDAY:'Onthisday',
+    MENULIST:'Menulist'
 }
