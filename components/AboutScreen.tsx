@@ -4,7 +4,7 @@ import React from 'react';
 const AboutScreen = () => {
   return (
     <View className="grow-1 gap-2">
-      <Text className="font-bold text-xl self-center"> About Us</Text>
+      <Text className="font-bold text-xl self-center text-black"> About Us</Text>
 
       <Text className="text-m">
         TheNewsRoom is a news app that offer a authentic news from multiple

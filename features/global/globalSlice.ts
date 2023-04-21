@@ -4,11 +4,17 @@ import { MiddlewareArray, createAsyncThunk, createSlice } from '@reduxjs/toolkit
 export interface GlobalState {
   bookmarks:string[],
   categories:string[],
-  groups:string[]
+  groups:string[],
+  showNotifications:boolean,
+  autoPlayVideos:boolean,
+  defaultSharingApp:string
 }
 
 const initialState: GlobalState = {
   bookmarks:[],
+  showNotifications:true,
+  autoPlayVideos:true,
+  defaultSharingApp:'Whatsapp',
   categories:[
     'All',
     'India',

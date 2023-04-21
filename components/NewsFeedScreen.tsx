@@ -22,7 +22,7 @@ const NewsFeedScreen = ({route,navigation}) => {
 
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
-
+console.log({bookmarks})
   const [speechStatus, setSpeechStatus] = useState('stopped');
   useEffect(() => {
     Tts.addEventListener('tts-start', event => {
@@ -80,9 +80,13 @@ const NewsFeedScreen = ({route,navigation}) => {
       </PressableOpacity>}
       <LazyLoad
         collectionName={COLLECTIONS.NEWS}
-        options={{limit: 5, query: [['category', '==', category],['groups', '==', groups?.id],['id', '==', id]]}}
+       customIds ={bookmarks}
+       isCustom={route.params.isCustom}
+        // options={{customIds:bookmarks, isCustom:true}}
+        // options={{limit: 5, query: [['category', '==', category],['groups', '==', groups?.id],['id', '==', id]]}}
         updateItems={() => {}}
         content={({item}) => {
+          
           return (
             <NewsItem
               {...item}
