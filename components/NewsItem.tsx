@@ -12,7 +12,7 @@ import PressableOpacity from './PressableOpacity';
 import {StyledView} from './StyledComponents';
 import ShareIcon from './ShareIcon';
 import moment from 'moment';
-
+import Video from 'react-native-video';
 const iconSizes = {size: 22, color: COLORS.primary};
 const NewsItem = props => {
   const {
@@ -26,7 +26,9 @@ const NewsItem = props => {
     addToBookMark,
     speechStatus,
     id,
+    isVideo,
     timestamp
+
   } = props ?? {};
   const ref = useRef();
 
@@ -113,11 +115,15 @@ const NewsItem = props => {
         </PressableOpacity>
       </View>
 
-      {imageUrl && (
+      {imageUrl && !isVideo && (
         <Image
           style={{width: '100%', height: 200, marginTop: 12}}
           source={{uri: imageUrl}}></Image>
       )}
+      {imageUrl && isVideo && (<Video paused controls className="items-center mx-auto border-1" 
+       style={styles.backgroundVideo}
+      source={{uri:imageUrl}}
+      ></Video>)}
       <Text className='text-black dark:text-white' style={styles.content}>{content}</Text>
       <StyledView
        className='mt-4 flex-row'
@@ -145,6 +151,11 @@ const NewsItem = props => {
 export default NewsItem;
 
 const styles = StyleSheet.create({
+  backgroundVideo: {
+    height:200,
+    width:200,
+    
+  },
   newsContainer: {
     
     shadowOffset: {

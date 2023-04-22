@@ -1,4 +1,4 @@
-import { disableEmulator } from '../constants';
+import { STORAGE_PATH, disableEmulator } from '../constants';
 import app from './firebase'
 
 
@@ -19,10 +19,10 @@ const uploadFile = (file, fullFilePath) => {
     //         return resolve(file.preview.url);
     //     })
     // }
-    console.log({file,fullFilePath})
+    
     const storageRef = ref(storage, fullFilePath);
 
-    return uploadBytes(storageRef, file).then((snapshot) => {
+    return uploadBytes (storageRef, file).then((snapshot) => {
         return getDownloadURL(snapshot.ref)
     });
 
@@ -69,9 +69,22 @@ const deleteFile = (fileDownloadUrl) => {
     const refToDelete = ref(storage, filepath)
     return deleteObject(refToDelete)
 }
+
+const uploadSingleImage =(image)=>{
+const imageArti = image?.assets?.[0]
+    const uri = imageArti?.uri;
+    return fetch(uri).then(async(image64)=>{
+      const imgBlob = await image64.blob();
+
+    return uploadFile(
+      imgBlob,
+      `${STORAGE_PATH.GROUPS}/${imageArti?.fileName}`,
+    )
+})
+}
 // deleteFile('http://localhost:9199/v0/b/maadiveedu-6b8ce.appspot.com/o/file.png?alt=media&token=1859f4d4-44cd-4f99-890b-d22b567fdec1').then((data) => {
 //    
 // })
 
-const FirebaseStorageService = { uploadFile, deleteFile }
+const FirebaseStorageService = { uploadFile, deleteFile,uploadSingleImage }
 export default FirebaseStorageService

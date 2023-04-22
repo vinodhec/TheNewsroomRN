@@ -24,7 +24,8 @@ import {COLLECTIONS} from '../constants/collections';
 import {ROUTES, STORAGE_PATH} from '../constants';
 import {launchImageLibrary} from 'react-native-image-picker';
 import FirebaseStorageService from '../firebase/firebaseStorageService';
-import { getBase64FromURL } from '../utils/utilsService';
+
+import UploadImage from './UploadImage';
 
 const Input = fields => {
   const {name, control, label, ...others} = fields;
@@ -49,25 +50,29 @@ const Input = fields => {
 
 const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
   const {control, handleSubmit, setValue, watch} = useForm();
+  const [image, setImage] = useState()
   const values = watch();
-  console.log({values});
+  
 
   const onSubmit = async values => {
+    console.log('add group', {values});
     console.log({values});
-    const {path} = await FirestoreService.createDocument(COLLECTIONS.GROUPS, {
+    const imageUrl = await FirebaseStorageService.uploadSingleImage(image)
+
+    const groupValues ={
       description: values?.description,
       title: values?.groupTitle,
       label: values?.label,
-    });
+      imageUrl
+    }
+    const {path} = await FirestoreService.createDocument(COLLECTIONS.GROUPS,groupValues );
     dispatch(
       update({
         valueType: 'groups',
         value: [
           ...groups,
           {
-            description: values?.description,
-            title: values?.groupTitle,
-            label: values?.label,
+            ...groupValues,
             id: path,
           },
         ],
@@ -112,6 +117,8 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
 
           return <Input {...fields} key={index} control={control}></Input>;
         })}
+
+        <UploadImage setImage={setImage} image={image}></UploadImage>
         <PressableOpacity
           className="bg-red-600 p-2 rounded-sm  self-end mt-4"
           onPress={handleSubmit(onSubmit)}>
@@ -125,6 +132,7 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
 const AddNews = ({navigation}) => {
   const {control, handleSubmit, setValue, watch} = useForm();
   const [isFocus, setIsFocus] = useState(false);
+
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -132,10 +140,17 @@ const AddNews = ({navigation}) => {
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
   const groups: any = useAppSelector(selectGlobalValue('groups')) ?? [];
   const [image, setImage] = useState<any>();
+  const [isVideo, setIsVideo] = useState(false)
   const onSubmit = async data => {
+let imageUrl;
+    if(image){
+      imageUrl  = await FirebaseStorageService.uploadSingleImage(image)
+    }
+   
+    console.log({...data,imageUrl})
     const {path} = await FirestoreService.createDocument(
       COLLECTIONS.NEWS,
-      data,
+      {...data,imageUrl,isVideo}
     );
 
     Alert.alert('Success', 'News has been posted', [
@@ -152,18 +167,8 @@ const AddNews = ({navigation}) => {
     if (!image) {
       return;
     }
-    const uri = image?.assets?.[0]?.uri;
-    fetch(uri).then(async(image64)=>{
-      const imgBlob = await image64.blob();
-
-    FirebaseStorageService.uploadFile(
-      imgBlob,
-      `${STORAGE_PATH.GROUPS}/${image?.assets?.[0]?.fileName}`,
-    ).then(data => {
-      console.log(data);
-    });
-
-   });
+    
+   
     
   }, [image]);
 
@@ -294,31 +299,7 @@ const AddNews = ({navigation}) => {
 
         return <Input {...fields} key={index} control={control}></Input>;
       })}
-      <Pressable
-        className="bg-red-600 p-2 rounded-sm justify-center items-center"
-        onPress={async () => {
-          launchImageLibrary({mediaType: 'mixed'}, setImage);
-
-          // const UUID = uuidv4();
-
-          // FirebaseStorageService.uploadFile(result?.[0].uri,`${STORAGE_PATH.GROUPS}/${result?.[0].fileName}`).then((data)=>{
-          //   console.log(data);
-          // })
-        }}>
-        <Text className="text-white">Upload Image / Video</Text>
-      </Pressable>
-      {image?.assets &&
-        image?.assets.map(({uri}: {uri: string}) => (
-          <View key={uri} style={styles.imageContainer}>
-            <Image
-              resizeMode="cover"
-              resizeMethod="scale"
-              style={styles.image}
-              source={{uri: uri}}
-            />
-          </View>
-        ))}
-
+     <UploadImage setIsVideo={setIsVideo} image={image} setImage={setImage}></UploadImage>
       <Pressable
         className="bg-red-600 p-2 rounded-sm justify-center items-center"
         onPress={handleSubmit(onSubmit)}>
@@ -336,14 +317,7 @@ const AddNews = ({navigation}) => {
 export default AddNews;
 
 const styles = StyleSheet.create({
-  imageContainer: {
-    marginVertical: 24,
-    alignItems: 'center',
-  },
-  image: {
-    width: 200,
-    height: 200,
-  },
+ 
   container: {
     backgroundColor: 'white',
     padding: 16,
