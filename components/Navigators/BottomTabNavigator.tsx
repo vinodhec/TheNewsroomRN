@@ -16,6 +16,7 @@ import { useColorScheme } from 'nativewind';
 import HomeScreenNavigator from './HomeScreenNavigator';
 import GroupScreenNavigator from './GroupScreenNavigator';
 import MenuScreenNavigator from './MenuScreenNavigator';
+import HighlightNavigator from './HighlightNavigator';
 
 
 const Tab = createBottomTabNavigator();
@@ -77,7 +78,7 @@ const BottomTabNavigator = () => {
       />
       <Tab.Screen
         name={ROUTES.HIGHLIGHT}
-        component={HighlightScreen}
+        component={HighlightNavigator}
         options={{
           tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
         }}

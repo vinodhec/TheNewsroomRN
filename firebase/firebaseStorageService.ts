@@ -19,6 +19,7 @@ const uploadFile = (file, fullFilePath) => {
     //         return resolve(file.preview.url);
     //     })
     // }
+    console.log({file,fullFilePath})
     const storageRef = ref(storage, fullFilePath);
 
     return uploadBytes(storageRef, file).then((snapshot) => {

@@ -5,10 +5,12 @@ import {
   TextInput,
   Button,
   Switch,
+  Image,
   Alert,
   Modal,
   Pressable,
 } from 'react-native';
+import {v4 as uuidv4} from 'uuid';
 import React, {useEffect, useState} from 'react';
 import {StyledView} from './StyledComponents';
 import {useController, useForm} from 'react-hook-form';
@@ -19,7 +21,10 @@ import {ScrollView} from 'react-native-gesture-handler';
 import PressableOpacity from './PressableOpacity';
 import FirestoreService from '../firebase/firestoreService';
 import {COLLECTIONS} from '../constants/collections';
-import {ROUTES} from '../constants';
+import {ROUTES, STORAGE_PATH} from '../constants';
+import {launchImageLibrary} from 'react-native-image-picker';
+import FirebaseStorageService from '../firebase/firebaseStorageService';
+import { getBase64FromURL } from '../utils/utilsService';
 
 const Input = fields => {
   const {name, control, label, ...others} = fields;
@@ -47,9 +52,9 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
   const values = watch();
   console.log({values});
 
-  const onSubmit = async( values) => {
+  const onSubmit = async values => {
     console.log({values});
-  const {path} = await  FirestoreService.createDocument(COLLECTIONS.GROUPS, {
+    const {path} = await FirestoreService.createDocument(COLLECTIONS.GROUPS, {
       description: values?.description,
       title: values?.groupTitle,
       label: values?.label,
@@ -63,7 +68,7 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
             description: values?.description,
             title: values?.groupTitle,
             label: values?.label,
-            id:path
+            id: path,
           },
         ],
       } as any),
@@ -126,7 +131,7 @@ const AddNews = ({navigation}) => {
   const values = watch();
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
   const groups: any = useAppSelector(selectGlobalValue('groups')) ?? [];
-
+  const [image, setImage] = useState<any>();
   const onSubmit = async data => {
     const {path} = await FirestoreService.createDocument(
       COLLECTIONS.NEWS,
@@ -142,6 +147,26 @@ const AddNews = ({navigation}) => {
       },
     ]);
   };
+
+  useEffect(() => {
+    if (!image) {
+      return;
+    }
+    const uri = image?.assets?.[0]?.uri;
+    fetch(uri).then(async(image64)=>{
+      const imgBlob = await image64.blob();
+
+    FirebaseStorageService.uploadFile(
+      imgBlob,
+      `${STORAGE_PATH.GROUPS}/${image?.assets?.[0]?.fileName}`,
+    ).then(data => {
+      console.log(data);
+    });
+
+   });
+    
+  }, [image]);
+
   return (
     <ScrollView
       className=" align-center p-4"
@@ -269,6 +294,30 @@ const AddNews = ({navigation}) => {
 
         return <Input {...fields} key={index} control={control}></Input>;
       })}
+      <Pressable
+        className="bg-red-600 p-2 rounded-sm justify-center items-center"
+        onPress={async () => {
+          launchImageLibrary({mediaType: 'mixed'}, setImage);
+
+          // const UUID = uuidv4();
+
+          // FirebaseStorageService.uploadFile(result?.[0].uri,`${STORAGE_PATH.GROUPS}/${result?.[0].fileName}`).then((data)=>{
+          //   console.log(data);
+          // })
+        }}>
+        <Text className="text-white">Upload Image / Video</Text>
+      </Pressable>
+      {image?.assets &&
+        image?.assets.map(({uri}: {uri: string}) => (
+          <View key={uri} style={styles.imageContainer}>
+            <Image
+              resizeMode="cover"
+              resizeMethod="scale"
+              style={styles.image}
+              source={{uri: uri}}
+            />
+          </View>
+        ))}
 
       <Pressable
         className="bg-red-600 p-2 rounded-sm justify-center items-center"
@@ -287,6 +336,14 @@ const AddNews = ({navigation}) => {
 export default AddNews;
 
 const styles = StyleSheet.create({
+  imageContainer: {
+    marginVertical: 24,
+    alignItems: 'center',
+  },
+  image: {
+    width: 200,
+    height: 200,
+  },
   container: {
     backgroundColor: 'white',
     padding: 16,
@@ -367,3 +424,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+

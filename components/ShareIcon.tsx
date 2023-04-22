@@ -2,21 +2,14 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/Ionicons';
 import PressableOpacity from './PressableOpacity';
-import RNFetchBlob from 'rn-fetch-blob';
+
 import Share from 'react-native-share';
 import { COLORS } from '../constants';
+import { getBase64FromURL } from '../utils/utilsService';
 const iconSizes = {size: 22, color: COLORS.primary};
 const ShareIcon = ({isBookmarked,addToBookMark,id,content,imageUrl}) => {
 
 
-    const getBase64FromURL = async imageUrl => {
-        const resp = await RNFetchBlob.fetch('GET', imageUrl);
-    
-        let base64image = resp.data;
-        return 'data:image/png;base64,' + base64image;
-    
-        // .catch(err => errorHandler(err));
-      };
     
   const shareNews = async (isFromWhatsapp = false) => {
     let image;
@@ -74,3 +67,5 @@ const ShareIcon = ({isBookmarked,addToBookMark,id,content,imageUrl}) => {
 export default ShareIcon
 
 const styles = StyleSheet.create({})
+
+

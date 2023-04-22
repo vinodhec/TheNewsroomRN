@@ -11,7 +11,7 @@ import { selectGlobalValue } from '../../features/global/globalSlice';
 
 const Tab = createMaterialTopTabNavigator();
 
-const TopTabNavigator = () => {
+const TopTabNavigator = ({route}) => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
 console.log(categories)
@@ -51,7 +51,7 @@ console.log(categories)
       {categories.map((value, index) => {
         return (
           <Tab.Screen
-            initialParams={{category: value}}
+            initialParams={{category: value,id:route?.params?.id}}
             key={index}
             name={value}
             component={NewsFeedScreen}

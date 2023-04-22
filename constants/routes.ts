@@ -5,6 +5,8 @@ export default {
     GROUP:'Group',
     MENU:'Menu',
     ADD:'AddNews',
+    HIGHLIGHT_LIST:'HighlightList',
+    NEWSFEED_ID:'Newsfeed_ID',
     NEWSFEED:'Newsfeed',
     GROUPDETAILS:'Groupdetails',
     GROUPSUMMARY:'Groupsummary',

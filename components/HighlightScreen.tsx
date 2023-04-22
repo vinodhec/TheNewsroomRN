@@ -6,8 +6,10 @@ import LazyLoad from './LazyLoad';
 import {groupBy, map} from 'lodash';
 import moment from 'moment';
 import ShareIcon from './ShareIcon';
+import PressableOpacity from './PressableOpacity';
+import { ROUTES } from '../constants';
 
-const HighlightScreen = () => {
+const HighlightScreen = ({navigation}) => {
   return (
     <StyledView>
       <LazyLoad
@@ -41,16 +43,22 @@ const HighlightScreen = () => {
               </Text>
               <StyledView className="bg-white mb-5 p-2">
                 {item.value.map(({highlight, id}) => {
+                  console.log({highlight,id})
                   return (
+                    <PressableOpacity onPress={()=>{
+                      navigation.navigate(ROUTES.NEWSFEED_ID,{id})
+                    }}>
                     <Text
+                    className='text-black'
                       style={{
                         lineHeight: 18,
                         marginTop: 16,
-                        color: 'rgba(101, 115, 157, 0.9)',
+                       
                       }}
                       key={id}>
                       {highlight}
                     </Text>
+                    </PressableOpacity>
                   );
                 })}
                  <View  className='self-end' style={{width:60}}>

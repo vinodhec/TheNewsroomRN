@@ -19,7 +19,7 @@ const NewsFeedScreen = ({route,navigation}) => {
   const temp = route.params?.category;
   const groups = route.params?.groups;
   const id = route.params?.id;
-
+console.log({temp,groups,id},route.params)
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
 console.log({bookmarks})
@@ -62,7 +62,7 @@ console.log({bookmarks})
   useEffect(() => {}, []);
   return (
     <StyledView className="dark:bg-black">
-    {!groups?.id  &&  <PressableOpacity
+    {!(groups?.id || id)  &&  <PressableOpacity
       onPress={()=>{
         navigation.replace(ROUTES.ADD)
       }}
@@ -83,7 +83,7 @@ console.log({bookmarks})
        customIds ={bookmarks}
        isCustom={route.params.isCustom}
         // options={{customIds:bookmarks, isCustom:true}}
-        // options={{limit: 5, query: [['category', '==', category],['groups', '==', groups?.id],['id', '==', id]]}}
+        options={{limit: 5, query: [['category', '==', category],['groups', '==', groups?.id],['id', '==', id]]}}
         updateItems={() => {}}
         content={({item}) => {
           
