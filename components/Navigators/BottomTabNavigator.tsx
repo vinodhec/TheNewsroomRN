@@ -20,7 +20,7 @@ import HighlightNavigator from './HighlightNavigator';
 
 
 const Tab = createBottomTabNavigator();
-const BottomTabNavigator = () => {
+const BottomTabNavigator = ({navigation}) => {
 
   const { colorScheme, toggleColorScheme } = useColorScheme();
 
@@ -28,23 +28,22 @@ const BottomTabNavigator = () => {
     <Tab.Navigator
       screenOptions={({route}) => {
         return {
-          headerTitle: 'The Newsroom',
-          headerStyle: {
-            backgroundColor: '#C82128',
-          },
+         headerShown:false,
           tabBarHideOnKeyboard: true,
           unmountOnBlur :true,
-          headerRight: () => (
-            <View style={{flexDirection: 'row',justifyContent:'space-between', width:64,marginRight:24}}>
-              <PressableOpacity>
-                <Icon name={'search'} size={22} color={COLORS.white} />
-              </PressableOpacity>
-              <PressableOpacity onPress={toggleColorScheme }>
-                <Icon name={colorScheme ==='dark'?'sunny-outline':'ios-moon-sharp'} size={22} color={COLORS.white} />
-              </PressableOpacity>
-            </View>
-          ),
-          headerTintColor: COLORS.white,
+          // headerRight: () => (
+          //   <View style={{flexDirection: 'row',justifyContent:'space-between', width:64,marginRight:24}}>
+          //     <PressableOpacity onPress={()=>{
+          //       navigation.navigate(ROUTES.SEARCH)
+          //     }}>
+          //       <Icon name={'search'} size={22} color={COLORS.white} />
+          //     </PressableOpacity>
+          //     <PressableOpacity onPress={toggleColorScheme }>
+          //       <Icon name={colorScheme ==='dark'?'sunny-outline':'ios-moon-sharp'} size={22} color={COLORS.white} />
+          //     </PressableOpacity>
+          //   </View>
+          // ),
+          // headerTintColor: COLORS.white,
 
           tabBarShowLabel: false,
           tabBarStyle: styles.tabBarStyle,

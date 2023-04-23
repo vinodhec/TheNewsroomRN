@@ -9,12 +9,18 @@ import { useAppDispatch } from '../../app/hooks';
 import { COLLECTIONS } from '../../constants/collections';
 import { update } from '../../features/global/globalSlice';
 import FirestoreService from '../../firebase/firestoreService';
+import { COLORS, ROUTES } from '../../constants';
+import SearchScreen from '../SearchScreen';
+import Icon  from 'react-native-vector-icons/Ionicons';
+import PressableOpacity from '../PressableOpacity';
+import { useColorScheme } from 'nativewind';
+import { useNavigation } from '@react-navigation/native';
 const Stack = createStackNavigator();
 
 const SplashNavigator = () => {
   const dispatch = useAppDispatch();
-  
-  
+  const navigation = useNavigation()
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   useEffect(()=>{
     FirestoreService.getDocuments(COLLECTIONS.GROUPS,{}).then((data)=>{
       console.log(data);
@@ -30,9 +36,28 @@ const SplashNavigator = () => {
     
   })
   return (
-    <Stack.Navigator screenOptions={{headerShown:false}}>
+    <Stack.Navigator screenOptions={{
+      headerTitle: 'The Newsroom',
+      headerStyle: {
+        backgroundColor: '#C82128',
+      },
+      headerRight: () => (
+        <View style={{flexDirection: 'row',justifyContent:'space-between', width:64,marginRight:24}}>
+          <PressableOpacity onPress={()=>{
+            navigation.navigate(ROUTES.SEARCH)
+          }}>
+            <Icon name={'search'} size={22} color={COLORS.white} />
+          </PressableOpacity>
+          <PressableOpacity onPress={toggleColorScheme }>
+            <Icon name={colorScheme ==='dark'?'sunny-outline':'ios-moon-sharp'} size={22} color={COLORS.white} />
+          </PressableOpacity>
+        </View>
+      ),
+      headerTintColor: COLORS.white}
+}>
     
       <Stack.Screen name="Main" component={BottomTabNavigator} ></Stack.Screen>
+      <Stack.Screen name={ROUTES.SEARCH} component={SearchScreen} ></Stack.Screen>
       <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
     </Stack.Navigator>
   )

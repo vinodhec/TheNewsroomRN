@@ -18,5 +18,6 @@ export default {
     FEEDBACK:'Feedback',
     PRIVACY:'Privacy',
     ONTHISDAY:'Onthisday',
-    MENULIST:'Menulist'
+    MENULIST:'Menulist',
+    SEARCH:'search'
 }

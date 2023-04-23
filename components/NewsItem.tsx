@@ -120,10 +120,10 @@ const NewsItem = props => {
           style={{width: '100%', height: 200, marginTop: 12}}
           source={{uri: imageUrl}}></Image>
       )}
-      {imageUrl && isVideo && (<Video paused controls className="items-center mx-auto border-1" 
-       style={styles.backgroundVideo}
-      source={{uri:imageUrl}}
-      ></Video>)}
+       {/* {imageUrl && isVideo && (<Video paused controls className="items-center mx-auto border-1"  */}
+       {/* style={styles.backgroundVideo} */}
+      {/* source={{uri:imageUrl}} */}
+      {/* ></Video>)}  */}
       <Text className='text-black dark:text-white' style={styles.content}>{content}</Text>
       <StyledView
        className='mt-4 flex-row'
