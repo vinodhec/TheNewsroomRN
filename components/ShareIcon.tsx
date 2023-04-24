@@ -59,7 +59,7 @@ const ShareIcon = ({isBookmarked, addToBookMark, id, content, imageUrl}) => {
       ...iconList,
       {name: 'trash', onPress: deleteNews},
       {name: 'md-create', onPress: ()=>{
-        navigation.navigate(ROUTES.ADD)
+        navigation.navigate(ROUTES.ADD,{id})
       }},
     ]);
   }, []);
