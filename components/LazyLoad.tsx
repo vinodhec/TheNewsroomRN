@@ -10,6 +10,7 @@ const StyledView = styled(View);
 
 const LazyLoad = ({
   content,
+  ListEmptyComponent,
   collectionName,
   transformItems,
   options,
@@ -88,6 +89,7 @@ const LazyLoad = ({
       // ItemSeparatorComponent={()=><StyledView className="border-solid divide-solid bg-red-600 flex flex-1  w-full"  ></StyledView>}
       onEndReached={getQueryResults.bind(this, true)}
       renderItem={content}
+      ListEmptyComponent={ListEmptyComponent}
       contentContainerStyle={{
         padding: 8,
         marginTop: 16,

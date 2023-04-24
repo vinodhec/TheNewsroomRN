@@ -1,24 +1,20 @@
-import {StyleSheet} from 'react-native';
-import React, { useEffect } from 'react';
+import {StatusBar, StyleSheet} from 'react-native';
+import React from 'react';
 import {Provider} from 'react-redux';
 import {store} from './app/store';
 import {PersistGate} from 'redux-persist/integration/react';
 import {persistStore} from 'redux-persist';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashNavigator from './components/Navigators/SplashNavigator';
-import { useAppDispatch } from './app/hooks';
-import { update } from './features/global/globalSlice';
-import FirestoreService from './firebase/firestoreService';
-import { COLLECTIONS } from './constants/collections';
+import {COLORS} from './constants';
 let persistor = persistStore(store);
 const App = () => {
-  
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-
-          <SplashNavigator ></SplashNavigator>
+          <SplashNavigator></SplashNavigator>
         </PersistGate>
       </Provider>
     </NavigationContainer>

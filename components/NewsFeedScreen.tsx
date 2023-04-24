@@ -15,14 +15,14 @@ import PressableOpacity from './PressableOpacity';
 import { COLLECTIONS } from '../constants/collections';
 
 const NewsFeedScreen = ({route,navigation}) => {
-  const dispatch = useAppDispatch();
+  
   const temp = route.params?.category;
   const groups = route.params?.groups;
   const id = route.params?.id;
+  const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
 console.log({temp,groups,id},route.params)
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
-  const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
-console.log({bookmarks})
+
   const [speechStatus, setSpeechStatus] = useState('stopped');
   useEffect(() => {
     Tts.addEventListener('tts-start', event => {
@@ -42,22 +42,7 @@ console.log({bookmarks})
     });
   }, []);
 
-  const addToBookMark = id => {
-    console.log(bookmarks, id);
-    let value;
-    if (bookmarks.includes(id)) {
-      value = bookmarks.filter(bid => bid != id);
-    } else {
-      value = [...bookmarks, id];
-    }
-    dispatch(
-      update({
-        valueType: 'bookmarks',
-
-        value,
-      } as any),
-    );
-  };
+ 
 
   useEffect(() => {}, []);
   return (
@@ -91,9 +76,9 @@ console.log({bookmarks})
             <NewsItem
               {...item}
               key={item?.id}
-              isBookmarked={bookmarks?.includes(item?.id)}
+              
               speechStatus={speechStatus}
-              addToBookMark={addToBookMark}></NewsItem>
+              ></NewsItem>
           );
         }}></LazyLoad>
     </StyledView>

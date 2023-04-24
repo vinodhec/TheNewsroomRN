@@ -55,10 +55,10 @@ const SplashNavigator = () => {
       ),
       headerTintColor: COLORS.white}
 }>
-    
+    <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}></Stack.Screen>
       <Stack.Screen name="Main" component={BottomTabNavigator} ></Stack.Screen>
       <Stack.Screen name={ROUTES.SEARCH} component={SearchScreen} ></Stack.Screen>
-      <Stack.Screen name="Splash" component={Splash}></Stack.Screen>
+      
     </Stack.Navigator>
   )
 }
