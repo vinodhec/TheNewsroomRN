@@ -2,7 +2,7 @@ import {View, Text, FlatList, Animated, ViewToken} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {COLORS, ROUTES} from '../constants';
 import FirestoreService from '../firebase/firestoreService';
-import {ScrollView} from 'react-native-gesture-handler';
+import { dbRef, getHistoryDetails } from '../firebase/firebaseRealtimeDB';
 import NewsItem from './NewsItem';
 import {useSharedValue} from 'react-native-reanimated';
 import Tts from 'react-native-tts';
@@ -13,6 +13,7 @@ import {selectGlobalValue, update} from '../features/global/globalSlice';
 import {StyledView} from './StyledComponents';
 import PressableOpacity from './PressableOpacity';
 import { COLLECTIONS } from '../constants/collections';
+import moment from 'moment';
 
 const NewsFeedScreen = ({route,navigation}) => {
   
@@ -44,7 +45,10 @@ console.log({temp,groups,id},route.params)
 
  
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+
+    getHistoryDetails(moment().format('MM-DD'))
+  }, []);
   return (
     <StyledView className="dark:bg-black">
     {!(groups?.id || id)  &&  <PressableOpacity
