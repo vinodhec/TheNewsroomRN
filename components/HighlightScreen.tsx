@@ -17,7 +17,7 @@ const HighlightScreen = ({navigation}) => {
         transformItems={items => {
           return map(
             groupBy(items, item =>
-              moment(item?.timestamp.toDate()).format('MM/DD/YYYY'),
+              moment(item?.timestamp?.toDate())?.format('MM/DD/YYYY'),
             ),
             (value, date) => {
               console.log({value});
@@ -39,10 +39,10 @@ const HighlightScreen = ({navigation}) => {
                   backgroundColor: 'rgba(200, 33, 40, 0.1)',
                   borderRadius: 29,
                 }}>
-                {item.date}
+                {item?.date}
               </Text>
               <StyledView className="bg-white mb-5 p-2">
-                {item.value.map(({highlight, id}) => {
+                {item?.value?.map(({highlight, id}) => {
                   console.log({highlight,id})
                   return (
                     <PressableOpacity onPress={()=>{

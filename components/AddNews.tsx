@@ -75,7 +75,7 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
           ...groups,
           {
             ...groupValues,
-            id: path,
+            id: path.replace(COLLECTIONS.GROUPS+'/',""),
           },
         ],
       } as any),
@@ -120,7 +120,7 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
           return <Input {...fields} key={index} control={control}></Input>;
         })}
 
-        <UploadImage setImage={setImage} image={image}></UploadImage>
+        <UploadImage setIsVideo={()=>{}} setImage={setImage} image={image}></UploadImage>
         <PressableOpacity
           className="bg-red-600 p-2 rounded-sm  self-end mt-4"
           onPress={handleSubmit(onSubmit)}>

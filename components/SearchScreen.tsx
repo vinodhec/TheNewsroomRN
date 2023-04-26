@@ -1,7 +1,7 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {useAppSelector} from '../app/hooks';
-import {selectGlobalValue} from '../features/global/globalSlice';
+import {useAppDispatch, useAppSelector} from '../app/hooks';
+import {selectGlobalValue, update} from '../features/global/globalSlice';
 import PressableOpacity from './PressableOpacity';
 import {StyledView} from './StyledComponents';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -15,13 +15,25 @@ import DatePicker from 'react-native-date-picker';
 
 const SearchScreen = () => {
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
+  const dispatch = useAppDispatch();
 
   const [date, setDate] = useState(new Date());
+  const [query, setQuery] = useState<any>([]);
   const [date1, setDate1] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState();
   const [selectedDate, setSelectedDate] = useState<any>();
   const [speechStatus, setSpeechStatus] = useState('stopped');
+
+  useEffect(() => {
+    setQuery(query => {
+      if (selectedCategory) {
+        return [['category', '==', selectedCategory]];
+      } else {
+        return [[]];
+      }
+    });
+  }, [selectedCategory]);
   useEffect(() => {
     Tts.addEventListener('tts-start', event => {
       setSpeechStatus('started');
@@ -40,15 +52,35 @@ const SearchScreen = () => {
     });
   }, []);
 
-  useEffect(()=>{
-    const temp =  new Date(date.getTime());
-    temp.setDate(temp.getDate()+1)
-    setDate1(temp)
-    console.log(date,temp);
+  useEffect(() => {
+    const temp = new Date(date.getTime());
+    temp.setDate(temp.getDate() + 1);
+    setDate1(temp);
+    console.log(date, temp);
+  }, [date]);
 
-  },[date])
+  
+  const addToBookMark = id => {
+    console.log({bookmarks, id},'feed');
+    let value;
+    if (bookmarks.includes(id)) {
+      value = bookmarks.filter(bid => bid != id);
+    } else {
+      value = [...bookmarks, id];
+    }
+    console.log({value})
+    dispatch(
+      update({
+        valueType: 'bookmarks',
+
+        value,
+      } as any),
+    );
+  };
 
   const startOfToday = new Date();
+  const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
+
   return (
     <View className="mt-4 p-2">
       <DatePicker
@@ -60,9 +92,6 @@ const SearchScreen = () => {
           date.setUTCHours(0, 0, 0, 0);
 
           setDate(date);
-         
-
-
         }}
         onCancel={() => {
           setOpen(false);
@@ -81,6 +110,9 @@ const SearchScreen = () => {
                 className="items-center justify-center"
                 key={index}
                 onPress={() => {
+                  if (category === selectedCategory) {
+                    return setSelectedCategory(undefined);
+                  }
                   setSelectedCategory(category);
                 }}>
                 <StyledView
@@ -162,40 +194,41 @@ const SearchScreen = () => {
             );
           })}
         </ScrollView>
-        <View
-          style={{borderBottomWidth: 0.35, borderStyle: 'solid'}}
-          className="mt-6"></View>
-        <Text className="font-bold text-lg text-black-900 mt-2">
-          Search Results
-        </Text>
-        {/* <PressableOpacity  className="divide-y-2 divide-solid bg-red-600 p-2 px-4 self-end mt-4">
+      </View>
+      {selectedCategory && (
+        <View>
+          <View
+            style={{borderBottomWidth: 0.35, borderStyle: 'solid'}}
+            className="mt-6"></View>
+          <Text className="font-bold text-lg text-black-900 mt-2">
+            Search Results
+          </Text>
+          {/* <PressableOpacity  className="divide-y-2 divide-solid bg-red-600 p-2 px-4 self-end mt-4">
           <Text className='text-white'>Search</Text>
         </PressableOpacity> */}
-      </View>
-      <LazyLoad
-        collectionName={COLLECTIONS.NEWS}
-        ListEmptyComponent={
-          <View>
-            <Text>No Results</Text>
-          </View>
-        }
-        // options={{customIds:bookmarks, isCustom:true}}
-        options={{
-          limit: 5,
-          query: [
-            ['timestamp', '>=', date],
-            ['timestamp', '<', date1],
-          ],
-        }}
-        updateItems={() => {}}
-        content={({item}) => {
-          return (
-            <NewsItem
-              {...item}
-              key={item?.id}
-              speechStatus={speechStatus}></NewsItem>
-          );
-        }}></LazyLoad>
+          <LazyLoad
+            collectionName={COLLECTIONS.NEWS}
+            // options={{customIds:bookmarks, isCustom:true}}
+            options={{
+              limit: 5,
+              query: query,
+            }}
+            updateItems={() => {}}
+            content={({item}) => {
+              const isBookmarked=bookmarks?.includes(item?.id)
+
+              return (
+                <NewsItem
+                  {...item}
+                  key={item?.id}
+                  addToBookMark={addToBookMark}
+                  isBookmarked={isBookmarked}
+
+                  speechStatus={speechStatus}></NewsItem>
+              );
+            }}></LazyLoad>
+        </View>
+      )}
     </View>
   );
 };

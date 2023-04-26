@@ -5,17 +5,21 @@ import PressableOpacity from './PressableOpacity';
 import {Image} from 'react-native';
 import moment from 'moment';
 import { getHistoryDetails } from '../firebase/firebaseRealtimeDB';
+import { SvgUri } from 'react-native-svg';
 
 
 const Splash = ({navigation}) => {
   const [dayinhistory, setDayinhistory] = useState({content:'',date:''})
   useEffect(()=>{
 
-    setTimeout(()=>{
+   const timerId =  setTimeout(()=>{
       ToastAndroid.show('Navigating to Home page', ToastAndroid.SHORT)
       navigation.replace('Main');
 
     },5000)
+    return ()=>{
+      clearTimeout(timerId)
+    }
   },[dayinhistory.content])
 
   useEffect(() => {
@@ -29,11 +33,11 @@ const Splash = ({navigation}) => {
   return (
     <View className="flex-1 p-4 justify-center items-center border-1">
       <View className='flex-1 justify-center items-center'>
-      <Image
-        source={{
-          uri: 'https://hindubabynames.info/downloads/wp-content/themes/hbn_download/download/sports-ipl/tata-ipl-logo.png',
-        }}
-        style={{width: 300, height: 300}}></Image>
+      <SvgUri
+    width="100%"
+    height="100%"
+    uri={require('./../assets/logo.svg')}
+  />
        {!dayinhistory.content &&<ActivityIndicator></ActivityIndicator>}
         {dayinhistory.content && <View>
 

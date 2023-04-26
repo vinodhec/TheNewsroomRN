@@ -13,7 +13,7 @@ import {useAppDispatch} from '../app/hooks';
 import {update} from '../features/global/globalSlice';
 const iconSizes = {size: 22, color: COLORS.primary};
 const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
-  const {id, content, imageUrl} = news;
+  const {id, content, imageUrl} = news ||{};
   // console.log({isBookmarked},news.title)
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
@@ -62,7 +62,7 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
 
   useEffect(() => {
     setIconList(() => {
-      if (!iconList.some(({name}) => name == 'trash') || true) {
+      if (!iconList.some(({name}) => name == 'trash') && false) {
         return [
           ...iconFactory,
           {name: 'trash', onPress: deleteNews},

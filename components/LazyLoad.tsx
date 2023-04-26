@@ -27,7 +27,7 @@ const LazyLoad = ({
     count: 0,
   });
 
-  const getTitles = (data: any) => data.map((data: any) => data.id);
+  const getTitles = (data: any) => data.map((data: any) => data.title);
   const [loading, setLoading] = useState(false);
   const [customCursorId, setCustomCursorId] = useState(0);
   const getQueryResults = (loadMore = false) => {
@@ -58,9 +58,10 @@ const LazyLoad = ({
         }).then(results => {
           setLoading(false);
           const {docs, cursorId} = results;
+          console.log({cursorId})
 
           setItems((pp: any) =>
-            cursorId && loadMore ? [...pp, ...docs] : docs,
+             loadMore ? [...pp, ...docs] : docs,
           );
 
           setResults(results);
@@ -76,7 +77,7 @@ const LazyLoad = ({
   }, [JSON.stringify(options)]);
 
   useEffect(() => {
-    // console.log('total', getTitles(items));
+    console.log('total', getTitles(items));
     // updateItems(items);
   }, [items]);
 
