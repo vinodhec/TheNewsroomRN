@@ -15,6 +15,7 @@ import moment from 'moment';
 import Video from 'react-native-video';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { selectGlobalValue, update } from '../features/global/globalSlice';
+import { usePreventScreenCapture } from 'expo-screen-capture';
 const iconSizes = {size: 22, color: COLORS.primary};
 const NewsItem = props => {
   const {
@@ -22,10 +23,11 @@ const NewsItem = props => {
     content,
     imageUrl,
     category,
+    isBookmarked,
     
     source,
     caption,
-    
+    addToBookMark,
     speechStatus,
     id,
     isVideo,
@@ -33,11 +35,13 @@ const NewsItem = props => {
 
   } = props ?? {};
   const ref = useRef();
+  usePreventScreenCapture();
+  
 
   const [speakStatus, setSpeakStatus] = useState('');
-  const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
-  const isBookmarked=bookmarks?.includes(id)
-  const dispatch = useAppDispatch();
+  
+  
+  
   useEffect(() => {
     if (
       ['cancelled', 'stopped'].includes(speechStatus) &&
@@ -51,22 +55,7 @@ const NewsItem = props => {
     Tts.stop();
   };
 
-  const addToBookMark = id => {
-    console.log(bookmarks, id);
-    let value;
-    if (bookmarks.includes(id)) {
-      value = bookmarks.filter(bid => bid != id);
-    } else {
-      value = [...bookmarks, id];
-    }
-    dispatch(
-      update({
-        valueType: 'bookmarks',
-
-        value,
-      } as any),
-    );
-  };
+  
 
   const readText = async () => {
     stopText();
@@ -161,7 +150,7 @@ const NewsItem = props => {
             {caption}
           </Text>
         </PressableOpacity>
-        <ShareIcon isBookmarked={isBookmarked} addToBookMark={addToBookMark} id={id} content={content} imageUrl={imageUrl}></ShareIcon>
+        <ShareIcon isBookmarked={isBookmarked} addToBookMark={addToBookMark} news={props}></ShareIcon>
       </StyledView>
     </StyledView>
   );

@@ -62,7 +62,7 @@ const HighlightScreen = ({navigation}) => {
                   );
                 })}
                  <View  className='self-end' style={{width:60}}>
-              <ShareIcon isBookmarked={undefined} addToBookMark={undefined} id={undefined} content={JSON.stringify(item.value.map(({highlight})=>highlight))} imageUrl={undefined}></ShareIcon>
+              <ShareIcon isBookmarked={undefined} addToBookMark={undefined} news={undefined}  ></ShareIcon>
               </View>
               
               </StyledView>

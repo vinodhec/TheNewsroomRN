@@ -2,18 +2,23 @@ import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PressableOpacity from './PressableOpacity';
-
+import {omit} from 'lodash';
 import Share from 'react-native-share';
 import {COLORS, ROUTES} from '../constants';
 import {getBase64FromURL} from '../utils/utilsService';
 import FirestoreService from '../firebase/firestoreService';
 import {COLLECTIONS} from '../constants/collections';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import {useAppDispatch} from '../app/hooks';
+import {update} from '../features/global/globalSlice';
 const iconSizes = {size: 22, color: COLORS.primary};
-const ShareIcon = ({isBookmarked, addToBookMark, id, content, imageUrl}) => {
-  const navigation = useNavigation()
+const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
+  const {id, content, imageUrl} = news;
+  // console.log({isBookmarked},news.title)
+  const dispatch = useAppDispatch();
+  const navigation = useNavigation();
   const deleteNews = id => {
-    console.log({id})
+    console.log({id});
     FirestoreService.deleteDocument(COLLECTIONS.NEWS, id);
   };
 
@@ -39,9 +44,9 @@ const ShareIcon = ({isBookmarked, addToBookMark, id, content, imageUrl}) => {
       Share.open(shareOptions);
     }
   };
-  const [iconList, setIconList] = useState([
+  const iconFactory: any = [
     {
-      name: isBookmarked ? 'bookmarks' : 'ios-bookmarks-outline',
+      name: isBookmarked ? 'bookmarks' : 'bookmarks-outline',
       onPress: addToBookMark?.bind(this, id),
     },
     {
@@ -52,24 +57,36 @@ const ShareIcon = ({isBookmarked, addToBookMark, id, content, imageUrl}) => {
       name: 'logo-whatsapp',
       onPress: shareNews.bind(this, false),
     },
-  ]);
+  ];
+  const [iconList, setIconList] = useState(iconFactory);
 
   useEffect(() => {
-    setIconList([
-      ...iconList,
-      {name: 'trash', onPress: deleteNews},
-      {name: 'md-create', onPress: ()=>{
-        navigation.navigate(ROUTES.ADD,{id})
-      }},
-    ]);
-  }, []);
+    setIconList(() => {
+      if (!iconList.some(({name}) => name == 'trash') || true) {
+        return [
+          ...iconFactory,
+          {name: 'trash', onPress: deleteNews},
+          {
+            name: 'md-create',
+            onPress: () => {
+              console.log({news});
+              // dispatch(update({valueType:'editNews',value:omit(news,['timestamp'])} as any))
+              navigation.navigate(ROUTES.ADD);
+            },
+          },
+        ];
+      } else {
+        return [...iconFactory];
+      }
+    });
+  }, [isBookmarked]);
 
   return (
     <View
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        flex:iconList.length >3 ? 0.5 : 0.35,
+        flex: iconList.length > 3 ? 0.5 : 0.35,
       }}>
       {iconList
         .filter(item => item.onPress)
@@ -87,5 +104,3 @@ const ShareIcon = ({isBookmarked, addToBookMark, id, content, imageUrl}) => {
 export default ShareIcon;
 
 const styles = StyleSheet.create({});
-
-

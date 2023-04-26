@@ -50,22 +50,24 @@ const Input = fields => {
 
 const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
   const {control, handleSubmit, setValue, watch} = useForm();
-  const [image, setImage] = useState()
+  const [image, setImage] = useState();
   const values = watch();
-  
 
   const onSubmit = async values => {
     console.log('add group', {values});
     console.log({values});
-    const imageUrl = await FirebaseStorageService.uploadSingleImage(image)
+    const imageUrl = await FirebaseStorageService.uploadSingleImage(image);
 
-    const groupValues ={
+    const groupValues = {
       description: values?.description,
       title: values?.groupTitle,
       label: values?.label,
-      imageUrl
-    }
-    const {path} = await FirestoreService.createDocument(COLLECTIONS.GROUPS,groupValues );
+      imageUrl,
+    };
+    const {path} = await FirestoreService.createDocument(
+      COLLECTIONS.GROUPS,
+      groupValues,
+    );
     dispatch(
       update({
         valueType: 'groups',
@@ -130,30 +132,61 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
 };
 
 const AddNews = ({navigation}) => {
-  const {control, handleSubmit, setValue, watch} = useForm();
+  const {control, handleSubmit, setValue, watch, reset} = useForm();
   const [isFocus, setIsFocus] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useAppDispatch();
 
   const values = watch();
+  const [edit, setEdit] = useState(false);
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
   const groups: any = useAppSelector(selectGlobalValue('groups')) ?? [];
+  const editNews: any = useAppSelector(selectGlobalValue('editNews')) ;
+  
   const [image, setImage] = useState<any>();
-  const [isVideo, setIsVideo] = useState(false)
-  const onSubmit = async data => {
-let imageUrl;
-    if(image){
-      imageUrl  = await FirebaseStorageService.uploadSingleImage(image)
+  const [isVideo, setIsVideo] = useState(false);
+  console.log({editNews})
+  useEffect(()=>{
+    if (editNews) {
+      reset(editNews);
+      setEdit(true);
+      
+      setIsVideo(editNews.isVideo);
+      
     }
-   
-    console.log({...data,imageUrl})
-    const {path} = await FirestoreService.createDocument(
-      COLLECTIONS.NEWS,
-      {...data,imageUrl,isVideo}
-    );
+    ()=>{
+      setEdit(false);
+      dispatch(update({valueType:'editNews',value:null} as any))
+    }
+  },[])
+  
+  const onSubmit = async data => {
+    let imageUrl;
+    if (image) {
+      imageUrl = await FirebaseStorageService.uploadSingleImage(image);
+    }
+    
+    let values =data;
+    if(image){
+      values = {...data, imageUrl, isVideo};
+    }
+    console.log({values,edit})
+    if (edit) {
+     
+      
 
-    Alert.alert('Success', 'News has been posted', [
+      await FirestoreService.updateDocument(COLLECTIONS.NEWS, data.id, values);
+    } else {
+      
+
+      const {path} = await FirestoreService.createDocument(
+        COLLECTIONS.NEWS,
+        values,
+      );
+    }
+
+    Alert.alert('Success', `News has been ${edit?'updated':'posted'}`, [
       {
         text: 'Ok',
         onPress: () => {
@@ -167,9 +200,6 @@ let imageUrl;
     if (!image) {
       return;
     }
-    
-   
-    
   }, [image]);
 
   return (
@@ -299,7 +329,10 @@ let imageUrl;
 
         return <Input {...fields} key={index} control={control}></Input>;
       })}
-     <UploadImage setIsVideo={setIsVideo} image={image} setImage={setImage}></UploadImage>
+      <UploadImage
+        setIsVideo={setIsVideo}
+        image={image}
+        setImage={setImage}></UploadImage>
       <Pressable
         className="bg-red-600 p-2 rounded-sm justify-center items-center"
         onPress={handleSubmit(onSubmit)}>
@@ -317,7 +350,6 @@ let imageUrl;
 export default AddNews;
 
 const styles = StyleSheet.create({
- 
   container: {
     backgroundColor: 'white',
     padding: 16,
@@ -398,5 +430,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-

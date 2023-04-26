@@ -23,7 +23,7 @@ const NewsFeedScreen = ({route,navigation}) => {
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
 console.log({temp,groups,id},route.params)
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
-
+  const dispatch = useAppDispatch();
   const [speechStatus, setSpeechStatus] = useState('stopped');
   useEffect(() => {
     Tts.addEventListener('tts-start', event => {
@@ -43,7 +43,24 @@ console.log({temp,groups,id},route.params)
     });
   }, []);
 
- 
+
+  const addToBookMark = id => {
+    console.log({bookmarks, id},'feed');
+    let value;
+    if (bookmarks.includes(id)) {
+      value = bookmarks.filter(bid => bid != id);
+    } else {
+      value = [...bookmarks, id];
+    }
+    console.log({value})
+    dispatch(
+      update({
+        valueType: 'bookmarks',
+
+        value,
+      } as any),
+    );
+  };
 
   useEffect(() => {
 
@@ -75,13 +92,15 @@ console.log({temp,groups,id},route.params)
         options={{limit: 5, query: [['category', '==', category],['groups', '==', groups?.id],['id', '==', id]]}}
         updateItems={() => {}}
         content={({item}) => {
-          
+          const isBookmarked=bookmarks?.includes(item?.id)
+          console.log({isBookmarked},item.title)
           return (
             <NewsItem
               {...item}
               key={item?.id}
-              
+              addToBookMark={addToBookMark}
               speechStatus={speechStatus}
+              isBookmarked={isBookmarked}
               ></NewsItem>
           );
         }}></LazyLoad>

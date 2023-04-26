@@ -71,6 +71,7 @@ const LazyLoad = ({
   //
 
   useEffect(() => {
+    console.log('changed')
     getQueryResults();
   }, [JSON.stringify(options)]);
 

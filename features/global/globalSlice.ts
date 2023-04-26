@@ -7,12 +7,14 @@ export interface GlobalState {
   groups:string[],
   showNotifications:boolean,
   autoPlayVideos:boolean,
+  editNews:any;
   defaultSharingApp:string
 }
 
 const initialState: GlobalState = {
   bookmarks:[],
   showNotifications:true,
+  editNews:null,
   autoPlayVideos:true,
   defaultSharingApp:'Whatsapp',
   categories:[
