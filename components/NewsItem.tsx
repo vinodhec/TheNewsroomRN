@@ -35,7 +35,7 @@ const NewsItem = props => {
 
   } = props ?? {};
   const ref = useRef();
-  usePreventScreenCapture();
+  // usePreventScreenCapture();
   
 
   const [speakStatus, setSpeakStatus] = useState('');

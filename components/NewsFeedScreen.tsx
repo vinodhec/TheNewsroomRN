@@ -69,8 +69,10 @@ console.log({temp,groups,id},route.params)
   }, []);
   return (
     <StyledView className="dark:bg-black">
-      
-        <BreakingNews></BreakingNews>
+      <View className='p-2'>
+      <BreakingNews></BreakingNews>
+      </View>
+        
       
     {!(groups?.id || id)  &&  <PressableOpacity
       onPress={()=>{
