@@ -5,7 +5,7 @@ import PressableOpacity from './PressableOpacity';
 import FirestoreService from '../firebase/firestoreService';
 import {COLLECTIONS} from '../constants/collections';
 import {ROUTES} from '../constants';
-
+import Icon from 'react-native-vector-icons/Ionicons'
 const ContactScreen = ({navigation}) => {
   const [text, setText] = useState<any>();
   const [submitted, setSubmitted] = useState(false);
@@ -45,6 +45,7 @@ const ContactScreen = ({navigation}) => {
       )}
       { submitted &&
         <View className="border-1 border-solid p-4  gap-2 shadow-sm pb-6 bg-white">
+          <Icon name="md-thumbs-up-sharp" color={'#c20'} size={44}></Icon>
           <Text className="font-bold text-lg text-black">Thank You!!!</Text>
           <Text className="text-sm ">
             Your feedback has been successfully submitted.

@@ -65,6 +65,8 @@ const LazyLoad = ({
           );
 
           setResults(results);
+        }).catch(error=>{
+          console.error(error)
         });
       }
     }

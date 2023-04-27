@@ -14,6 +14,7 @@ import {StyledView} from './StyledComponents';
 import PressableOpacity from './PressableOpacity';
 import { COLLECTIONS } from '../constants/collections';
 import moment from 'moment';
+import BreakingNews from './BreakingNews';
 
 const NewsFeedScreen = ({route,navigation}) => {
   
@@ -68,6 +69,9 @@ console.log({temp,groups,id},route.params)
   }, []);
   return (
     <StyledView className="dark:bg-black">
+      
+        <BreakingNews></BreakingNews>
+      
     {!(groups?.id || id)  &&  <PressableOpacity
       onPress={()=>{
         navigation.replace(ROUTES.ADD)

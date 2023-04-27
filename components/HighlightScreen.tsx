@@ -43,7 +43,6 @@ const HighlightScreen = ({navigation}) => {
               </Text>
               <StyledView className="bg-white mb-5 p-2">
                 {item?.value?.map(({highlight, id}) => {
-                  console.log({highlight,id})
                   return (
                     <PressableOpacity onPress={()=>{
                       navigation.navigate(ROUTES.NEWSFEED_ID,{id})
