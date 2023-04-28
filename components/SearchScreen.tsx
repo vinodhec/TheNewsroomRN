@@ -56,19 +56,19 @@ const SearchScreen = () => {
     const temp = new Date(date.getTime());
     temp.setDate(temp.getDate() + 1);
     setDate1(temp);
-    console.log(date, temp);
+    
   }, [date]);
 
   
   const addToBookMark = id => {
-    console.log({bookmarks, id},'feed');
+    
     let value;
     if (bookmarks.includes(id)) {
       value = bookmarks.filter(bid => bid != id);
     } else {
       value = [...bookmarks, id];
     }
-    console.log({value})
+    
     dispatch(
       update({
         valueType: 'bookmarks',

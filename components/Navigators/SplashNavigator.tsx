@@ -26,7 +26,7 @@ const SplashNavigator = () => {
       orderBy:'timestamp',
       orderByDir:'desc'
     }).then(data => {
-      console.log('breaking',{data})
+      
       if(data?.length > 0){
         dispatch(update({valueType: 'breaking', value: data?.[0]} as any));
       }
@@ -37,7 +37,7 @@ const SplashNavigator = () => {
   const {colorScheme, toggleColorScheme} = useColorScheme();
   useEffect(() => {
     FirestoreService.getDocuments(COLLECTIONS.GROUPS, {}).then(data => {
-      console.log(data);
+      
       dispatch(
         update({
           valueType: 'groups',

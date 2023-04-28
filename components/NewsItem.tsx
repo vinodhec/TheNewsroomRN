@@ -142,7 +142,7 @@ const NewsItem = props => {
         }}>
         <PressableOpacity
           onPress={() => {
-            console.log(source);
+            
             Linking.openURL(source);
           }}>
           <Text style={[styles.category, {textDecorationLine: 'underline'}]}>

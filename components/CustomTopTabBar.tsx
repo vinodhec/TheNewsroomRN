@@ -4,7 +4,7 @@ import { COLORS } from '../constants';
 import PressableOpacity from './PressableOpacity';
 
 const CustomTopTabBar = (props) => {
-    console.log({props})
+    
     const { state, descriptors, navigation, position } = props;
     return (
         <View style={{ flexDirection: 'row' ,overflow:'scroll',flexWrap:'nowrap',width:'auto'}}>

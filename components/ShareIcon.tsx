@@ -14,11 +14,11 @@ import {update} from '../features/global/globalSlice';
 const iconSizes = {size: 22, color: COLORS.primary};
 const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
   const {id, content, imageUrl} = news ||{};
-  // console.log({isBookmarked},news.title)
+  // 
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const deleteNews = id => {
-    console.log({id});
+    
     FirestoreService.deleteDocument(COLLECTIONS.NEWS, id);
   };
 
@@ -38,7 +38,7 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
 
     if (!isFromWhatsapp) {
       Share.shareSingle(shareOptions).then(data => {
-        console.log(data);
+        
       });
     } else {
       Share.open(shareOptions);
@@ -69,7 +69,7 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
           {
             name: 'md-create',
             onPress: () => {
-              console.log({news});
+              
               // dispatch(update({valueType:'editNews',value:omit(news,['timestamp'])} as any))
               navigation.navigate(ROUTES.ADD);
             },

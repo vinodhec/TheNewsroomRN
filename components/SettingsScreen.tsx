@@ -17,7 +17,7 @@ const SettingsScreen = () => {
   const showNotifications: any = useAppSelector(selectGlobalValue('showNotifications'));
   const autoPlayVideos: any = useAppSelector(selectGlobalValue('autoPlayVideos'));
   const groups: any = useAppSelector(selectGlobalValue('groups')) ?? [];
-  console.log(['Whatsapp','Telegram'].map(cate => ({label: cate, value: cate})))
+  
   const [isFocus, setIsFocus] = useState(false);
   const onSelectSwitch = index => {
     // Alert.alert('Selected index: ' + index);

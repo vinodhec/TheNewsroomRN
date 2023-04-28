@@ -64,7 +64,7 @@ export const globalSlice = createSlice({
       
       const { valueType, value } = payload
       state[valueType] = value;
-      console.log(state);
+      
       return state
 
     },

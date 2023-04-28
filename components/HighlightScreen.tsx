@@ -21,7 +21,7 @@ const HighlightScreen = ({navigation}) => {
               moment(item?.timestamp?.toDate())?.format('MM/DD/YYYY'),
             ),
             (value, date) => {
-              console.log({value});
+              
               return {value, date};
             },
           );
@@ -29,7 +29,7 @@ const HighlightScreen = ({navigation}) => {
         options={{limit: 5, query: [['showHighlight', '==', true]]}}
         updateItems={() => {}}
         content={({item}) => {
-          console.log({item});
+          
           return (
             <StyledView className="">
               <Text

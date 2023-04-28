@@ -47,7 +47,7 @@ const LazyLoad = ({
     } else {
       if (!loading && (!loadMore || result.hasNext)) {
         setLoading(true);
-        console.log(loading, loadMore, options);
+        
         
 
         FirestoreService.getDocuments(collectionName, {
@@ -58,7 +58,7 @@ const LazyLoad = ({
         }).then(results => {
           setLoading(false);
           const {docs, cursorId} = results;
-          console.log({cursorId})
+          
 
           setItems((pp: any) =>
              loadMore ? [...pp, ...docs] : docs,
@@ -74,12 +74,12 @@ const LazyLoad = ({
   //
 
   useEffect(() => {
-    console.log('changed')
+    
     getQueryResults();
   }, [JSON.stringify(options)]);
 
   useEffect(() => {
-    console.log('total', getTitles(items));
+    
     // updateItems(items);
   }, [items]);
 
@@ -87,7 +87,7 @@ const LazyLoad = ({
     <FlatList
       data={transformItems ? transformItems(items) : items}
       keyExtractor={(item: any) => {
-        // console.log({item})
+        // 
         return item?.id || item?.date}}
       // onViewableItemsChanged={({ viewableItems: vItems }) => {
       //   viewableItems.value = vItems;

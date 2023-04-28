@@ -14,7 +14,7 @@ const Tab = createMaterialTopTabNavigator();
 const TopTabNavigator = ({route}) => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
-console.log(categories)
+
   return (
     <Tab.Navigator
       // tabBar={(props)=><CustomTopTabBar  {...props}></CustomTopTabBar>}

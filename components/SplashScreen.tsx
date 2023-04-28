@@ -1,4 +1,4 @@
-import {View, Text, Button, ToastAndroid, ActivityIndicator} from 'react-native';
+import {View, Text, Button, ToastAndroid, ActivityIndicator, BackHandler} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import {useNavigation} from '@react-navigation/native';
 import PressableOpacity from './PressableOpacity';
@@ -7,6 +7,7 @@ import moment from 'moment';
 import { getHistoryDetails } from '../firebase/firebaseRealtimeDB';
 import { SvgUri } from 'react-native-svg';
 
+import * as LocalAuthentication from 'expo-local-authentication'
 
 const Splash = ({navigation}) => {
   const [dayinhistory, setDayinhistory] = useState({content:'',date:''})
@@ -24,10 +25,19 @@ const Splash = ({navigation}) => {
 
   useEffect(() => {
 
+    
+      LocalAuthentication.authenticateAsync().then((data)=>{
+        
+    if(!data.success){
+      BackHandler.exitApp();
+
+    }
     getHistoryDetails(moment().format('MM-DD')).then((data)=>{
       const text=  data.split("^&!32$5_4'")
       setDayinhistory({content:text?.[0], date:text?.[1]})
     })
+  })
+
   }, []);
 
   return (

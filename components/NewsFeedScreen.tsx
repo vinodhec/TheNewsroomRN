@@ -22,7 +22,7 @@ const NewsFeedScreen = ({route,navigation}) => {
   const groups = route.params?.groups;
   const id = route.params?.id;
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
-console.log({temp,groups,id},route.params)
+
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
   const dispatch = useAppDispatch();
   const [speechStatus, setSpeechStatus] = useState('stopped');
@@ -46,14 +46,14 @@ console.log({temp,groups,id},route.params)
 
 
   const addToBookMark = id => {
-    console.log({bookmarks, id},'feed');
+    
     let value;
     if (bookmarks.includes(id)) {
       value = bookmarks.filter(bid => bid != id);
     } else {
       value = [...bookmarks, id];
     }
-    console.log({value})
+    
     dispatch(
       update({
         valueType: 'bookmarks',
@@ -99,7 +99,7 @@ console.log({temp,groups,id},route.params)
         updateItems={() => {}}
         content={({item}) => {
           const isBookmarked=bookmarks?.includes(item?.id)
-          console.log({isBookmarked},item.title)
+          
           return (
             <NewsItem
               {...item}

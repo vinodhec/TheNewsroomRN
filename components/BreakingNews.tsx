@@ -8,15 +8,15 @@ import {selectGlobalValue} from '../features/global/globalSlice';
 import FirestoreService from '../firebase/firestoreService';
 import { COLLECTIONS } from '../constants/collections';
 import useUpdateGlobal from '../hooks/useUpdateGlobal';
-
 const BreakingNews = ({imageUrl}) => {
   const breaking: any = useAppSelector(selectGlobalValue('breaking'));
   const updateValue = useUpdateGlobal();
+ 
   const [fallBack, setFallBack] = useState(
     breaking?.imageUrl ??
       'https://andersnoren.se/themes/koji/wp-content/themes/koji/assets/images/default-fallback-image.png',
   );
-  console.log(breaking);
+  
 
   if (!breaking) {
     return;

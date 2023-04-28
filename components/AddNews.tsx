@@ -55,8 +55,8 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
   const values = watch();
 
   const onSubmit = async values => {
-    console.log('add group', {values});
-    console.log({values});
+    
+    
     const imageUrl = await FirebaseStorageService.uploadSingleImage(image);
 
     const groupValues = {
@@ -138,7 +138,7 @@ const AddNews = ({navigation}) => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useAppDispatch();
-const updateValue = useUpdateGlobal();
+
   const values = watch();
   const [edit, setEdit] = useState(false);
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
@@ -147,7 +147,7 @@ const updateValue = useUpdateGlobal();
   
   const [image, setImage] = useState<any>();
   const [isVideo, setIsVideo] = useState(false);
-  console.log({editNews})
+  
   useEffect(()=>{
     if (editNews) {
       reset(editNews);
@@ -174,14 +174,14 @@ const updateValue = useUpdateGlobal();
     }
     if(data.category ===BreakingNewsLabel){
 
-      console.log('This is a breaking news');
+      
       const breakingValues = pick(values, ['title','content','imageUrl'])
       const {path} = await FirestoreService.createDocument(COLLECTIONS.BREAKING,breakingValues )
       dispatch(update({valueType:'breaking', value:{...breakingValues,id:path.replace(COLLECTIONS.GROUPS,'')}} as any))
       return 
     }
     
-    console.log({values,edit})
+    
     if (edit) {
      
       

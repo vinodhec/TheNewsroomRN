@@ -132,7 +132,7 @@ const getQueries = (collectionName, options) => {
         formattedQueries.push(startAfter(cursorId))
     }
 
-console.log({formattedQueries})
+
 
     let collectionRef = dbQuery(getCollectionRef(collectionName, isCollectionGroup), ...formattedQueries)
 
@@ -245,7 +245,7 @@ const getDocuments = (collectionName, options): any => {
 
 
 // getDocumentByID('news', '00nLX4VKNNuBd3qNjZI7').then((data) => {
-//    console.log({data})
+//    
 // })
 
 // createDocument('Properties', { city: 'Chennai', location: 'Madipakkam', propertyType: 'Appartment / Flat' }).then((data) => {
