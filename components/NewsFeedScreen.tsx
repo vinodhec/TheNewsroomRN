@@ -15,14 +15,17 @@ import PressableOpacity from './PressableOpacity';
 import { COLLECTIONS } from '../constants/collections';
 import moment from 'moment';
 import BreakingNews from './BreakingNews';
+import useSelectGlobal from '../hooks/useSelectGlobal';
+import useUpdateGlobal from '../hooks/useUpdateGlobal';
 
 const NewsFeedScreen = ({route,navigation}) => {
   
   const temp = route.params?.category;
   const groups = route.params?.groups;
   const id = route.params?.id;
+  const updateValue = useUpdateGlobal()
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
-
+  const newsDeleted = useSelectGlobal('newsDeleted');
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
   const dispatch = useAppDispatch();
   const [speechStatus, setSpeechStatus] = useState('stopped');
@@ -63,6 +66,13 @@ const NewsFeedScreen = ({route,navigation}) => {
     );
   };
 
+  useEffect(()=>{
+    console.log({newsDeleted})
+    if(newsDeleted){
+      updateValue('newsDeleted',null)
+    }
+
+  },[newsDeleted])
   useEffect(() => {
 
     getHistoryDetails(moment().format('MM-DD'))
@@ -90,9 +100,10 @@ const NewsFeedScreen = ({route,navigation}) => {
         }}>
         <Icon name="ios-add-circle-sharp" color={COLORS.primary} size={80} />
       </PressableOpacity>}
-      <LazyLoad
+   {!newsDeleted &&   <LazyLoad
         collectionName={COLLECTIONS.NEWS}
        customIds ={bookmarks}
+       
        isCustom={route.params.isCustom}
         // options={{customIds:bookmarks, isCustom:true}}
         options={{limit: 5, query: [['category', '==', category],['groups', '==', groups?.id],['id', '==', id]]}}
@@ -109,7 +120,7 @@ const NewsFeedScreen = ({route,navigation}) => {
               isBookmarked={isBookmarked}
               ></NewsItem>
           );
-        }}></LazyLoad>
+        }}></LazyLoad>}
     </StyledView>
     // <FlatList
     //   data={newsItems}

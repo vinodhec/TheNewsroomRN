@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, ToastAndroid, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PressableOpacity from './PressableOpacity';
@@ -11,15 +11,19 @@ import {COLLECTIONS} from '../constants/collections';
 import {useNavigation} from '@react-navigation/native';
 import {useAppDispatch} from '../app/hooks';
 import {update} from '../features/global/globalSlice';
+import useUpdateGlobal from '../hooks/useUpdateGlobal';
 const iconSizes = {size: 22, color: COLORS.primary};
 const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
-  const {id, content, imageUrl} = news ||{};
-  // 
+  const {id, content,title, imageUrl} = news ||{};
+  //
+  const updateValue= useUpdateGlobal() 
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
-  const deleteNews = id => {
+  const deleteNews = () => {
     
     FirestoreService.deleteDocument(COLLECTIONS.NEWS, id);
+    ToastAndroid.show(`${title} is deleted`, ToastAndroid.LONG)
+    updateValue('newsDeleted',id)
   };
 
   const shareNews = async (isFromWhatsapp = false) => {
@@ -62,7 +66,7 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
 
   useEffect(() => {
     setIconList(() => {
-      if (!iconList.some(({name}) => name == 'trash') && false) {
+      
         return [
           ...iconFactory,
           {name: 'trash', onPress: deleteNews},
@@ -70,14 +74,12 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
             name: 'md-create',
             onPress: () => {
               
-              // dispatch(update({valueType:'editNews',value:omit(news,['timestamp'])} as any))
+              dispatch(update({valueType:'editNews',value:omit(news,['timestamp'])} as any))
               navigation.navigate(ROUTES.ADD);
             },
           },
         ];
-      } else {
-        return [...iconFactory];
-      }
+      
     });
   }, [isBookmarked]);
 
