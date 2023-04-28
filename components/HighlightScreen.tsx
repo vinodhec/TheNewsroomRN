@@ -14,6 +14,7 @@ const HighlightScreen = ({navigation}) => {
     <StyledView>
       <LazyLoad
         collectionName={COLLECTIONS.NEWS}
+        
         transformItems={items => {
           return map(
             groupBy(items, item =>

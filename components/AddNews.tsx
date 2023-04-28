@@ -10,7 +10,7 @@ import {
   Modal,
   Pressable,
 } from 'react-native';
-import {v4 as uuidv4} from 'uuid';
+
 import React, {useEffect, useState} from 'react';
 import {StyledView} from './StyledComponents';
 import {useController, useForm} from 'react-hook-form';
@@ -21,11 +21,12 @@ import {ScrollView} from 'react-native-gesture-handler';
 import PressableOpacity from './PressableOpacity';
 import FirestoreService from '../firebase/firestoreService';
 import {COLLECTIONS} from '../constants/collections';
-import {ROUTES, STORAGE_PATH} from '../constants';
+import {BreakingNewsLabel, ROUTES, STORAGE_PATH} from '../constants';
 import {launchImageLibrary} from 'react-native-image-picker';
 import FirebaseStorageService from '../firebase/firebaseStorageService';
-
+import {pick} from 'lodash';
 import UploadImage from './UploadImage';
+import useUpdateGlobal from '../hooks/useUpdateGlobal';
 
 const Input = fields => {
   const {name, control, label, ...others} = fields;
@@ -137,7 +138,7 @@ const AddNews = ({navigation}) => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useAppDispatch();
-
+const updateValue = useUpdateGlobal();
   const values = watch();
   const [edit, setEdit] = useState(false);
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
@@ -171,6 +172,15 @@ const AddNews = ({navigation}) => {
     if(image){
       values = {...data, imageUrl, isVideo};
     }
+    if(data.category ===BreakingNewsLabel){
+
+      console.log('This is a breaking news');
+      const breakingValues = pick(values, ['title','content','imageUrl'])
+      const {path} = await FirestoreService.createDocument(COLLECTIONS.BREAKING,breakingValues )
+      dispatch(update({valueType:'breaking', value:{...breakingValues,id:path.replace(COLLECTIONS.GROUPS,'')}} as any))
+      return 
+    }
+    
     console.log({values,edit})
     if (edit) {
      
@@ -216,8 +226,7 @@ const AddNews = ({navigation}) => {
               selectedTextStyle={styles.selectedTextStyle}
               inputSearchStyle={styles.inputSearchStyle}
               iconStyle={styles.iconStyle}
-              data={categories
-                .slice(1)
+              data={['Breaking',...categories?.slice(1)]
                 .map(cate => ({label: cate, value: cate}))}
               search
               maxHeight={300}

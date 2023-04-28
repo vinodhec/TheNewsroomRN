@@ -2,6 +2,7 @@ export const COLLECTIONS={
     GROUPS:'groups',
     NEWS:'newstest',
     HIGHLIGHTS:'highlightstest',
-    CONTACTUS:'contactus'
+    CONTACTUS:'contactus',
+    BREAKING:'breaking'
     
 }

@@ -86,7 +86,9 @@ const LazyLoad = ({
   return (
     <FlatList
       data={transformItems ? transformItems(items) : items}
-      keyExtractor={(item: any) => item?.id}
+      keyExtractor={(item: any) => {
+        // console.log({item})
+        return item?.id || item?.date}}
       // onViewableItemsChanged={({ viewableItems: vItems }) => {
       //   viewableItems.value = vItems;
       // }}

@@ -36,7 +36,7 @@ const Splash = ({navigation}) => {
       <SvgUri
     width="100%"
     height="100%"
-    uri={require('./../assets/logo.svg')}
+    source={require('./../assets/logo.svg')}
   />
        {!dayinhistory.content &&<ActivityIndicator></ActivityIndicator>}
         {dayinhistory.content && <View>

@@ -83,7 +83,7 @@ console.log({temp,groups,id},route.params)
           alignItems: 'center',
           width: 80,
           position: 'absolute',
-          bottom: 80,
+          bottom: 260,
           right: 10,
           height: 80,
           zIndex: 1028,

@@ -3,6 +3,7 @@ import { MiddlewareArray, createAsyncThunk, createSlice } from '@reduxjs/toolkit
 
 export interface GlobalState {
   bookmarks:string[],
+  breaking:any;
   categories:string[],
   groups:string[],
   showNotifications:boolean,
@@ -13,6 +14,7 @@ export interface GlobalState {
 
 const initialState: GlobalState = {
   bookmarks:[],
+  breaking:null,
   showNotifications:true,
   editNews:null,
   autoPlayVideos:true,
