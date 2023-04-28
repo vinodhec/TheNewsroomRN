@@ -13,7 +13,8 @@ import {useAppDispatch} from '../app/hooks';
 import {update} from '../features/global/globalSlice';
 import useUpdateGlobal from '../hooks/useUpdateGlobal';
 const iconSizes = {size: 22, color: COLORS.primary};
-const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
+const ShareIcon = (props) => {
+  const {isBookmarked, addToBookMark, news,viewref} = props;
   const {id, content,title, imageUrl} = news ||{};
   //
   const updateValue= useUpdateGlobal() 
@@ -27,6 +28,12 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
   };
 
   const shareNews = async (isFromWhatsapp = false) => {
+    let uri;
+    if(viewref){
+       uri = await viewref.current?.capture()
+       console.log({uri},viewref.current)
+    }
+    
     let image;
     if (imageUrl) {
       image = await getBase64FromURL(imageUrl);
@@ -34,8 +41,8 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
 
     const shareOptions = {
       title: 'Share via',
-      message: content?.slice(0, 100) + '\nThe Newsroom',
-      url: image,
+      message:viewref ? "The NewsRoom" : content?.slice(0, 100) + '\nThe Newsroom',
+      url: viewref ? uri :image,
       type: 'image/*',
       social: Share.Social.WHATSAPP,
     };
@@ -66,7 +73,9 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
 
   useEffect(() => {
     setIconList(() => {
-      
+      if(!addToBookMark){
+        return [...iconFactory]
+      }
         return [
           ...iconFactory,
           {name: 'trash', onPress: deleteNews},
@@ -74,7 +83,7 @@ const ShareIcon = ({isBookmarked, addToBookMark, news}) => {
             name: 'md-create',
             onPress: () => {
               
-              dispatch(update({valueType:'editNews',value:omit(news,['timestamp'])} as any))
+              updateValue('editNews',omit(news,['addToBookMark']));
               navigation.navigate(ROUTES.ADD);
             },
           },

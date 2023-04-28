@@ -1,6 +1,6 @@
 import { MiddlewareArray, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-
+import {omit} from 'lodash'
 export interface GlobalState {
   bookmarks:string[],
   breaking:any;
@@ -63,7 +63,7 @@ export const globalSlice = createSlice({
     update: (state: any, { payload }: any) => {
       
       const { valueType, value } = payload
-      state[valueType] = value;
+      state[valueType] = omit(value,['timestamp','updatedTimestamp']);
       
       return state
 
@@ -98,3 +98,5 @@ export const selectGlobalValue = (type: any) => {
 // Here's an example of conditionally dispatching actions based on current state.
 
 export default globalSlice.reducer;
+
+

@@ -90,7 +90,7 @@ const AddGroup = ({modalVisible, setModalVisible, groups, dispatch}) => {
         Alert.alert('Modal has been closed.');
         setModalVisible(!modalVisible);
       }}>
-      <ScrollView className=" align-center p-4">
+      <ScrollView className=" align-center p-4" keyboardShouldPersistTaps='handled'>
         {[
           {name: 'label', label: 'Tag Name'},
 
@@ -172,6 +172,7 @@ const AddNews = ({navigation}) => {
     if(image){
       values = {...data, imageUrl, isVideo};
     }
+    console.log('add news ', values);
     if(data.category ===BreakingNewsLabel){
 
       
@@ -214,6 +215,7 @@ const AddNews = ({navigation}) => {
 
   return (
     <ScrollView
+    keyboardShouldPersistTaps='handled'
       className=" align-center p-4"
       contentContainerStyle={{paddingBottom: 100}}>
       {[
@@ -345,7 +347,7 @@ const AddNews = ({navigation}) => {
       <Pressable
         className="bg-red-600 p-2 rounded-sm justify-center items-center"
         onPress={handleSubmit(onSubmit)}>
-        <Text className="text-white">Add News</Text>
+        <Text className="text-white">{edit?   'Update' :'Add'} News</Text>
       </Pressable>
       <AddGroup
         modalVisible={modalVisible}

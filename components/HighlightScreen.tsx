@@ -1,5 +1,5 @@
 import {View, Text} from 'react-native';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {COLLECTIONS} from '../constants/collections';
 import {StyledView} from './StyledComponents';
 import LazyLoad from './LazyLoad';
@@ -8,15 +8,18 @@ import moment from 'moment';
 import ShareIcon from './ShareIcon';
 import PressableOpacity from './PressableOpacity';
 import { ROUTES } from '../constants';
+import ViewShot from 'react-native-view-shot';
+import HighlightItem from './HighlightItem';
 
 const HighlightScreen = ({navigation}) => {
+  
   return (
     <StyledView>
       <LazyLoad
         collectionName={COLLECTIONS.NEWS}
         
         transformItems={items => {
-          return map(
+          const updatedItems = map(
             groupBy(items, item =>
               moment(item?.timestamp?.toDate())?.format('MM/DD/YYYY'),
             ),
@@ -25,49 +28,14 @@ const HighlightScreen = ({navigation}) => {
               return {value, date};
             },
           );
+
+          return updatedItems
         }}
         options={{limit: 5, query: [['showHighlight', '==', true]]}}
         updateItems={() => {}}
-        content={({item}) => {
-          
+        content={({item,index}) => {
           return (
-            <StyledView className="">
-              <Text
-                className="self-center mb-4"
-                style={{
-                  paddingVertical:4,
-                  paddingHorizontal:12,
-                  backgroundColor: 'rgba(200, 33, 40, 0.1)',
-                  borderRadius: 29,
-                }}>
-                {item?.date}
-              </Text>
-              <StyledView className="bg-white mb-5 p-2">
-                {item?.value?.map(({highlight, id}) => {
-                  return (
-                    <PressableOpacity onPress={()=>{
-                      navigation.navigate(ROUTES.NEWSFEED_ID,{id})
-                    }}>
-                    <Text
-                    className='text-black'
-                      style={{
-                        lineHeight: 18,
-                        marginTop: 16,
-                       
-                      }}
-                      key={id}>
-                      {highlight}
-                    </Text>
-                    </PressableOpacity>
-                  );
-                })}
-                 <View  className='self-end' style={{width:60}}>
-              <ShareIcon isBookmarked={undefined} addToBookMark={undefined} news={undefined}  ></ShareIcon>
-              </View>
-              
-              </StyledView>
-             
-            </StyledView>
+            <HighlightItem item={item}></HighlightItem>
           );
         }}></LazyLoad>
     </StyledView>
