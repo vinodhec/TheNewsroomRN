@@ -67,7 +67,7 @@ const NewsFeedScreen = ({route,navigation}) => {
   };
 
   useEffect(()=>{
-    console.log({newsDeleted})
+    
     if(newsDeleted){
       updateValue('newsDeleted',null)
     }

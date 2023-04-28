@@ -172,7 +172,7 @@ const AddNews = ({navigation}) => {
     if(image){
       values = {...data, imageUrl, isVideo};
     }
-    console.log('add news ', values);
+    
     if(data.category ===BreakingNewsLabel){
 
       

@@ -31,7 +31,7 @@ const ShareIcon = (props) => {
     let uri;
     if(viewref){
        uri = await viewref.current?.capture()
-       console.log({uri},viewref.current)
+       
     }
     
     let image;

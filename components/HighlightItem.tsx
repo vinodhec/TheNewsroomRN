@@ -9,7 +9,7 @@ import { StyledView } from './StyledComponents';
 import { useNavigation } from '@react-navigation/native';
 
 const HighlightItem = ({item}) => {
-    console.log({item})
+    
     const ref = useRef();
 const navigation  = useNavigation()
   return (
