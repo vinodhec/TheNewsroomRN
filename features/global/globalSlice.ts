@@ -1,10 +1,11 @@
 import { MiddlewareArray, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import {omit} from 'lodash'
+import reject from 'lodash/reject'
 export interface GlobalState {
   bookmarks:string[],
   breaking:any;
   categories:string[],
+  isAdmin:boolean,
   groups:string[],
   showNotifications:boolean,
   autoPlayVideos:boolean,
@@ -18,6 +19,7 @@ const initialState: GlobalState = {
   showNotifications:true,
   editNews:null,
   autoPlayVideos:true,
+  isAdmin:false,
   defaultSharingApp:'Whatsapp',
   categories:[
     'All',
@@ -63,11 +65,23 @@ export const globalSlice = createSlice({
     update: (state: any, { payload }: any) => {
       
       const { valueType, value } = payload
-      state[valueType] = omit(value,['timestamp','updatedTimestamp']);
+      state[valueType] = value;
       
       return state
 
     },
+    toggleBookmarks:(state,{payload:{id}})=>{
+console.log({id},state['bookmarks'])
+      if(state['bookmarks'] .includes(id)){
+        state['bookmarks'] = state['bookmarks'].filter(a=>a!==id)
+      }
+      else
+      {
+        state['bookmarks'] = state['bookmarks'].concat(id)
+      }
+return state
+
+    }
 
   }, extraReducers: (builder) => {
     builder
@@ -84,7 +98,7 @@ export const globalSlice = createSlice({
 
 });
 
-export const { update } = globalSlice.actions;
+export const { update ,toggleBookmarks} = globalSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

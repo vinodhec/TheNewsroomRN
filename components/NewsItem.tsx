@@ -6,6 +6,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Ring from './Ring';
 import Tts from 'react-native-tts';
 
+import {toggleBookmarks} from '../features/global/globalSlice';
 
 
 import PressableOpacity from './PressableOpacity';
@@ -27,7 +28,7 @@ const NewsItem = props => {
     
     source,
     caption,
-    addToBookMark,
+    
     speechStatus,
     id,
     isVideo,
@@ -36,7 +37,7 @@ const NewsItem = props => {
   } = props ?? {};
   const ref = useRef();
   // usePreventScreenCapture();
-  
+  const dispatch = useAppDispatch();
 
   const [speakStatus, setSpeakStatus] = useState('');
   
@@ -150,7 +151,10 @@ const NewsItem = props => {
             {caption}
           </Text>
         </PressableOpacity>
-        <ShareIcon isBookmarked={isBookmarked} addToBookMark={addToBookMark} news={props}></ShareIcon>
+        <ShareIcon isBookmarked={isBookmarked} addToBookMark={()=>{
+          console.log('toggle')
+          dispatch(toggleBookmarks({id}))
+          }} news={props}></ShareIcon>
       </StyledView>
     </StyledView>
   );

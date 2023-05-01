@@ -23,11 +23,12 @@ const NewsFeedScreen = ({route,navigation}) => {
   const temp = route.params?.category;
   const groups = route.params?.groups;
   const id = route.params?.id;
-  const updateValue = useUpdateGlobal()
+  const updateValue = useUpdateGlobal();
+  const dispatch = useAppDispatch();
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
+  console.log({bookmarks})
   const newsDeleted = useSelectGlobal('newsDeleted');
   const [category, setCategory] = useState(temp === 'All' ? '' : temp);
-  const dispatch = useAppDispatch();
   const [speechStatus, setSpeechStatus] = useState('stopped');
   useEffect(() => {
     Tts.addEventListener('tts-start', event => {
@@ -48,24 +49,7 @@ const NewsFeedScreen = ({route,navigation}) => {
   }, []);
 
 
-  const addToBookMark = id => {
-    
-    let value;
-    if (bookmarks.includes(id)) {
-      value = bookmarks.filter(bid => bid != id);
-    } else {
-      value = [...bookmarks, id];
-    }
-    
-    dispatch(
-      update({
-        valueType: 'bookmarks',
-
-        value,
-      } as any),
-    );
-  };
-
+  
   useEffect(()=>{
     
     if(newsDeleted){
@@ -109,13 +93,19 @@ const NewsFeedScreen = ({route,navigation}) => {
         options={{limit: 5, query: [['category', '==', category],['groups', '==', groups?.id],['id', '==', id]]}}
         updateItems={() => {}}
         content={({item}) => {
-          const isBookmarked=bookmarks?.includes(item?.id)
+         let isBookmarked;
+          try {
+             isBookmarked=bookmarks?.includes(item?.id)  
+          } catch (error) {
+            console.log({bookmarks})
+            console.error(error)
+          }
+          
           
           return (
             <NewsItem
               {...item}
               key={item?.id}
-              addToBookMark={addToBookMark}
               speechStatus={speechStatus}
               isBookmarked={isBookmarked}
               ></NewsItem>
