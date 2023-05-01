@@ -179,6 +179,14 @@ const AddNews = ({navigation}) => {
       const breakingValues = pick(values, ['title','content','imageUrl'])
       const {path} = await FirestoreService.createDocument(COLLECTIONS.BREAKING,breakingValues )
       dispatch(update({valueType:'breaking', value:{...breakingValues,id:path.replace(COLLECTIONS.GROUPS,'')}} as any))
+      Alert.alert('Success', `Breaking News has been posted`, [
+        {
+          text: 'Ok',
+          onPress: () => {
+            navigation.push(ROUTES.NEWSFEED);
+          },
+        },
+      ]);
       return 
     }
     
