@@ -63,4 +63,3 @@ const navigation  = useNavigation()
 export default HighlightItem
 
 const styles = StyleSheet.create({})
-

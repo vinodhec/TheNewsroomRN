@@ -27,13 +27,7 @@ const App = () => {
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: 50,
-    flexGrow: 1,
-    borderWidth: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+
+
+
+    // echo "export PATH=\$PATH:/Users/${USER}/Library/Android/sdk/platform-tools/" >> ~/.bash_profile && source ~/.bash_profile

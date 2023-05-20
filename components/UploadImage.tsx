@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {launchImageLibrary} from 'react-native-image-picker';
 import PressableOpacity from './PressableOpacity';
 import Video from 'react-native-video';
+import { VideoPlay } from './VideoPlay';
 
 const UploadImage = ({setImage, image, setIsVideo}) => {
   const uploadImageFromLib = async () => {
@@ -12,6 +13,7 @@ const UploadImage = ({setImage, image, setIsVideo}) => {
   useEffect(() => {
     setIsVideo(image?.assets?.[0]?.type?.includes('video'))
   }, [image]);
+  const video = React.useRef(null);
 
   return (
     <View>
@@ -34,16 +36,8 @@ const UploadImage = ({setImage, image, setIsVideo}) => {
               />
             )}
             {type?.includes('video') && (
-              <Video
-                source={{uri: uri}} // Can be a URL or a local file.
-                // Store reference
-                //    onBuffer={this.onBuffer}                // Callback when remote video is buffering
-                //    onError={this.videoError}               // Callback when video cannot be loaded
-                style={styles.image}
-                controls={true}
-                fullscreen={true}
-              />
-            )}
+                      <VideoPlay imageUrl={uri} video={video}></VideoPlay>)}
+
           </View>
         ))}
 

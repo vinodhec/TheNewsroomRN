@@ -1,23 +1,28 @@
-import {Image, Linking, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useRef, useState} from 'react';
-import {COLORS} from '../constants';
+import { Dimensions, Image, Linking, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { COLORS } from '../constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Ring from './Ring';
 import Tts from 'react-native-tts';
 
-import {toggleBookmarks} from '../features/global/globalSlice';
+import { toggleBookmarks } from '../features/global/globalSlice';
 
 
 import PressableOpacity from './PressableOpacity';
-import {StyledView} from './StyledComponents';
+import { StyledView } from './StyledComponents';
 import ShareIcon from './ShareIcon';
 import moment from 'moment';
 import Video from 'react-native-video';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { selectGlobalValue, update } from '../features/global/globalSlice';
 import { usePreventScreenCapture } from 'expo-screen-capture';
-const iconSizes = {size: 22, color: COLORS.primary};
+import { ResizeMode } from 'expo-av';
+import { VideoPlay } from './VideoPlay';
+const iconSizes = { size: 22, color: COLORS.primary };
+
+
+
 const NewsItem = props => {
   const {
     title,
@@ -25,10 +30,10 @@ const NewsItem = props => {
     imageUrl,
     category,
     isBookmarked,
-    
+
     source,
     caption,
-    
+
     speechStatus,
     id,
     isVideo,
@@ -40,9 +45,9 @@ const NewsItem = props => {
   const dispatch = useAppDispatch();
 
   const [speakStatus, setSpeakStatus] = useState('');
-  
-  
-  
+
+  // console.log(Dimensions.get('screen').width);
+
   useEffect(() => {
     if (
       ['cancelled', 'stopped'].includes(speechStatus) &&
@@ -56,7 +61,7 @@ const NewsItem = props => {
     Tts.stop();
   };
 
-  
+
 
   const readText = async () => {
     stopText();
@@ -68,6 +73,9 @@ const NewsItem = props => {
 
     // setSpeakStatus('stopped');
   };
+
+  const video = React.useRef(null);
+
   // backgroundColor: COLORS.white,
   // marginBottom: 16,
   // padding: 16,
@@ -87,21 +95,21 @@ const NewsItem = props => {
       <Text className="text-black font-black mb-0 dark:text-white">{title}</Text>
 
       <View
-      className='mt-0'
+        className='mt-0'
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
         <Text className="text-red-500 text-xs">{category} | {moment(timestamp.toDate()).calendar(
-         {
-          sameDay: 'hh:mm A',
-          nextDay: '[Tomorrow]',
-          nextWeek: 'dddd',
-          lastDay: '[Yesterday]',
-          lastWeek: '[Last] dddd',
-          sameElse: 'DD/MM/YYYY'
-      })}</Text>
+          {
+            sameDay: 'hh:mm A',
+            nextDay: '[Tomorrow]',
+            nextWeek: 'dddd',
+            lastDay: '[Yesterday]',
+            lastWeek: '[Last] dddd',
+            sameElse: 'DD/MM/YYYY'
+          })}</Text>
 
         <PressableOpacity
           onPress={() => {
@@ -126,16 +134,20 @@ const NewsItem = props => {
 
       {imageUrl && !isVideo && (
         <Image
-          style={{width: '100%', height: 200, marginTop: 12}}
-          source={{uri: imageUrl}}></Image>
+          style={{ width: '100%', height: 200, marginTop: 12 }}
+          source={{ uri: imageUrl }}></Image>
       )}
-       {/* {imageUrl && isVideo && (<Video paused controls className="items-center mx-auto border-1"  */}
-       {/* style={styles.backgroundVideo} */}
+      {/* {imageUrl && isVideo && (<Video paused controls className="items-center mx-auto border-1"  */}
+      {/* style={styles.backgroundVideo} */}
       {/* source={{uri:imageUrl}} */}
       {/* ></Video>)}  */}
+      {imageUrl && isVideo &&
+
+        <VideoPlay imageUrl={imageUrl} video={video}></VideoPlay>
+      }
       <Text className='text-black dark:text-white' style={styles.content}>{content}</Text>
       <StyledView
-       className='mt-4 flex-row'
+        className='mt-4 flex-row'
         style={{
           flexDirection: 'row',
           marginTop: 16,
@@ -143,18 +155,18 @@ const NewsItem = props => {
         }}>
         <PressableOpacity
           onPress={() => {
-            
+
             Linking.openURL(source);
           }}>
-          <Text style={[styles.category, {textDecorationLine: 'underline'}]}>
+          <Text style={[styles.category, { textDecorationLine: 'underline' }]}>
             {' '}
             {caption}
           </Text>
         </PressableOpacity>
-        <ShareIcon isBookmarked={isBookmarked} addToBookMark={()=>{
+        <ShareIcon isBookmarked={isBookmarked} addToBookMark={() => {
           console.log('toggle')
-          dispatch(toggleBookmarks({id}))
-          }} news={props}></ShareIcon>
+          dispatch(toggleBookmarks({ id }))
+        }} news={props}></ShareIcon>
       </StyledView>
     </StyledView>
   );
@@ -164,12 +176,12 @@ export default NewsItem;
 
 const styles = StyleSheet.create({
   backgroundVideo: {
-    height:200,
-    width:200,
-    
+    height: 200,
+    width: 200,
+
   },
   newsContainer: {
-    
+
     shadowOffset: {
       width: 0,
       height: 10,
@@ -188,7 +200,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     marginTop: 12,
 
-    
+
   },
   title: {
     color: '#212329',

@@ -7,7 +7,7 @@
     "android:vishwa": "react-native run-android --active-arch-only --deviceId=b9e868e40408",
     "ios": "react-native run-ios",
     "lint": "eslint .",
-    "build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && gradlew assembleDebug",
+    "build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && ./gradlew assembleDebug",
     "start": "react-native start",
     "test": "jest"
   },
@@ -19,6 +19,7 @@
     "@react-navigation/stack": "^6.3.16",
     "@reduxjs/toolkit": "^1.9.3",
     "expo": "^48.0.0",
+    "expo-av": "~13.2.1",
     "expo-local-authentication": "^13.3.0",
     "expo-screen-capture": "~5.1.1",
     "firebase": "^9.17.1",

@@ -26,17 +26,17 @@ const Splash = ({navigation}) => {
   useEffect(() => {
 
     
-      LocalAuthentication.authenticateAsync().then((data)=>{
+    //   LocalAuthentication.authenticateAsync().then((data)=>{
         
-    if(!data.success){
-      BackHandler.exitApp();
+    // if(!data.success){
+    //   BackHandler.exitApp();
 
-    }
+    // }
     getHistoryDetails(moment().format('MM-DD')).then((data)=>{
       const text=  data.split("^&!32$5_4'")
       setDayinhistory({content:text?.[0], date:text?.[1]})
     })
-  })
+  // })
 
   }, []);
 
