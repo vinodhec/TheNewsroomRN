@@ -1,0 +1,23 @@
+export default {
+    HOME:'Home',
+    SPLASH:'Splash',
+    HIGHLIGHT:'Highlight',
+    GROUP:'Group',
+    MENU:'Menu',
+    ADD:'AddNews',
+    HIGHLIGHT_LIST:'HighlightList',
+    NEWSFEED_ID:'Newsfeed_ID',
+    NEWSFEED:'Newsfeed',
+    GROUPDETAILS:'Groupdetails',
+    GROUPSUMMARY:'Groupsummary',
+    BOOKMARKS:'Bookmarks',
+    ABOUTUS:'Aboutus',
+    THEMES:'Themes',
+    SETTINGS:'Settings',
+    CONTACT:'Contact',
+    FEEDBACK:'Feedback',
+    PRIVACY:'Privacy',
+    ONTHISDAY:'Onthisday',
+    MENULIST:'Menulist',
+    SEARCH:'search'
+}
