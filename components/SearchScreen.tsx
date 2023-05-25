@@ -1,24 +1,24 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {useAppDispatch, useAppSelector} from '../app/hooks';
-import {selectGlobalValue, update} from '../features/global/globalSlice';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { selectGlobalValue, update } from '../features/global/globalSlice';
 import PressableOpacity from './PressableOpacity';
-import {StyledView} from './StyledComponents';
-import {ScrollView} from 'react-native-gesture-handler';
+import { StyledView } from './StyledComponents';
+import { ScrollView } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import NewsFeedScreen from './NewsFeedScreen';
 import NewsItem from './NewsItem';
-import {COLLECTIONS} from '../constants/collections';
+import { COLLECTIONS } from '../constants/collections';
 import LazyLoad from './LazyLoad';
 import Tts from 'react-native-tts';
 import DatePicker from 'react-native-date-picker';
-
+import moment from 'moment';
 const SearchScreen = () => {
   const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
   const dispatch = useAppDispatch();
 
   const [date, setDate] = useState(new Date());
-  const [query, setQuery] = useState<any>([]);
+  const [query, setQuery] = useState<any>(undefined);
   const [date1, setDate1] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState();
@@ -26,13 +26,14 @@ const SearchScreen = () => {
   const [speechStatus, setSpeechStatus] = useState('stopped');
 
   useEffect(() => {
-    setQuery(query => {
-      if (selectedCategory) {
-        return [['category', '==', selectedCategory]];
-      } else {
-        return [[]];
-      }
-    });
+    if (selectedCategory) {
+
+      setQuery(query => {
+        console.log({ selectedCategory })
+        return date1 ? [getSelectedCategoryQuery(), ...getDateQuery()] : [getSelectedCategoryQuery()]
+
+      });
+    }
   }, [selectedCategory]);
   useEffect(() => {
     Tts.addEventListener('tts-start', event => {
@@ -53,22 +54,75 @@ const SearchScreen = () => {
   }, []);
 
   useEffect(() => {
+    if(!['This Week','Last Week'].includes(selectedDate)){
     const temp = new Date(date.getTime());
     temp.setDate(temp.getDate() + 1);
     setDate1(temp);
-    
+    }
   }, [date]);
+  function getSelectedCategoryQuery() {
 
-  
-  const addToBookMark = id => {
+    return ['category', '==', selectedCategory];
+  }
+
+  function getDateQuery() {
+
+    return [["timestamp", ">=", (date)], ["timestamp", "<", (date1)]]
+  }
+  useEffect(() => {
+
+    if (date && date1) {
+      console.log({ date, date1 })
+      setQuery(query => {
+        return selectedCategory ? [getSelectedCategoryQuery(), ...getDateQuery()] : getDateQuery()
+        // return [["timestamp", ">=", moment(date).valueOf()], ["timestamp", "<", moment(date1).valueOf()]]
+
+      })
+    }
+  }, [date1])
+
+
+  useEffect(() => {
+    if (selectedDate === 'Today') {
+      const d = new Date();
+      d.setUTCHours(0, 0, 0, 0);
+
+      setDate(d);
+    }
+    else if (selectedDate ==='This Week'){
+
+    const d =  moment().startOf('week');
     
+    setDate(d.toDate())
+    const temp = new Date();
+    temp.setUTCHours(0,0,0,0);
+    temp.setDate(temp.getDate() + 1);
+    setDate1(temp);
+
+    }
+
+    else if(selectedDate === 'Last Week'){
+
+      const d =  moment().startOf('week').subtract(6,'days');;
+    
+      setDate(d.toDate())
+      const temp = moment().startOf('week').toDate();
+      setDate1(temp);
+      
+
+    }
+  }, [selectedDate])
+
+
+  const addToBookMark = id => {
+
     let value;
     if (bookmarks.includes(id)) {
       value = bookmarks.filter(bid => bid != id);
     } else {
       value = [...bookmarks, id];
     }
-    
+
     dispatch(
       update({
         valueType: 'bookmarks',
@@ -98,11 +152,11 @@ const SearchScreen = () => {
         }}
       />
       <View>
-        <Text className="text-black text-l mb-4">Filter by Category</Text>
+        <Text className="text-black text-l mb-4">Filter by Category1</Text>
         <ScrollView
           showsHorizontalScrollIndicator={false}
           className="flex-row  gap-4 border-1 "
-          contentContainerStyle={{justifyContent: 'center', borderWidth: 1}}
+          contentContainerStyle={{ justifyContent: 'center', borderWidth: 1 }}
           horizontal>
           {categories.slice(1).map((category, index) => {
             return (
@@ -149,7 +203,10 @@ const SearchScreen = () => {
             paddingHorizontal: 8,
           }}
           horizontal>
-          <Pressable onPress={() => setOpen(true)}>
+          <Pressable onPress={() => {
+            setOpen(true);
+            setSelectedDate(undefined)
+          }}>
             <StyledView
               className={
                 'items-center border-1 border-solid justify-center  ' +
@@ -162,7 +219,7 @@ const SearchScreen = () => {
                     'text-l p-2 capitalize items-center text-center ' +
                     'text-red-700'
                   }>
-                  Date Picker
+                  {date && !selectedDate ? moment(date).format('DD MMM YY') : 'Date Picker'}
                 </Text>
               </View>
             </StyledView>
@@ -174,6 +231,7 @@ const SearchScreen = () => {
                 key={index}
                 onPress={() => {
                   setSelectedDate(category);
+
                 }}>
                 <StyledView
                   className={
@@ -195,10 +253,10 @@ const SearchScreen = () => {
           })}
         </ScrollView>
       </View>
-      {selectedCategory && (
+      {query ? (
         <View>
           <View
-            style={{borderBottomWidth: 0.35, borderStyle: 'solid'}}
+            style={{ borderBottomWidth: 0.35, borderStyle: 'solid' }}
             className="mt-6"></View>
           <Text className="font-bold text-lg text-black-900 mt-2">
             Search Results
@@ -213,9 +271,9 @@ const SearchScreen = () => {
               limit: 5,
               query: query,
             }}
-            updateItems={() => {}}
-            content={({item}) => {
-              const isBookmarked=bookmarks?.includes(item?.id)
+            updateItems={() => { }}
+            content={({ item }) => {
+              const isBookmarked = bookmarks?.includes(item?.id)
 
               return (
                 <NewsItem
@@ -228,7 +286,7 @@ const SearchScreen = () => {
               );
             }}></LazyLoad>
         </View>
-      )}
+      ) : null}
     </View>
   );
 };

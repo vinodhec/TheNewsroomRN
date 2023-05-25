@@ -31,7 +31,7 @@ const LazyLoad = ({
   const [loading, setLoading] = useState(false);
   const [customCursorId, setCustomCursorId] = useState(0);
   const getQueryResults = (loadMore = false) => {
-    
+    console.log({loadMore})
     if (isCustom && customCursorId < customIds.length) {
       setLoading(true);
       FirestoreService.getDocuments(collectionName, {
@@ -59,6 +59,7 @@ const LazyLoad = ({
           setLoading(false);
           const {docs, cursorId} = results;
           
+          console.log(options,docs)
 
           setItems((pp: any) =>
              loadMore ? [...pp, ...docs] : docs,
@@ -74,7 +75,7 @@ const LazyLoad = ({
   //
 
   useEffect(() => {
-    
+    console.log(options)
     getQueryResults();
   }, [JSON.stringify(options)]);
 

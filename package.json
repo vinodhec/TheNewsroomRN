@@ -7,7 +7,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "android:build": "eas build --platform android --profile development --local"
+    "android:build": "eas build --platform android --profile development --local",
+    "android:build:test": "eas build --platform android --profile preview --local"
+
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.1",
