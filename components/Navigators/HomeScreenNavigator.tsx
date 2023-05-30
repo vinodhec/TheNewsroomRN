@@ -14,7 +14,7 @@ const HomeScreenNavigator = ({route}) => {
       <Stack.Screen
         name={ROUTES.NEWSFEED}
         component={TopTabNavigator}></Stack.Screen>
-      <Stack.Screen name={ROUTES.ADD} component={AddNews}></Stack.Screen>
+        <Stack.Screen name={ROUTES.ADD} component={AddNews}></Stack.Screen>
       
     </Stack.Navigator>
   );

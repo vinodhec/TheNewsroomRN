@@ -1,0 +1,136 @@
+{
+  "project_info": {
+    "project_number": "463401124803",
+    "firebase_url": "https://thenewsroom-f5e02.firebaseio.com",
+    "project_id": "thenewsroom-f5e02",
+    "storage_bucket": "thenewsroom-f5e02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463401124803:android:70e0f39921f09cfcdff376",
+        "android_client_info": {
+          "package_name": "com.TheNewsroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTUVeBvE8FgydvMvsFNFQw_pM7BXSZC6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "463401124803-gia8oinfgtsvugsklojj0nnhbpkbftg5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.nativescript.TheNewsRoom"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463401124803:android:06d20a34ed1e6504dff376",
+        "android_client_info": {
+          "package_name": "com.thenewsroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTUVeBvE8FgydvMvsFNFQw_pM7BXSZC6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "463401124803-gia8oinfgtsvugsklojj0nnhbpkbftg5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.nativescript.TheNewsRoom"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463401124803:android:48215bbd00d99469dff376",
+        "android_client_info": {
+          "package_name": "com.tvisoft.TheNewsRoom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463401124803-24k7adsauo32k379ovec4ivjq693l817.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tvisoft.TheNewsRoom",
+            "certificate_hash": "d0ba7666c9ee98d6c9fdc76d3ff324795a7000cc"
+          }
+        },
+        {
+          "client_id": "463401124803-9sibqucmviu9iinjl19mhpl6331cebes.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tvisoft.TheNewsRoom",
+            "certificate_hash": "af134c6ce59c6cff7f8b8d29f6d57e8eee4e429d"
+          }
+        },
+        {
+          "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTUVeBvE8FgydvMvsFNFQw_pM7BXSZC6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "463401124803-gia8oinfgtsvugsklojj0nnhbpkbftg5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.nativescript.TheNewsRoom"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7672557583201463~4529595427"
+    }
+  ],
+  "configuration_version": "1"
+}

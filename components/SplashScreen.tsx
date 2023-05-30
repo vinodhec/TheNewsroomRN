@@ -32,10 +32,10 @@ const Splash = ({navigation}) => {
     //   BackHandler.exitApp();
 
     // }
-    getHistoryDetails(moment().format('MM-DD')).then((data)=>{
-      const text=  data.split("^&!32$5_4'")
-      setDayinhistory({content:text?.[0], date:text?.[1]})
-    })
+    // getHistoryDetails(moment().format('MM-DD')).then((data)=>{
+    //   const text=  data.split("^&!32$5_4'")
+    //   setDayinhistory({content:text?.[0], date:text?.[1]})
+    // })
   // })
 
   }, []);

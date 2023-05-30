@@ -11,8 +11,8 @@ const db = initializeFirestore(app, {ignoreUndefinedProperties: true,experimenta
 
 
 
-if ( !disableEmulator && false) {
-    connectFirestoreEmulator(db, 'localhost', 8080);
+if ( !disableEmulator) {
+    connectFirestoreEmulator(db, '192.168.29.13', 8080);
 
 }
 
