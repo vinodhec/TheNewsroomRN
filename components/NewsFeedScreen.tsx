@@ -70,7 +70,7 @@ const NewsFeedScreen = ({route,navigation}) => {
       
     {!(groups?.id || id)  &&  <PressableOpacity
       onPress={()=>{
-        navigation.replace(ROUTES.ADD)
+        navigation.navigate(ROUTES.ADD)
       }}
         style={{
           justifyContent: 'center',
