@@ -25,6 +25,7 @@ async function onMessageReceived(message) {
       id: 'important',
       name: 'Important Notifications',
       badge: true,
+      
       importance: AndroidImportance.HIGH,
     });
     const { title, body } = message.data.notifee
@@ -35,7 +36,8 @@ async function onMessageReceived(message) {
       ,
       android: {
         // style: { type: AndroidStyle.BIGTEXT,text:body?.slice(0, 50),  },
-
+        timestamp: Date.now() , // 8 minutes ago
+        showTimestamp: true,
         largeIcon: 'https://firebasestorage.googleapis.com/v0/b/thenewsroom-f5e02.appspot.com/o/groups%2Frn_image_picker_lib_temp_b1dfa90a-db3b-49d2-a1bf-9446009a7c4b.jpg?alt=media&token=272f8f42-bbf3-4bb0-8025-2d457fb56482',
         channelId,
         color: COLORS.primary
