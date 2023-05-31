@@ -8,8 +8,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "android:build": "unset ANDROID_SDK_ROOT && eas build --platform android --profile development --local",
-    "android:build:test": "unset ANDROID_SDK_ROOT && eas build --platform android --profile preview --local",
-    "indeximport": "firebase firestore:indexes > firestore.indexes.json"
+    "android:build:test": "unset ANDROID_SDK_ROOT && eas build --platform android --profile preview --local && mv build*.apk test.apk && yarn distributetest",
+    "indeximport": "firebase firestore:indexes > firestore.indexes.json",
+    "distributetest":"firebase appdistribution:distribute test.apk --app 1:463401124803:android:70e0f39921f09cfcdff376 --release-notes \"bug fixes and improvements\" --groups \"newsroom-initial-version\""
 
   },
   "dependencies": {
