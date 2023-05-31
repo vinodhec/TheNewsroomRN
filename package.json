@@ -7,8 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "android:build": "eas build --platform android --profile development --local",
-    "android:build:test": "eas build --platform android --profile preview --local",
+    "android:build": "unset ANDROID_SDK_ROOT && eas build --platform android --profile development --local",
+    "android:build:test": "unset ANDROID_SDK_ROOT && eas build --platform android --profile preview --local",
     "indeximport": "firebase firestore:indexes > firestore.indexes.json"
 
   },

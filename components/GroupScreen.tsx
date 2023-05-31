@@ -7,15 +7,28 @@ import PressableOpacity from './PressableOpacity';
 import { ROUTES } from '../constants';
 import FirestoreService from '../firebase/firestoreService';
 
-const RenderOptions = ({ item, navigation,reload }) => {
+const RenderOptions = ({ item, navigation, reload }) => {
   const [fallBack, setFallBack] = useState(item.imageUrl ?? 'https://andersnoren.se/themes/koji/wp-content/themes/koji/assets/images/default-fallback-image.png');
   return (
     <PressableOpacity
       onLongPress={async () => {
-        await FirestoreService.deleteDocument(COLLECTIONS.GROUPS, item.id);
-        reload(true)
-        Alert.alert('Success', 'Group is deleted successfully')
-        
+        Alert.alert('Confirm Delete', 'Do you want to delete the Group?', [
+          
+          { text: 'No' },    
+          {
+          text: 'Yes',
+          onPress: async () => {
+            await FirestoreService.deleteDocument(COLLECTIONS.GROUPS, item.id);
+            reload(true)
+            Alert.alert('Success', 'Group is deleted successfully')
+
+          }
+         
+        }, 
+      
+      
+      
+      ])
       }}
       onPress={() => {
         navigation.navigate(ROUTES.GROUPDETAILS, { groups: item });
@@ -38,16 +51,16 @@ const RenderOptions = ({ item, navigation,reload }) => {
 
 const GroupScreen = ({ navigation }) => {
 
-const [reload, setReload] = useState(false)
+  const [reload, setReload] = useState(false)
   return (
     <StyledView className="dark:bg-black">
-     { !reload && <LazyLoad
+      {!reload && <LazyLoad
         collectionName={COLLECTIONS.GROUPS}
         options={{ limit: 5 }}
         updateItems={() => { }}
-        content={({ item }) => <RenderOptions item={item} navigation={navigation} reload={()=>{
+        content={({ item }) => <RenderOptions item={item} navigation={navigation} reload={() => {
           setReload(true);
-          setReload(()=>false)
+          setReload(() => false)
         }}></RenderOptions>}></LazyLoad>}
     </StyledView>
   );

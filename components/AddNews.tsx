@@ -162,6 +162,7 @@ const AddNews = ({ navigation }) => {
   const [isVideo, setIsVideo] = useState(false);
 
   useEffect(() => {
+    
     if (editNews) {
       reset(editNews);
       setEdit(true);
@@ -177,7 +178,7 @@ const AddNews = ({ navigation }) => {
       console.log('clean up')
    
     }
-  }, [])
+  }, [editNews])
 
   const [isLoading, setIsLoading] = useState(false)
 
