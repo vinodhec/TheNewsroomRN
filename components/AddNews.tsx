@@ -169,6 +169,10 @@ const AddNews = ({ navigation }) => {
       setIsVideo(editNews.isVideo);
 
     }
+    else{
+      reset({})
+      setEdit(false);
+    }
     () => {
       console.log('clean up')
    
@@ -213,8 +217,7 @@ const AddNews = ({ navigation }) => {
 
 
       await FirestoreService.updateDocument(COLLECTIONS.NEWS, data.id, values);
-      setEdit(false);
-      dispatch(update({ valueType: 'editNews', value: null } as any))
+     
     } else {
 
 
@@ -224,6 +227,8 @@ const AddNews = ({ navigation }) => {
       );
     }
     setIsLoading(false)
+    setEdit(false);
+    dispatch(update({ valueType: 'editNews', value: null } as any))
     Alert.alert('Success', `News has been ${edit ? 'updated' : 'posted'}`, [
       {
         text: 'Ok',

@@ -30,7 +30,7 @@ const SearchScreen = () => {
 
       setQuery(query => {
         console.log({ selectedCategory })
-        return date1 ? [getSelectedCategoryQuery(), ...getDateQuery()] : [getSelectedCategoryQuery()]
+        return (isCustomDateSelected || selectedDate ) ? [getSelectedCategoryQuery(), ...getDateQuery()] : [getSelectedCategoryQuery()]
 
       });
     }
@@ -71,7 +71,7 @@ const SearchScreen = () => {
   }
   useEffect(() => {
 
-    if (date && date1) {
+    if (date && date1 && (isCustomDateSelected || selectedDate )) {
       console.log({ date, date1 })
       setQuery(query => {
         return selectedCategory ? [getSelectedCategoryQuery(), ...getDateQuery()] : getDateQuery()
@@ -131,7 +131,7 @@ const SearchScreen = () => {
       } as any),
     );
   };
-
+const [isCustomDateSelected, setIsCustomDateSelected] = useState(false)
   const startOfToday = new Date();
   const bookmarks: any = useAppSelector(selectGlobalValue('bookmarks')) ?? [];
 
@@ -140,15 +140,19 @@ const SearchScreen = () => {
       <DatePicker
         modal
         open={open}
+        mode="date"
         date={date}
         onConfirm={date => {
           setOpen(false);
           date.setUTCHours(0, 0, 0, 0);
 
           setDate(date);
+          setIsCustomDateSelected(true);
         }}
         onCancel={() => {
           setOpen(false);
+          
+
         }}
       />
       <View>
@@ -219,7 +223,7 @@ const SearchScreen = () => {
                     'text-l p-2 capitalize items-center text-center ' +
                     'text-red-700'
                   }>
-                  {date && !selectedDate ? moment(date).format('DD MMM YY') : 'Date Picker'}
+                  {isCustomDateSelected && !selectedDate ? moment(date).format('DD MMM YY') : 'Date Picker'}
                 </Text>
               </View>
             </StyledView>
@@ -231,6 +235,7 @@ const SearchScreen = () => {
                 key={index}
                 onPress={() => {
                   setSelectedDate(category);
+                  setIsCustomDateSelected(false);
 
                 }}>
                 <StyledView
