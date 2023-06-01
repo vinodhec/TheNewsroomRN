@@ -23,33 +23,33 @@ const SplashNavigator = () => {
   const navigation = useNavigation();
   useEffect(() => {
 
-  // FirestoreService.getDocuments(COLLECTIONS.BREAKING, {
-  //     limit: 1,
-  //     orderBy:'timestamp',
-  //     orderByDir:'desc'
-  //   }).then(data => {
+  FirestoreService.getDocuments(COLLECTIONS.BREAKING, {
+      limit: 1,
+      orderBy:'timestamp',
+      orderByDir:'desc'
+    }).then(data => {
       
-  //     if(data?.length > 0){
-  //       dispatch(update({valueType: 'breaking', value: data?.[0]} as any));
-  //     }
+      if(data?.length > 0){
+        dispatch(update({valueType: 'breaking', value: data?.[0]} as any));
+      }
       
-  //   });
+    });
 
   }, []);
   const {colorScheme, toggleColorScheme} = useColorScheme();
   useEffect(() => {
-    // FirestoreService.getDocuments(COLLECTIONS.GROUPS, {}).then(data => {
+    FirestoreService.getDocuments(COLLECTIONS.GROUPS, {}).then(data => {
       
-    //   dispatch(
-    //     update({
-    //       valueType: 'groups',
+      dispatch(
+        update({
+          valueType: 'groups',
 
-    //       value: data.map(dd => {
-    //         return omit(dd, 'timestamp');
-    //       }),
-    //     } as any),
-    //   );
-    // });
+          value: data.map(dd => {
+            return omit(dd, 'timestamp');
+          }),
+        } as any),
+      );
+    });
   },[]);
   return (
     <Stack.Navigator

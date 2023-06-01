@@ -63,14 +63,14 @@ const NewsFeedScreen = ({route,navigation}) => {
   }, []);
   return (
     <StyledView className="dark:bg-black">
-      <View className='p-2'>
+      <View >
       <BreakingNews></BreakingNews>
       </View>
         
       
     {!(groups?.id || id)  &&  <PressableOpacity
       onPress={()=>{
-        navigation.navigate(ROUTES.ADD)
+        navigation.push(ROUTES.ADD)
       }}
         style={{
           justifyContent: 'center',

@@ -3,6 +3,7 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PressableOpacity from './PressableOpacity';
 import {ROUTES} from '../constants';
+import Share from 'react-native-share';
 
 const MenuScreen = ({navigation}) => {
   const menus = [
@@ -10,7 +11,20 @@ const MenuScreen = ({navigation}) => {
     {label: 'About Us', icon: 'md-people-sharp', path: ROUTES.ABOUTUS},
     {label: 'Themes', icon: 'md-color-palette'},
     {label: 'Settings', icon: 'settings', path: ROUTES.SETTINGS},
-    {label: 'Share App', icon: 'ios-share-social'},
+    {label: 'Share App', icon: 'ios-share-social', onPress:()=>{
+      const shareOptions:any = {
+        title: 'Share via',
+        message:'Stay informed on the go with TheNewsRoom. Breaking news, personalized updates, and trusted sources all in one place.',
+        // social: Share.Social.WHATSAPP,
+
+        
+      };
+  
+      
+      Share.open(shareOptions);
+
+      
+    }},
     {label: 'Contact Us', icon: 'mail', path: ROUTES.CONTACT},
     {
       label: 'Rate the App',
@@ -33,7 +47,7 @@ const MenuScreen = ({navigation}) => {
   ];
   return (
     <ScrollView contentContainerStyle={{marginTop: 8}}>
-      {menus.map(({label, icon, path, externalLink}, index) => {
+      {menus.map(({label, icon, path, externalLink,onPress}, index) => {
         return (
           <PressableOpacity
             key={index}
@@ -44,10 +58,13 @@ const MenuScreen = ({navigation}) => {
               if (externalLink) {
                 Linking.openURL(externalLink);
               }
+              if(onPress){
+                onPress()
+              }
             }}>
             <View className=" p-2 pl-4 mb-1 flex-row  items-center">
               <Icon name={icon} size={22}></Icon>
-              <Text className="ml-3">{label}</Text>
+              <Text className="ml-3 text-xl">{label}</Text>
               <View className="ml-auto">
                 <Icon name="chevron-forward-sharp" size={22}></Icon>
               </View>

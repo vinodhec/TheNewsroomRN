@@ -56,11 +56,11 @@ const AddGroup = ({ modalVisible, setModalVisible, groups, dispatch }) => {
   const values = watch();
 
   const onSubmit = async values => {
-let imageUrl;
-if(image){
-   imageUrl = await FirebaseStorageService.uploadSingleImage(image);
+    let imageUrl;
+    if (image) {
+      imageUrl = await FirebaseStorageService.uploadSingleImage(image);
 
-}
+    }
 
     const groupValues = {
       description: values?.description,
@@ -88,9 +88,9 @@ if(image){
       Alert.alert(`Tag ${values?.groupTitle} has been added`)
       setModalVisible(false)
     } catch (error) {
-     console.log(error) 
+      console.log(error)
     }
-    
+
   };
   return (
     <Modal
@@ -113,7 +113,7 @@ if(image){
             multiline: true,
             style: { height: 120 },
             textAlignVertical: 'top',
-padding:8,
+            padding: 8,
             numberOfLines: 5,
 
           },
@@ -162,7 +162,7 @@ const AddNews = ({ navigation }) => {
   const [isVideo, setIsVideo] = useState(false);
 
   useEffect(() => {
-    
+    console.log('edit news', editNews)
     if (editNews) {
       reset(editNews);
       setEdit(true);
@@ -170,13 +170,14 @@ const AddNews = ({ navigation }) => {
       setIsVideo(editNews.isVideo);
 
     }
-    else{
+    else {
+      console.log('reset values')
       reset({})
       setEdit(false);
     }
     () => {
       console.log('clean up')
-   
+
     }
   }, [editNews])
 
@@ -218,7 +219,9 @@ const AddNews = ({ navigation }) => {
 
 
       await FirestoreService.updateDocument(COLLECTIONS.NEWS, data.id, values);
-     
+      reset({})
+      setEdit(false);
+
     } else {
 
 
@@ -248,7 +251,7 @@ const AddNews = ({ navigation }) => {
 
   if (isLoading) {
 
-    return <View style={{ flex: 1 , justifyContent:'center', alignItems:'center' }}><ActivityIndicator size="large" color={COLORS.primary}></ActivityIndicator>
+    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}><ActivityIndicator size="large" color={COLORS.primary}></ActivityIndicator>
     </View>
 
   }
@@ -290,7 +293,7 @@ const AddNews = ({ navigation }) => {
           multiline: true,
           textAlignVertical: 'top',
           style: { height: 200 },
-          padding:8,
+          padding: 8,
           numberOfLines: 10,
         },
         { name: 'caption' },

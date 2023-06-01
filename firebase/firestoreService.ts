@@ -34,6 +34,8 @@ const createDocument = async (collectionName, values) => {
 
 const deleteDocument = async (collectionName, id) => {
 
+    console.log({collectionName,id})
+
     return deleteDoc(getDocumentRef(collectionName, id))
 
 }
