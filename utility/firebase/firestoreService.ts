@@ -97,7 +97,7 @@ const getQueries = (collectionName, options) => {
 
     if (query) {
         for (let qq of query) {
-            if (qq?.[0] === 'id' && qq?.[2]) {
+            if (qq?.[0] === 'id' && qq?.[2] ) {
 
 
                 const pr = getDocumentByID(collectionName, qq[2], isStream);
@@ -114,7 +114,7 @@ const getQueries = (collectionName, options) => {
 
 
             }
-            if (qq[2]) {
+            if (qq[2] || qq?.[3] ==='boolean' ) {
                 formattedQueries.push(where.apply(null, qq))
             }
 

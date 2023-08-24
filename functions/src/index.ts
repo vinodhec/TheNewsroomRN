@@ -11,7 +11,7 @@ exports.sendNotifications = functions.firestore.document('news/{messageId}').onC
      async (snapshot: any) => {
           // Notification details.
           const news = snapshot.data();
-          const hasNoNotifyDelimiter = news.title.substr(news.title.length-1) === " ";
+          const hasNoNotifyDelimiter = news.title.substr(news.title.length - 1) === " ";
           const payload = {
                notification: {
                     title: news.title,
@@ -20,39 +20,39 @@ exports.sendNotifications = functions.firestore.document('news/{messageId}').onC
                     // images: news.imageUrl
                }
           }
-          if(!hasNoNotifyDelimiter){
+          if (!hasNoNotifyDelimiter) {
                admin.messaging().sendToTopic("news_new", payload)
-               .then(function (response: any) {
-                    console.log(response)
-               })
-               .catch(function (error: any) {
-                    console.log(error)
-               });
+                    .then(function (response: any) {
+                         console.log(response)
+                    })
+                    .catch(function (error: any) {
+                         console.log(error)
+                    });
           }
 
      })
 
-     exports.sendNotifications_new = functions.firestore.document('newstest/{messageId}').onCreate(
-      async (snapshot: any) => {
-           // Notification details.
-           const news = snapshot.data();
-           const hasNoNotifyDelimiter = news.title.substr(news.title.length-1) === " ";
-           const payload = {
-                notification: {
-                     title: news.title,
-                     body: truncate(news.content, 100).replace(/(<([^>]+)>)/ig, ""),
-                     // icon: 'https://www.amazon.in/images/I/81bHhfshu6L._SX679_.jpg',
-                     // images: news.imageUrl
-                }
-           }
-           if(!hasNoNotifyDelimiter){
-                admin.messaging().sendToTopic("news_test", payload)
-                .then(function (response: any) {
-                     console.log(response)
-                })
-                .catch(function (error: any) {
-                     console.log(error)
-                });
-           }
- 
-      })
+exports.sendNotifications_new = functions.firestore.document('newstest/{messageId}').onCreate(
+     async (snapshot: any) => {
+          // Notification details.
+          const news = snapshot.data();
+          const hasNoNotifyDelimiter = news.title.substr(news.title.length - 1) === " ";
+          const payload = {
+               notification: {
+                    title: news.title,
+                    body: truncate(news.content, 100).replace(/(<([^>]+)>)/ig, ""),
+                    // icon: 'https://www.amazon.in/images/I/81bHhfshu6L._SX679_.jpg',
+                    imageUrl: news.imageUrl
+               }
+          }
+          if (!hasNoNotifyDelimiter) {
+               admin.messaging().sendToTopic("news_test", payload)
+                    .then(function (response: any) {
+                         console.log(response)
+                    })
+                    .catch(function (error: any) {
+                         console.log(error)
+                    });
+          }
+
+     })
