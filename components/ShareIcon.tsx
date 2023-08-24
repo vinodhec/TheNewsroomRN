@@ -1,71 +1,74 @@
-import {StyleSheet, Text, ToastAndroid, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
-import PressableOpacity from './PressableOpacity';
-import {omit} from 'lodash';
-import Share from 'react-native-share';
-import {COLORS, ROUTES} from '../constants';
-import {getBase64FromURL} from '../utils/utilsService';
-import FirestoreService from '../firebase/firestoreService';
-import {COLLECTIONS} from '../constants/collections';
-import {useNavigation} from '@react-navigation/native';
-import {useAppDispatch} from '../app/hooks';
-import {update} from '../features/global/globalSlice';
-import useUpdateGlobal from '../hooks/useUpdateGlobal';
-const iconSizes = {size: 22, color: COLORS.primary};
+import { StyleSheet, Text, ToastAndroid, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import Icon from "react-native-vector-icons/Ionicons";
+import PressableOpacity from "./PressableOpacity";
+import { omit } from "lodash";
+import Share from "react-native-share";
+import { COLORS, ROUTES } from "../constants";
+import { getBase64FromURL } from "../utils/utilsService";
+import FirestoreService from "../firebase/firestoreService";
+import { COLLECTIONS } from "../constants/collections";
+import { useNavigation } from "@react-navigation/native";
+import { useAppDispatch } from "../app/hooks";
+import { update } from "../features/global/globalSlice";
+import useUpdateGlobal from "../hooks/useUpdateGlobal";
+import { useColorScheme } from "nativewind";
 const ShareIcon = (props) => {
-  const {isBookmarked, addToBookMark, news,viewref} = props;
-  const {id, content,title, imageUrl} = news ||{};
-  //
-  const updateValue= useUpdateGlobal() 
+  const { isBookmarked, addToBookMark, news, viewref } = props;
+  const { id, content, title, imageUrl } = news || {};
+  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const iconSizes = {
+    size: 22,
+    color: colorScheme === "light" ? COLORS.primary : "#FFA1A5",
+  };
+
+  const updateValue = useUpdateGlobal();
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const deleteNews = () => {
-    
     FirestoreService.deleteDocument(COLLECTIONS.NEWS, id);
-    ToastAndroid.show(`${title} is deleted`, ToastAndroid.LONG)
-    updateValue('newsDeleted',id)
+    ToastAndroid.show(`${title} is deleted`, ToastAndroid.LONG);
+    updateValue("newsDeleted", id);
   };
 
   const shareNews = async (isFromWhatsapp = false) => {
     let uri;
-    if(viewref){
-       uri = await viewref.current?.capture()
-       
+    if (viewref) {
+      uri = await viewref.current?.capture();
     }
-    
+
     let image;
     if (imageUrl) {
       image = await getBase64FromURL(imageUrl);
     }
 
     const shareOptions = {
-      title: 'Share via',
-      message:viewref ? "The NewsRoom" : content?.slice(0, 100) + '\nThe Newsroom',
-      url: viewref ? uri :image,
-      type: 'image/*',
+      title: "Share via",
+      message: viewref
+        ? "The NewsRoom"
+        : content?.slice(0, 100) + "\nThe Newsroom",
+      url: viewref ? uri : image,
+      type: "image/*",
       social: Share.Social.WHATSAPP,
     };
 
     if (!isFromWhatsapp) {
-      Share.shareSingle(shareOptions).then(data => {
-        
-      });
+      Share.shareSingle(shareOptions).then((data) => {});
     } else {
       Share.open(shareOptions);
     }
   };
   const iconFactory: any = [
     {
-      name: isBookmarked ? 'bookmarks' : 'bookmarks-outline',
+      name: isBookmarked ? "bookmarks" : "bookmarks-outline",
       onPress: addToBookMark?.bind(this, id),
     },
     {
-      name: 'md-share-social-sharp',
+      name: "md-share-social-sharp",
       onPress: shareNews.bind(this, true),
     },
     {
-      name: 'logo-whatsapp',
+      name: "logo-whatsapp",
       onPress: shareNews.bind(this, false),
     },
   ];
@@ -73,35 +76,34 @@ const ShareIcon = (props) => {
 
   useEffect(() => {
     setIconList(() => {
-      if(!addToBookMark){
-        return [...iconFactory]
+      if (!addToBookMark) {
+        return [...iconFactory];
       }
-        return [
-          ...iconFactory,
-          {name: 'trash', onPress: deleteNews},
-          {
-            name: 'md-create',
-            onPress: () => {
-              
-              updateValue('editNews',omit(news,['addToBookMark']));
-              navigation.navigate(ROUTES.ADD);
-            },
+      return [
+        ...iconFactory,
+        { name: "trash", onPress: deleteNews },
+        {
+          name: "md-create",
+          onPress: () => {
+            updateValue("editNews", omit(news, ["addToBookMark"]));
+            navigation.navigate(ROUTES.ADD);
           },
-        ];
-      
+        },
+      ];
     });
   }, [isBookmarked]);
 
   return (
     <View
       style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: "row",
+        justifyContent: "space-between",
         flex: iconList.length > 3 ? 0.5 : 0.35,
-      }}>
+      }}
+    >
       {iconList
-        .filter(item => item.onPress)
-        .map(({name, onPress}) => {
+        .filter((item) => item.onPress)
+        .map(({ name, onPress }) => {
           return (
             <PressableOpacity key={name} onPress={onPress}>
               <Icon name={name} {...iconSizes}></Icon>

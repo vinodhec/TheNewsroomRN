@@ -56,7 +56,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
     getHistoryDetails(moment().format("MM-DD"));
   }, []);
   return (
-    <StyledView className="dark:bg-black">
+    <StyledView className="bg-red">
       <View>
         <BreakingNews></BreakingNews>
       </View>

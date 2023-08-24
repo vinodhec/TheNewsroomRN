@@ -1,19 +1,19 @@
-import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
-import React from 'react';
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import React from "react";
 
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import NewsFeedScreen from '../NewsFeedScreen';
-import CustomTopTabBar from '../CustomTopTabBar';
-import {COLORS} from '../../constants';
-import { useColorScheme } from 'nativewind';
-import { useAppSelector } from '../../app/hooks';
-import { selectGlobalValue } from '../../features/global/globalSlice';
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import NewsFeedScreen from "../NewsFeedScreen";
+import CustomTopTabBar from "../CustomTopTabBar";
+import { COLORS } from "../../constants";
+import { useColorScheme } from "nativewind";
+import { useAppSelector } from "../../app/hooks";
+import { selectGlobalValue } from "../../features/global/globalSlice";
 
 const Tab = createMaterialTopTabNavigator();
 
-const TopTabNavigator = ({route}) => {
+const TopTabNavigator = ({ route }) => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
-  const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
+  const categories: any = useAppSelector(selectGlobalValue("categories")) ?? [];
 
   return (
     <Tab.Navigator
@@ -26,20 +26,22 @@ const TopTabNavigator = ({route}) => {
         tabBarIndicatorStyle: {
           height: 0,
         },
-        tabBarContentContainerStyle:{
-          backgroundColor: colorScheme !=='dark'? COLORS.white : '#21232980', 
+        tabBarContentContainerStyle: {
+          backgroundColor: colorScheme === "light" ? COLORS.white : "#1D2125",
         },
         tabBarStyle: {
           backgroundColor: COLORS.bgColor,
           padding: 0,
         },
         tabBarItemStyle: {
-          width: 'auto',
+          width: "auto",
           padding: 8,
         },
-        tabBarLabelStyle: {textTransform: 'capitalize'},
-        tabBarActiveTintColor: COLORS.primary,
-        tabBarInactiveTintColor: colorScheme ==='dark'? COLORS.white : '#21232980',
+        tabBarLabelStyle: { textTransform: "capitalize" },
+        tabBarActiveTintColor:
+          colorScheme === "dark" ? "#FFA1A5" : COLORS.primary,
+        tabBarInactiveTintColor:
+          colorScheme === "dark" ? "#FFFFFF80" : "#21232980",
 
         // tabBarIndicatorStyle​:{height:10}
 
@@ -47,11 +49,12 @@ const TopTabNavigator = ({route}) => {
         // tabBarLabelStyle: {fontSize: 12},
 
         // tabBarStyle: {backgroundColor: 'powderblue'},
-      }}>
+      }}
+    >
       {categories.map((value, index) => {
         return (
           <Tab.Screen
-            initialParams={{category: value,id:route?.params?.id}}
+            initialParams={{ category: value, id: route?.params?.id }}
             key={index}
             name={value}
             component={NewsFeedScreen}
