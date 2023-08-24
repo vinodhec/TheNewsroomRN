@@ -38,13 +38,15 @@ exports.sendNotifications_new = functions.firestore.document('newstest/{messageI
           const news = snapshot.data();
           const hasNoNotifyDelimiter = news.title.substr(news.title.length - 1) === " ";
           const payload = {
-               notification: {
+               data: {
                     title: news.title,
                     body: truncate(news.content, 100).replace(/(<([^>]+)>)/ig, ""),
                     // icon: 'https://www.amazon.in/images/I/81bHhfshu6L._SX679_.jpg',
-                    imageUrl: news.imageUrl
+                    imageUrl: news.imageUrl ?? ''
                }
+
           }
+          console.log(payload)
           if (!hasNoNotifyDelimiter) {
                admin.messaging().sendToTopic("news_test", payload)
                     .then(function (response: any) {

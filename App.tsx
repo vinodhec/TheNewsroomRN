@@ -26,7 +26,7 @@ console.log({ app });
 let persistor = persistStore(store);
 
 async function onMessageReceived(message) {
-  console.log(message.data.notifee);
+  console.log("notifee", message);
   try {
     const channelId = await notifee.createChannel({
       id: "important",
@@ -35,12 +35,11 @@ async function onMessageReceived(message) {
 
       // importance: AndroidImportance.HIGH,
     });
-    const { title, body, imageUrl } = message.data.notifee;
+    const { title, body, imageUrl } = message.data;
     const style = imageUrl
       ? {
           type: AndroidStyle.BIGPICTURE,
-          picture:
-            "https://firebasestorage.googleapis.com/v0/b/thenewsroom-f5e02.appspot.com/o/groups%2Frn_image_picker_lib_temp_b1dfa90a-db3b-49d2-a1bf-9446009a7c4b.jpg?alt=media&token=272f8f42-bbf3-4bb0-8025-2d457fb56482",
+          picture: imageUrl,
         }
       : {
           type: AndroidStyle.BIGTEXT,
@@ -56,8 +55,7 @@ async function onMessageReceived(message) {
         timestamp: Date.now(), // 8 minutes ago
         showTimestamp: true,
 
-        largeIcon:
-          "https://firebasestorage.googleapis.com/v0/b/thenewsroom-f5e02.appspot.com/o/groups%2Frn_image_picker_lib_temp_b1dfa90a-db3b-49d2-a1bf-9446009a7c4b.jpg?alt=media&token=272f8f42-bbf3-4bb0-8025-2d457fb56482",
+        ...(imageUrl && { largeIcon: imageUrl }),
         channelId,
         color: COLORS.primary,
       },
@@ -71,22 +69,25 @@ async function onMessageReceived(message) {
 
 const App = () => {
   useEffect(() => {
-    const unsubscribe = messaging().onMessage(onMessageReceived);
-
-    onMessageReceived({
-      data: {
-        notifee: {
-          title: "மழை",
-          body: "சென்னை மற்றும் புறநகர் பகுதிகளில் வேகமான காற்று மற்றும் பரவலாக மழை!",
-          imageUrl:
-            '"https://firebasestorage.googleapis.com/v0/b/thenewsroom-f5e02.appspot.com/o/groups%2Frn_image_picker_lib_temp_db8a8d2d-8411-4edc-8c58-829afe33634d.mp4?alt=media&token=1d250064-ac9f-47d1-b664-a805d2aa9bef',
-          android: {
-            largeIcon:
-              "https://firebasestorage.googleapis.com/v0/b/thenewsroom-f5e02.appspot.com/o/groups%2Frn_image_picker_lib_temp_db8a8d2d-8411-4edc-8c58-829afe33634d.mp4?alt=media&token=1d250064-ac9f-47d1-b664-a805d2aa9bef",
-          },
-        },
-      },
-    });
+    messaging()
+      .subscribeToTopic("news_test")
+      .then(() => console.log("Subscribed to topic!"));
+    messaging().onMessage(onMessageReceived);
+    messaging().setBackgroundMessageHandler(onMessageReceived);
+    // onMessageReceived({
+    //   data: {
+    //     notifee: {
+    //       title: "மழை",
+    //       body: "சென்னை மற்றும் புறநகர் பகுதிகளில் வேகமான காற்று மற்றும் பரவலாக மழை!",
+    //       imageUrl:
+    //         '"https://firebasestorage.googleapis.com/v0/b/thenewsroom-f5e02.appspot.com/o/groups%2Frn_image_picker_lib_temp_db8a8d2d-8411-4edc-8c58-829afe33634d.mp4?alt=media&token=1d250064-ac9f-47d1-b664-a805d2aa9bef',
+    //       android: {
+    //         largeIcon:
+    //           "https://firebasestorage.googleapis.com/v0/b/thenewsroom-f5e02.appspot.com/o/groups%2Frn_image_picker_lib_temp_db8a8d2d-8411-4edc-8c58-829afe33634d.mp4?alt=media&token=1d250064-ac9f-47d1-b664-a805d2aa9bef",
+    //       },
+    //     },
+    //   },
+    // });
 
     // requestUserPermission()
   }, []);
