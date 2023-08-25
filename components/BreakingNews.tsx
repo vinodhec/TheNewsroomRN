@@ -16,7 +16,7 @@ import FirestoreService from "../firebase/firestoreService";
 import { COLLECTIONS } from "../constants/collections";
 import useUpdateGlobal from "../hooks/useUpdateGlobal";
 import { useColorScheme } from "nativewind";
-const BreakingNews = ({ imageUrl }) => {
+const BreakingNews = () => {
   const breaking: any = useAppSelector(selectGlobalValue("breaking"));
   const updateValue = useUpdateGlobal();
   const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -27,6 +27,7 @@ const BreakingNews = ({ imageUrl }) => {
   );
 
   if (!breaking) {
+    console.log("no breaking");
     return;
   }
 
