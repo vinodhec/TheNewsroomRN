@@ -6,6 +6,7 @@ import PressableOpacity from "./PressableOpacity";
 import { ROUTES } from "../constants";
 import FirestoreService from "../firebase/firestoreService";
 import LazyLoad from "./LazyLoad";
+import colors from "../constants/colors";
 
 const RenderOptions = ({ item, navigation, reload }) => {
   const [fallBack, setFallBack] = useState(
@@ -34,7 +35,9 @@ const RenderOptions = ({ item, navigation, reload }) => {
         navigation.navigate(ROUTES.GROUPDETAILS, { groups: item });
       }}
     >
-      <View className="flex-row p-4 mb-2 bg-white">
+      <View
+        className={`flex-row p-4 mb-2 bg-white dark:bg-[${colors.darkColors.body}]`}
+      >
         <Image
           source={{ uri: fallBack }}
           onError={() => {
@@ -45,9 +48,21 @@ const RenderOptions = ({ item, navigation, reload }) => {
           style={{ minWidth: 80, minHeight: 80 }}
         ></Image>
         <View className="grow-1 ml-4">
-          <Text className="text-l font-bold">{item?.title}</Text>
-          <Text className="text-xs opacity-75">{item?.label}</Text>
-          <Text className="text-m">{item?.description}</Text>
+          <Text
+            className={`text-l font-bold text-black dark:text-[${colors.darkColors.text}]`}
+          >
+            {item?.title}
+          </Text>
+          <Text
+            className={`text-xs opacity-75 text-black dark:text-[${colors.darkColors.text}]`}
+          >
+            {item?.label}
+          </Text>
+          <Text
+            className={`text-m text-black dark:text-[${colors.darkColors.text}]`}
+          >
+            {item?.description}
+          </Text>
         </View>
       </View>
     </PressableOpacity>
@@ -57,7 +72,7 @@ const RenderOptions = ({ item, navigation, reload }) => {
 const GroupScreen = ({ navigation }) => {
   const [reload, setReload] = useState(false);
   return (
-    <StyledView className="dark:bg-black">
+    <StyledView className={`bg-white dark:bg-[${colors.darkColors.body}]`}>
       {!reload && (
         <LazyLoad
           collectionName={COLLECTIONS.GROUPS}

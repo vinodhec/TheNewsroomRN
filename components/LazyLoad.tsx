@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import FirestoreService from "../firebase/firestoreService";
 import { FlatList } from "react-native-gesture-handler";
-import { ActivityIndicator, Text, View } from "react-native";
+import { ActivityIndicator, Dimensions, Text, View } from "react-native";
 import { styled, useColorScheme } from "nativewind";
 import { COLORS } from "../constants";
 import { documentId } from "firebase/firestore";
@@ -102,12 +102,12 @@ const LazyLoad = ({
       ListEmptyComponent={ListEmptyComponent}
       contentContainerStyle={{
         padding: 8,
-        marginTop: 16,
+        paddingTop: 16,
         backgroundColor: colorScheme !== "dark" ? "transparent" : "#101204",
       }}
       ListFooterComponent={() => {
         return (
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1, height: Dimensions.get("screen").height }}>
             {loading && <ActivityIndicator></ActivityIndicator>}
           </View>
         );

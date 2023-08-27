@@ -26,6 +26,7 @@ import { usePreventScreenCapture } from "expo-screen-capture";
 import { ResizeMode } from "expo-av";
 import { VideoPlay } from "./VideoPlay";
 import { useColorScheme } from "nativewind";
+import colors from "../constants/colors";
 const iconSizes = { size: 22, color: COLORS.primary };
 
 const NewsItem = (props) => {
@@ -93,10 +94,12 @@ const NewsItem = (props) => {
 
   return (
     <StyledView
-      className="mb-4 p-2 py-4 shadow-black bg-white dark:bg-[#22272B] rounded-md"
+      className={`mb-4 p-2 py-4 shadow-black bg-white dark:bg-[${colors.darkColors.body}] rounded-md`}
       style={styles.newsContainer}
     >
-      <Text className="text-black font-black mb-0 dark:text-[#B6C2CF]">
+      <Text
+        className={`text-black font-black mb-0 dark:text-[${colors.darkColors.text}]`}
+      >
         {title}
       </Text>
 

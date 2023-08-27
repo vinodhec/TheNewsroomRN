@@ -2,26 +2,26 @@ import { MiddlewareArray, createAsyncThunk, createSlice } from '@reduxjs/toolkit
 
 import reject from 'lodash/reject'
 export interface GlobalState {
-  bookmarks:string[],
-  breaking:any;
-  categories:string[],
-  isAdmin:boolean,
-  groups:string[],
-  showNotifications:boolean,
-  autoPlayVideos:boolean,
-  editNews:any;
-  defaultSharingApp:string
+  bookmarks: string[],
+  breaking: any;
+  categories: string[],
+  isAdmin: boolean,
+  groups: string[],
+  showNotifications: boolean,
+  autoPlayVideos: boolean,
+  editNews: any;
+  defaultSharingApp: string
 }
 
 const initialState: GlobalState = {
-  bookmarks:[],
-  breaking:null,
-  showNotifications:true,
-  editNews:null,
-  autoPlayVideos:true,
-  isAdmin:false,
-  defaultSharingApp:'Whatsapp',
-  categories:[
+  bookmarks: [],
+  breaking: null,
+  showNotifications: true,
+  editNews: null,
+  autoPlayVideos: true,
+  isAdmin: false,
+  defaultSharingApp: 'Whatsapp',
+  categories: [
     'All',
     'India',
     'Tamil Nadu',
@@ -29,8 +29,9 @@ const initialState: GlobalState = {
     'Entertainment',
     'Finance',
     'World',
+    'Science'
   ],
-  groups:[]
+  groups: []
 
 };
 
@@ -63,23 +64,22 @@ export const globalSlice = createSlice({
 
     // Use the PayloadAction type to declare the contents of `action.payload`
     update: (state: any, { payload }: any) => {
-      
+
       const { valueType, value } = payload
       state[valueType] = value;
-      
+
       return state
 
     },
-    toggleBookmarks:(state,{payload:{id}})=>{
-console.log({id},state['bookmarks'])
-      if(state['bookmarks'] .includes(id)){
-        state['bookmarks'] = state['bookmarks'].filter(a=>a!==id)
+    toggleBookmarks: (state, { payload: { id } }) => {
+      console.log({ id }, state['bookmarks'])
+      if (state['bookmarks'].includes(id)) {
+        state['bookmarks'] = state['bookmarks'].filter(a => a !== id)
       }
-      else
-      {
+      else {
         state['bookmarks'] = state['bookmarks'].concat(id)
       }
-return state
+      return state
 
     }
 
@@ -98,7 +98,7 @@ return state
 
 });
 
-export const { update ,toggleBookmarks} = globalSlice.actions;
+export const { update, toggleBookmarks } = globalSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
