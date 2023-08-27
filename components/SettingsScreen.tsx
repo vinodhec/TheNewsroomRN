@@ -1,25 +1,32 @@
-import {Alert, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import { Alert, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
 // import CustomSwitch from 'react-native-custom-switch';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 
-import Video from 'react-native-video';
-import CustomSwitch from './CustomSwitch';
-import { Dropdown } from 'react-native-element-dropdown';
-import { useAppSelector } from '../app/hooks';
-import { selectGlobalValue } from '../features/global/globalSlice';
+import Video from "react-native-video";
+import CustomSwitch from "./CustomSwitch";
+import { Dropdown } from "react-native-element-dropdown";
+import { useAppSelector } from "../app/hooks";
+import { selectGlobalValue } from "../features/global/globalSlice";
+import { useColorScheme } from "nativewind";
 
 const SettingsScreen = () => {
   const openGallery = async () => {
-    const result = await launchImageLibrary({mediaType: 'mixed'});
+    const result = await launchImageLibrary({ mediaType: "mixed" });
   };
-  
-  const showNotifications: any = useAppSelector(selectGlobalValue('showNotifications'));
-  const autoPlayVideos: any = useAppSelector(selectGlobalValue('autoPlayVideos'));
-  const groups: any = useAppSelector(selectGlobalValue('groups')) ?? [];
-  
+
+  const { colorScheme } = useColorScheme();
+
+  const showNotifications: any = useAppSelector(
+    selectGlobalValue("showNotifications")
+  );
+  const autoPlayVideos: any = useAppSelector(
+    selectGlobalValue("autoPlayVideos")
+  );
+  const groups: any = useAppSelector(selectGlobalValue("groups")) ?? [];
+
   const [isFocus, setIsFocus] = useState(false);
-  const onSelectSwitch = index => {
+  const onSelectSwitch = (index) => {
     // Alert.alert('Selected index: ' + index);
   };
   return (
@@ -29,8 +36,8 @@ const SettingsScreen = () => {
         <CustomSwitch
           selectionMode={1}
           roundCorner={true}
-          option1={'On'}
-          option2={'Off'}
+          option1={"On"}
+          option2={"Off"}
           onSelectSwitch={onSelectSwitch}
           navigation={undefined}
         />
@@ -40,8 +47,8 @@ const SettingsScreen = () => {
         <CustomSwitch
           selectionMode={1}
           roundCorner={true}
-          option1={'On'}
-          option2={'Off'}
+          option1={"On"}
+          option2={"Off"}
           onSelectSwitch={onSelectSwitch}
           navigation={undefined}
         />
@@ -76,77 +83,75 @@ const SettingsScreen = () => {
 
 export default SettingsScreen;
 
-
 const styles = StyleSheet.create({
-    container: {
-      backgroundColor: 'white',
-      padding: 16,
+  container: {
+    backgroundColor: "white",
+    padding: 16,
+  },
+  dropdown: {
+    height: 50,
+    marginTop: 16,
+    borderColor: "gray",
+    borderWidth: 0.5,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+  },
+  icon: {
+    marginRight: 5,
+  },
+  label: {
+    position: "absolute",
+    backgroundColor: "white",
+    left: 22,
+    top: 8,
+    zIndex: 999,
+    paddingHorizontal: 8,
+    fontSize: 14,
+  },
+  placeholderStyle: {
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    dropdown: {
-      height: 50,
-      marginTop: 16,
-      borderColor: 'gray',
-      borderWidth: 0.5,
-      borderRadius: 8,
-      paddingHorizontal: 8,
-    },
-    icon: {
-      marginRight: 5,
-    },
-    label: {
-      position: 'absolute',
-      backgroundColor: 'white',
-      left: 22,
-      top: 8,
-      zIndex: 999,
-      paddingHorizontal: 8,
-      fontSize: 14,
-    },
-    placeholderStyle: {
-      fontSize: 16,
-    },
-    selectedTextStyle: {
-      fontSize: 16,
-    },
-    iconStyle: {
-      width: 20,
-      height: 20,
-    },
-    inputSearchStyle: {
-      height: 40,
-      fontSize: 16,
-    },
-    centeredView: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 22,
-    },
-    modalView: {
-      margin: 20,
-      backgroundColor: 'white',
-      borderRadius: 20,
-      padding: 35,
-      alignItems: 'center',
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
-    },
-    button: {
-      borderRadius: 20,
-      padding: 10,
-      elevation: 2,
-    },
-   
-    textStyle: {
-      color: 'white',
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
 
-  });
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+});
