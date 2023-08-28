@@ -17,6 +17,7 @@ import BreakingNews from "./BreakingNews";
 import useSelectGlobal from "../hooks/useSelectGlobal";
 import useUpdateGlobal from "../hooks/useUpdateGlobal";
 import LazyLoad from "./LazyLoad";
+import colors from "../constants/colors";
 
 const NewsFeedScreen = ({ route, navigation }) => {
   const temp = route.params?.category;
@@ -56,7 +57,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
     getHistoryDetails(moment().format("MM-DD"));
   }, []);
   return (
-    <StyledView className="dark:bg-black">
+    <StyledView className={`dark:bg-[${colors.darkColors.bgColor}]`}>
       <View>
         <BreakingNews></BreakingNews>
       </View>

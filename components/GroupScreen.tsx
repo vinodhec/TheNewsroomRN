@@ -7,8 +7,11 @@ import { ROUTES } from "../constants";
 import FirestoreService from "../firebase/firestoreService";
 import LazyLoad from "./LazyLoad";
 import colors from "../constants/colors";
+import { useColorScheme } from "nativewind";
 
 const RenderOptions = ({ item, navigation, reload }) => {
+  const { colorScheme } = useColorScheme();
+
   const [fallBack, setFallBack] = useState(
     item.imageUrl ??
       "https://andersnoren.se/themes/koji/wp-content/themes/koji/assets/images/default-fallback-image.png"
@@ -37,6 +40,10 @@ const RenderOptions = ({ item, navigation, reload }) => {
     >
       <View
         className={`flex-row p-4 mb-2 bg-white dark:bg-[${colors.darkColors.body}]`}
+        style={{
+          backgroundColor:
+            colorScheme === "dark" ? colors.darkColors.body : "white",
+        }}
       >
         <Image
           source={{ uri: fallBack }}
@@ -71,6 +78,7 @@ const RenderOptions = ({ item, navigation, reload }) => {
 
 const GroupScreen = ({ navigation }) => {
   const [reload, setReload] = useState(false);
+
   return (
     <StyledView className={`bg-white dark:bg-[${colors.darkColors.body}]`}>
       {!reload && (

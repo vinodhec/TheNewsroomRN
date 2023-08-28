@@ -93,9 +93,13 @@ const NewsItem = (props) => {
   // shadowRadius: 20,
 
   return (
-    <StyledView
-      className={`mb-4 p-2 py-4 shadow-black bg-white dark:bg-[${colors.darkColors.body}] rounded-md`}
-      style={styles.newsContainer}
+    <View
+      className={`mb-4 p-2 py-4 shadow-black   rounded-md`}
+      style={{
+        ...styles.newsContainer,
+        backgroundColor:
+          colorScheme === "dark" ? colors.darkColors.body : "white",
+      }}
     >
       <Text
         className={`text-black font-black mb-0 dark:text-[${colors.darkColors.text}]`}
@@ -192,7 +196,7 @@ const NewsItem = (props) => {
           news={props}
         ></ShareIcon>
       </StyledView>
-    </StyledView>
+    </View>
   );
 };
 

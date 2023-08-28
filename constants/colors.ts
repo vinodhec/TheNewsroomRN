@@ -13,6 +13,7 @@ export default {
   black: '#0a0a0a',
   darkColors: {
     body: '#22272B',
-    text: '#B6C2CF'
+    text: '#B6C2CF',
+    bgColor: '#101204'
   }
 };

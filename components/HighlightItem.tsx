@@ -19,6 +19,10 @@ const HighlightItem = ({ item }) => {
     <ViewShot ref={ref}>
       <StyledView
         className={`bg-white mb-5 p-2 dark:bg-[${colors.darkColors.body}]`}
+        style={{
+          backgroundColor:
+            colorScheme === "dark" ? colors.darkColors.body : "white",
+        }}
       >
         <Text
           className="self-center"

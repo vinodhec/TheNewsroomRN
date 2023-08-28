@@ -20,7 +20,7 @@ const MenuScreen = ({ navigation }) => {
         const shareOptions: any = {
           title: "Share via",
           message:
-            "Stay informed on the go with TheNewsRoom. Breaking news, personalized updates, and trusted sources all in one place.",
+            "Stay informed on the go with TheNewsRoom. Breaking news, personalized updates, and trusted sources all in one place.\n https://play.google.com/store/apps/details?id=com.tvisoft.TheNewsRoom&hl=en&gl=US",
           // social: Share.Social.WHATSAPP,
         };
 
@@ -53,8 +53,12 @@ const MenuScreen = ({ navigation }) => {
     colorScheme === "dark" ? colors.darkColors.text : colors.black;
   return (
     <View
-      style={{ flex: 1 }}
       className={` bg-white dark:bg-[${colors.darkColors.body}]`}
+      style={{
+        flex: 1,
+        backgroundColor:
+          colorScheme === "dark" ? colors.darkColors.body : "white",
+      }}
     >
       <ScrollView
         contentContainerStyle={{

@@ -7,27 +7,50 @@ import { COLLECTIONS } from "../constants/collections";
 import { ROUTES } from "../constants";
 import Icon from "react-native-vector-icons/Ionicons";
 import colors from "../constants/colors";
+import { useColorScheme } from "nativewind";
 const ContactScreen = ({ navigation }) => {
   const [text, setText] = useState<any>();
   const [submitted, setSubmitted] = useState(false);
+  const { colorScheme } = useColorScheme();
 
   return (
     <View
       className={`flex-1 items-center justify-center bg-white dark:bg-[${colors.black}]`}
+      style={{
+        backgroundColor:
+          colorScheme === "dark" ? colors.darkColors.bgColor : "white",
+      }}
     >
       {submitted === false && (
         <View
           className={`border-1 border-solid p-4 w-full gap-2 shadow-sm pb-6 bg-white dark:bg-[${colors.darkColors.body}]`}
+          style={{
+            backgroundColor:
+              colorScheme === "dark" ? colors.darkColors.body : "white",
+          }}
         >
-          <Text className="text-sm font-bold">Tell us your thoughts?</Text>
+          <Text
+            className="text-sm font-bold"
+            style={{
+              color: colorScheme === "dark" ? colors.darkColors.text : "black",
+            }}
+          >
+            Tell us your thoughts?
+          </Text>
           <TextInput
+            style={{
+              borderWidth: 0.5,
+              color: colorScheme === "dark" ? colors.darkColors.text : "black",
+            }}
+            placeholderTextColor={
+              colorScheme === "dark" ? colors.darkColors.text : "black"
+            }
             multiline
             numberOfLines={10}
             className="w-full"
             onChangeText={(text) => {
               setText(text);
             }}
-            style={{ borderWidth: 0.5 }}
             placeholder="Tell us on how can we improve...."
             textAlignVertical="top"
           ></TextInput>

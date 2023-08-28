@@ -13,9 +13,13 @@ import Tts from "react-native-tts";
 import DatePicker from "react-native-date-picker";
 import moment from "moment";
 import LazyLoad from "./LazyLoad";
+import { useColorScheme } from "nativewind";
+import colors from "../constants/colors";
 const SearchScreen = () => {
   const categories: any = useAppSelector(selectGlobalValue("categories")) ?? [];
   const dispatch = useAppDispatch();
+
+  const { colorScheme } = useColorScheme();
 
   const [date, setDate] = useState(new Date());
   const [query, setQuery] = useState<any>(undefined);
@@ -126,7 +130,14 @@ const SearchScreen = () => {
   const bookmarks: any = useAppSelector(selectGlobalValue("bookmarks")) ?? [];
 
   return (
-    <View className="mt-4 p-2">
+    <View
+      className="pt-4 p-2"
+      style={{
+        flex: 1,
+        backgroundColor:
+          colorScheme === "dark" ? colors.darkColors.body : "white",
+      }}
+    >
       <DatePicker
         modal
         open={open}
@@ -144,7 +155,14 @@ const SearchScreen = () => {
         }}
       />
       <View>
-        <Text className="text-black text-l mb-4">Filter by Category1</Text>
+        <Text
+          style={{
+            color: colorScheme === "dark" ? colors.darkColors.text : "black",
+          }}
+          className="text-black text-l mb-4"
+        >
+          Filter by Category1
+        </Text>
         <ScrollView
           showsHorizontalScrollIndicator={false}
           className="flex-row  gap-4 border-1 "
@@ -182,14 +200,29 @@ const SearchScreen = () => {
                     {category.slice(0, 1)}
                   </Text>
                 </StyledView>
-                <Text className="text-xs">{category}</Text>
+                <Text
+                  style={{
+                    color:
+                      colorScheme === "dark" ? colors.darkColors.text : "black",
+                  }}
+                  className="text-xs"
+                >
+                  {category}
+                </Text>
               </Pressable>
             );
           })}
         </ScrollView>
       </View>
       <View>
-        <Text className="text-black text-l mb-4 mt-8">Filter by Date</Text>
+        <Text
+          className="text-black text-l mb-4 mt-8"
+          style={{
+            color: colorScheme === "dark" ? colors.darkColors.text : "black",
+          }}
+        >
+          Filter by Date
+        </Text>
         <ScrollView
           showsHorizontalScrollIndicator={false}
           className="flex-row  gap-4"
@@ -265,7 +298,12 @@ const SearchScreen = () => {
             style={{ borderBottomWidth: 0.35, borderStyle: "solid" }}
             className="mt-6"
           ></View>
-          <Text className="font-bold text-lg text-black-900 mt-2">
+          <Text
+            className="font-bold text-lg text-black-900 mt-2"
+            style={{
+              color: colorScheme === "dark" ? colors.darkColors.text : "black",
+            }}
+          >
             Search Results
           </Text>
           {/* <PressableOpacity  className="divide-y-2 divide-solid bg-red-600 p-2 px-4 self-end mt-4">
@@ -278,6 +316,16 @@ const SearchScreen = () => {
               limit: 5,
               query: query,
             }}
+            ListEmptyComponent={
+              <Text
+                style={{
+                  color:
+                    colorScheme === "dark" ? colors.darkColors.text : "black",
+                }}
+              >
+                No Results
+              </Text>
+            }
             updateItems={() => {}}
             content={({ item }) => {
               const isBookmarked = bookmarks?.includes(item?.id);

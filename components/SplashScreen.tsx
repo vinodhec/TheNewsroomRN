@@ -15,6 +15,8 @@ import { getHistoryDetails } from "../firebase/firebaseRealtimeDB";
 import { SvgUri } from "react-native-svg";
 
 import * as LocalAuthentication from "expo-local-authentication";
+import { useColorScheme } from "nativewind";
+import colors from "../constants/colors";
 
 const Splash = ({ navigation }) => {
   const [dayinhistory, setDayinhistory] = useState({ content: "", date: "" });
@@ -41,8 +43,17 @@ const Splash = ({ navigation }) => {
     });
   }, []);
 
+  const { colorScheme } = useColorScheme();
+
   return (
-    <View className="flex-1 p-4 justify-center items-center border-1">
+    <View
+      style={{
+        flex: 1,
+        backgroundColor:
+          colorScheme === "dark" ? colors.darkColors.body : "white",
+      }}
+      className="flex-1 p-4 justify-center items-center border-1"
+    >
       <View className="flex-1 justify-center items-center">
         <SvgUri
           width="100%"
@@ -52,7 +63,13 @@ const Splash = ({ navigation }) => {
         {!dayinhistory.content && <ActivityIndicator></ActivityIndicator>}
         {dayinhistory.content && (
           <View>
-            <Text className="text-sm">
+            <Text
+              className="text-sm"
+              style={{
+                color:
+                  colorScheme === "dark" ? colors.darkColors.text : "black",
+              }}
+            >
               {dayinhistory.content} - {dayinhistory.date}{" "}
             </Text>
           </View>

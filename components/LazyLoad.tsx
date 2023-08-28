@@ -6,6 +6,7 @@ import { ActivityIndicator, Dimensions, Text, View } from "react-native";
 import { styled, useColorScheme } from "nativewind";
 import { COLORS } from "../constants";
 import { documentId } from "firebase/firestore";
+import colors from "../constants/colors";
 const StyledView = styled(View);
 
 const LazyLoad = ({
@@ -103,7 +104,8 @@ const LazyLoad = ({
       contentContainerStyle={{
         padding: 8,
         paddingTop: 16,
-        backgroundColor: colorScheme !== "dark" ? "transparent" : "#101204",
+        backgroundColor:
+          colorScheme !== "dark" ? "transparent" : colors.darkColors.bgColor,
       }}
       ListFooterComponent={() => {
         return (
