@@ -1,9 +1,10 @@
 import app from './firebase'
-import { getAuth, signInWithPhoneNumber, RecaptchaVerifier, connectAuthEmulator, signInWithCustomToken } from "firebase/auth";
-import { disableEmulator } from '../Utils/Constants';
+import { getAuth, signInWithPhoneNumber, RecaptchaVerifier, connectAuthEmulator, signInWithCustomToken, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
 
+
+const disableEmulator = true;
 const auth = getAuth(app);
-if (window.location.hostname === "localhost" && !disableEmulator) {
+if (!disableEmulator) {
     connectAuthEmulator(auth, "http://localhost:9099");
 
 }
@@ -63,8 +64,32 @@ const logout = () => {
 const authWithcustomToken = (token) => {
     signInWithCustomToken(auth, token)
 }
-
-const FirebaseAuthService = { authWithcustomToken, logout, signin, confirmCode, assignCaptacha, updateProfile, getCurrentUser }
+const googleSignin = () => {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+    console.log(signInWithRedirect)
+    signInWithRedirect(auth, provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+        })
+        .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+}
+const FirebaseAuthService = { googleSignin, authWithcustomToken, logout, signin, confirmCode, assignCaptacha, updateProfile, getCurrentUser }
 
 export default FirebaseAuthService;
 

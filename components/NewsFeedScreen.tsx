@@ -18,6 +18,7 @@ import useSelectGlobal from "../hooks/useSelectGlobal";
 import useUpdateGlobal from "../hooks/useUpdateGlobal";
 import LazyLoad from "./LazyLoad";
 import colors from "../constants/colors";
+import FirebaseAuthService from "../firebase/firebaseAuthService";
 
 const NewsFeedScreen = ({ route, navigation }) => {
   const temp = route.params?.category;
@@ -46,6 +47,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
       // }
       setSpeechStatus("cancelled");
     });
+    FirebaseAuthService.googleSignin();
   }, []);
 
   useEffect(() => {
