@@ -2,7 +2,7 @@ import { View, Text, ScrollView, Linking } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import PressableOpacity from "./PressableOpacity";
-import { ROUTES } from "../constants";
+import { ROUTES, isAdmin } from "../constants";
 import Share from "react-native-share";
 import colors from "../constants/colors";
 import { useColorScheme } from "nativewind";
@@ -45,7 +45,13 @@ const MenuScreen = ({ navigation }) => {
       icon: "ios-information-circle",
       externalLink: "https://thenewsroom-f5e02.web.app/privacy",
     },
-    { label: "On This Day", icon: "newspaper", path: ROUTES.ONTHISDAY },
+    ...[
+      isAdmin && {
+        label: "On This Day",
+        icon: "newspaper",
+        path: ROUTES.ONTHISDAY,
+      },
+    ],
   ];
   const { colorScheme } = useColorScheme();
 

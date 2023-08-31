@@ -1,6 +1,6 @@
 import { View, Text, FlatList, Animated, ViewToken } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
-import { COLORS, ROUTES } from "../constants";
+import { COLORS, ROUTES, isAdmin } from "../constants";
 import FirestoreService from "../firebase/firestoreService";
 import { dbRef, getHistoryDetails } from "../firebase/firebaseRealtimeDB";
 import NewsItem from "./NewsItem";
@@ -19,7 +19,24 @@ import useUpdateGlobal from "../hooks/useUpdateGlobal";
 import LazyLoad from "./LazyLoad";
 import colors from "../constants/colors";
 import FirebaseAuthService from "../firebase/firebaseAuthService";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import auth from "@react-native-firebase/auth";
+GoogleSignin.configure({
+  webClientId:
+    "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
+});
+async function onGoogleButtonPress() {
+  // Check if your device supports Google Play
+  await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+  // Get the users ID token
+  const { idToken } = await GoogleSignin.signIn();
 
+  // Create a Google credential with the token
+  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+  // Sign-in the user with the credential
+  return auth().signInWithCredential(googleCredential);
+}
 const NewsFeedScreen = ({ route, navigation }) => {
   const temp = route.params?.category;
   const groups = route.params?.groups;
@@ -31,6 +48,14 @@ const NewsFeedScreen = ({ route, navigation }) => {
   const newsDeleted = useSelectGlobal("newsDeleted");
   const [category, setCategory] = useState(temp === "All" ? "" : temp);
   const [speechStatus, setSpeechStatus] = useState("stopped");
+  function onAuthStateChanged(user) {
+    console.log(user);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
   useEffect(() => {
     Tts.addEventListener("tts-start", (event) => {
       setSpeechStatus("started");
@@ -47,7 +72,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
       // }
       setSpeechStatus("cancelled");
     });
-    FirebaseAuthService.googleSignin();
+    onGoogleButtonPress();
   }, []);
 
   useEffect(() => {
@@ -64,7 +89,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
         <BreakingNews></BreakingNews>
       </View>
 
-      {!(groups?.id || id) && (
+      {!(groups?.id || id) && isAdmin && (
         <PressableOpacity
           onPress={() => {
             navigation.push(ROUTES.ADD);

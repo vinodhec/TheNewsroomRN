@@ -51,6 +51,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "463401124803-lto91ca36mehvjj9fs88u782m0bh9v7h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thenewsroom",
+            "certificate_hash": "af134c6ce59c6cff7f8b8d29f6d57e8eee4e429d"
+          }
+        },
+        {
           "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
           "client_type": 3
         }

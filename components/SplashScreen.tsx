@@ -5,11 +5,12 @@ import {
   ToastAndroid,
   ActivityIndicator,
   BackHandler,
+  Image,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import PressableOpacity from "./PressableOpacity";
-import { Image } from "react-native";
+
 import moment from "moment";
 import { getHistoryDetails } from "../firebase/firebaseRealtimeDB";
 import { SvgUri } from "react-native-svg";
@@ -55,11 +56,7 @@ const Splash = ({ navigation }) => {
       className="flex-1 p-4 justify-center items-center border-1"
     >
       <View className="flex-1 justify-center items-center">
-        <SvgUri
-          width="100%"
-          height="100%"
-          source={require("./../assets/logo.svg")}
-        />
+        <Image source={require("./../assets/logo.png")} />
         {!dayinhistory.content && <ActivityIndicator></ActivityIndicator>}
         {dayinhistory.content && (
           <View>

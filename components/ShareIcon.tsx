@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import PressableOpacity from "./PressableOpacity";
 import { omit } from "lodash";
 import Share from "react-native-share";
-import { COLORS, ROUTES } from "../constants";
+import { COLORS, ROUTES, isAdmin } from "../constants";
 import { getBase64FromURL } from "../utils/utilsService";
 import FirestoreService from "../firebase/firestoreService";
 import { COLLECTIONS } from "../constants/collections";
@@ -81,14 +81,18 @@ const ShareIcon = (props) => {
       }
       return [
         ...iconFactory,
-        { name: "trash", onPress: deleteNews },
-        {
-          name: "md-create",
-          onPress: () => {
-            updateValue("editNews", omit(news, ["addToBookMark"]));
-            navigation.navigate(ROUTES.ADD);
-          },
-        },
+        ...(isAdmin
+          ? [
+              { name: "trash", onPress: deleteNews },
+              {
+                name: "md-create",
+                onPress: () => {
+                  updateValue("editNews", omit(news, ["addToBookMark"]));
+                  navigation.navigate(ROUTES.ADD);
+                },
+              },
+            ]
+          : []),
       ];
     });
   }, [isBookmarked]);

@@ -9,4 +9,4 @@ export const getBase64FromURL = async imageUrl => {
   // .catch(err => errorHandler(err));
 };
 
-export const isAdmin = true;
+

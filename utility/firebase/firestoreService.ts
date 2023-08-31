@@ -5,22 +5,24 @@ import { omit } from 'lodash';
 import { config } from "./firebase";
 
 
-
+console.log('storage execution')
 
 
 
 
 const getCollectionRef = (collectionName, isCollectionGroup?): any => {
-
+    console.log(config)
     return !!isCollectionGroup ? collectionGroup(config.db, collectionName) : collection(config.db, collectionName)
 }
 
 const getDocumentRef = (collectionName, documentID) => {
+    console.log(collectionName, documentID)
     return doc(config.db, collectionName, documentID);
 
 }
 
 const createDocument = async (collectionName, values) => {
+    console.log(collectionName, values)
 
     const doc = await addDoc(getCollectionRef(collectionName), { ...values, timestamp: serverTimestamp() });
     return doc;
@@ -97,7 +99,7 @@ const getQueries = (collectionName, options) => {
 
     if (query) {
         for (let qq of query) {
-            if (qq?.[0] === 'id' && qq?.[2] ) {
+            if (qq?.[0] === 'id' && qq?.[2]) {
 
 
                 const pr = getDocumentByID(collectionName, qq[2], isStream);
@@ -114,7 +116,7 @@ const getQueries = (collectionName, options) => {
 
 
             }
-            if (qq[2] || qq?.[3] ==='boolean' ) {
+            if (qq[2] || qq?.[3] === 'boolean') {
                 formattedQueries.push(where.apply(null, qq))
             }
 
