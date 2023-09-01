@@ -2,12 +2,16 @@ import { View, Text, ScrollView, Linking } from "react-native";
 import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import PressableOpacity from "./PressableOpacity";
-import { ROUTES, isAdmin } from "../constants";
+import { ROUTES } from "../constants";
 import Share from "react-native-share";
 import colors from "../constants/colors";
 import { useColorScheme } from "nativewind";
+import useSelectGlobal from "../hooks/useSelectGlobal";
+import { selectGlobalValue } from "../features/global/globalSlice";
 
 const MenuScreen = ({ navigation }) => {
+  const isAdmin=useSelectGlobal("isAdmin")
+  console.log({isAdmin})
   const menus = [
     { label: "Bookmarks", icon: "bookmarks", path: ROUTES.BOOKMARKS },
     { label: "About Us", icon: "md-people-sharp", path: ROUTES.ABOUTUS },

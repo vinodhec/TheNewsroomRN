@@ -18,13 +18,19 @@ import { SvgUri } from "react-native-svg";
 import * as LocalAuthentication from "expo-local-authentication";
 import { useColorScheme } from "nativewind";
 import colors from "../constants/colors";
+import useSelectGlobal from "../hooks/useSelectGlobal";
 
 const Splash = ({ navigation }) => {
   const [dayinhistory, setDayinhistory] = useState({ content: "", date: "" });
+
+  const isAdmin=useSelectGlobal("isAdmin")
+  const isLogin=useSelectGlobal("isLogin")
+  console.log({isAdmin})
+  console.log({isLogin})
   useEffect(() => {
     const timerId = setTimeout(() => {
       ToastAndroid.show("Navigating to Home page", ToastAndroid.SHORT);
-      navigation.replace("Main");
+      navigation.replace(isAdmin&&!isLogin?"Login":"Main");
     }, 5000);
     return () => {
       clearTimeout(timerId);
@@ -76,7 +82,7 @@ const Splash = ({ navigation }) => {
         // className="mt-auto ml-auto"
         className="self-end"
         onPress={() => {
-          navigation.replace("Main");
+          navigation.replace(isAdmin&&!isLogin?"Login":"Main");
         }}
       >
         <Text className="text-red-900 font-bold">Go to Home Page</Text>

@@ -1,6 +1,6 @@
 import { View, Text, FlatList, Animated, ViewToken } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
-import { COLORS, ROUTES, isAdmin } from "../constants";
+import { COLORS, ROUTES } from "../constants";
 import FirestoreService from "../firebase/firestoreService";
 import { dbRef, getHistoryDetails } from "../firebase/firebaseRealtimeDB";
 import NewsItem from "./NewsItem";
@@ -39,6 +39,10 @@ async function onGoogleButtonPress() {
   return auth().signInWithCredential(googleCredential);
 }
 const NewsFeedScreen = ({ route, navigation }) => {
+  
+  const isAdmin=useSelectGlobal("isAdmin")
+
+  console.log({isAdmin})
   const temp = route.params?.category;
   const groups = route.params?.groups;
   const id = route.params?.id;

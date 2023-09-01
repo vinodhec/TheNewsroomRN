@@ -28,6 +28,8 @@ import FirebaseStorageService from '../firebase/firebaseStorageService';
 import { pick } from 'lodash';
 import UploadImage from './UploadImage';
 import useUpdateGlobal from '../hooks/useUpdateGlobal';
+import { useColorScheme } from 'nativewind';
+import colors from '../constants/colors';
 
 const Input = fields => {
   const { name, control, label, ...others } = fields;
@@ -37,14 +39,14 @@ const Input = fields => {
     name,
   });
   return (
-    <StyledView className="mt-2">
-      <Text className="capitalize mb-1 text-xs">{label ?? name}</Text>
+    <StyledView className="mt-2 p-4">
+      <Text className="text-black dark:text-[#B6C2CF]" >{label ?? name}</Text>
       <TextInput
         {...others}
         value={field.value}
         onChangeText={field.onChange}
         className="border-[#D2D3D4] border-2 rounded-md text-black "
-        style={{ height: 50, ...others?.style }}
+        style={{ height: 50,...others?.style }}
       />
     </StyledView>
   );
@@ -100,7 +102,7 @@ const AddGroup = ({ modalVisible, setModalVisible, groups, dispatch }) => {
         Alert.alert('Modal has been closed.');
         setModalVisible(!modalVisible);
       }}>
-      <ScrollView className=" align-center p-4" keyboardShouldPersistTaps='handled'>
+      <ScrollView className=" align-center p-4 text-black dark:text-[#B6C2CF]" keyboardShouldPersistTaps='handled'>
         {[
           { name: 'label', label: 'Tag Name' },
 
@@ -149,6 +151,8 @@ const AddNews = ({ navigation }) => {
   const { control, handleSubmit, setValue, watch, reset } = useForm();
   const [isFocus, setIsFocus] = useState(false);
 
+  const { colorScheme } = useColorScheme();
+  const darkMode=colorScheme === "dark"
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -258,14 +262,16 @@ const AddNews = ({ navigation }) => {
   return (
     <ScrollView
       keyboardShouldPersistTaps='handled'
-      className=" align-center p-4"
-      contentContainerStyle={{ paddingBottom: 100 }}>
+      className=" align-center "
+      contentContainerStyle={{ paddingBottom: 100,  backgroundColor:
+        darkMode ? colors.darkColors.body : "white", }}>
       {[
         { name: 'title' },
         {
           customComponent: (
             <Dropdown
-              style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+            // className="border-[#D2D3D4] border-2 rounded-md text-black "
+              style={[styles.dropdown,  isFocus && { borderColor: 'blue'}]}
               placeholderStyle={styles.placeholderStyle}
               selectedTextStyle={styles.selectedTextStyle}
               inputSearchStyle={styles.inputSearchStyle}
@@ -307,7 +313,7 @@ const AddNews = ({ navigation }) => {
                 }}
                 value={values['showHighlight']}
               />
-              <Text>Highlight News</Text>
+              <Text className="text-black dark:text-[#B6C2CF]">Highlight News</Text>
             </StyledView>
           ),
         },
@@ -329,7 +335,7 @@ const AddNews = ({ navigation }) => {
                   }}
                   value={values['showGroup']}
                 />
-                <Text>Group News</Text>
+                <Text className="text-black dark:text-[#B6C2CF]">Group News</Text>
               </StyledView>
               {values['showGroup'] && (
                 <PressableOpacity
@@ -346,8 +352,8 @@ const AddNews = ({ navigation }) => {
           onlyIf: values['showGroup'],
           customComponent: (
             <Dropdown
-              style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
-              placeholderStyle={styles.placeholderStyle}
+              style={[styles.dropdown, isFocus && { borderColor: 'blue',padding:4 }]}
+              placeholderStyle={{...styles.placeholderStyle,color:darkMode?'#B6C2CF':'black'}}
               selectedTextStyle={styles.selectedTextStyle}
               inputSearchStyle={styles.inputSearchStyle}
               iconStyle={styles.iconStyle}
@@ -379,7 +385,7 @@ const AddNews = ({ navigation }) => {
         }
 
         if (fields.customComponent) {
-          return <View key={index}>{fields.customComponent}</View>;
+          return <View key={index} style={{paddingHorizontal:16}}>{fields.customComponent}</View>;
         }
 
         return <Input {...fields} key={index} control={control}></Input>;
@@ -413,7 +419,7 @@ const styles = StyleSheet.create({
     height: 50,
     marginTop: 16,
     borderColor: 'gray',
-    borderWidth: 0.5,
+    borderWidth: 2,
     borderRadius: 8,
     paddingHorizontal: 8,
   },

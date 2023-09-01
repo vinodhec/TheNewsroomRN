@@ -9,6 +9,7 @@ import { Dropdown } from "react-native-element-dropdown";
 import { useAppSelector } from "../app/hooks";
 import { selectGlobalValue } from "../features/global/globalSlice";
 import { useColorScheme } from "nativewind";
+import colors from "../constants/colors";
 
 const SettingsScreen = () => {
   const openGallery = async () => {
@@ -16,7 +17,7 @@ const SettingsScreen = () => {
   };
 
   const { colorScheme } = useColorScheme();
-
+const darkMode=colorScheme==='dark'
   const showNotifications: any = useAppSelector(
     selectGlobalValue("showNotifications")
   );
@@ -30,9 +31,10 @@ const SettingsScreen = () => {
     // Alert.alert('Selected index: ' + index);
   };
   return (
-    <View className="p-4 gap-2">
+    <View className="p-4 gap-2" style={{ backgroundColor:
+      darkMode ? colors.darkColors.body : "white",flex:1 }}>
       <View className="flex-row justify-between items-center">
-        <Text className="text-xl">News Notification</Text>
+        <Text className="text-xl text-black dark:text-[#B6C2CF]">News Notification</Text>
         <CustomSwitch
           selectionMode={1}
           roundCorner={true}
@@ -43,7 +45,7 @@ const SettingsScreen = () => {
         />
       </View>
       <View className="flex-row justify-between items-center">
-        <Text className="text-xl">Auto Play on videos</Text>
+        <Text className="text-xl text-black dark:text-[#B6C2CF]">Auto Play on videos</Text>
         <CustomSwitch
           selectionMode={1}
           roundCorner={true}
@@ -54,7 +56,7 @@ const SettingsScreen = () => {
         />
       </View>
       <View className="flex-row justify-between items-center">
-        <Text className="text-xl">Default Sharing App</Text>
+        <Text className="text-xl text-black dark:text-[#B6C2CF]">Default Sharing App</Text>
         {/* <Dropdown
           style={[styles.dropdown, isFocus && {borderColor: 'blue'}]}
           placeholderStyle={styles.placeholderStyle}

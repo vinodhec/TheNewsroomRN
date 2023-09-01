@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 import {StyleSheet, Text, View} from 'react-native';
 import PressableOpacity from './PressableOpacity';
+import { useColorScheme } from 'nativewind';
 
 const CustomSwitch = ({
   navigation,
@@ -13,7 +14,8 @@ const CustomSwitch = ({
 }) => {
   const [getSelectionMode, setSelectionMode] = useState(selectionMode);
   const [getRoundCorner, setRoundCorner] = useState(roundCorner);
-
+  const { colorScheme } = useColorScheme();
+  const darkMode=colorScheme==='dark'
   const updatedSwitchData = val => {
     setSelectionMode(val);
     onSelectSwitch(val);
@@ -25,7 +27,7 @@ const CustomSwitch = ({
         style={{
           height: 44,
           width: 100,
-          backgroundColor: getSelectionMode == 1 ?'#C82128': "#C821281A",
+          backgroundColor: getSelectionMode == 1 ?'#C82128':darkMode?'#FFA1A5': "#C821281A",
           borderRadius: getRoundCorner ? 25 : 0,
           borderWidth: 1,
           borderColor: 'transparent',

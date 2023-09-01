@@ -1,5 +1,5 @@
 import app from './firebase'
-import { getAuth, signInWithPhoneNumber, RecaptchaVerifier, connectAuthEmulator, signInWithCustomToken, GoogleAuthProvider, signInWithPopup, signInWithRedirect, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth,signInWithEmailAndPassword, signInWithPhoneNumber, RecaptchaVerifier, connectAuthEmulator, signInWithCustomToken, GoogleAuthProvider, signInWithPopup, signInWithRedirect, createUserWithEmailAndPassword } from "firebase/auth";
 
 
 const disableEmulator = true;
@@ -20,6 +20,18 @@ const assignCaptacha = () => {
         }
     }, auth);
 }
+
+const adminLogin=(email,password)=>{
+
+
+    return signInWithEmailAndPassword(auth, email, password,)
+    // .catch((error) => {
+
+    // console.log(error.message,error.code)
+    // const errorCode = error.code;
+    // const errorMessage = error.message;})
+}
+
 
 const signin = (phoneNumber) => {
 
@@ -104,7 +116,8 @@ const create = () => {
             // ..
         });
 }
-const FirebaseAuthService = { create, googleSignin, authWithcustomToken, logout, signin, confirmCode, assignCaptacha, updateProfile, getCurrentUser }
+const FirebaseAuthService = { create,auth, googleSignin, authWithcustomToken, logout, signin,adminLogin, confirmCode, assignCaptacha, updateProfile, getCurrentUser }
 
 export default FirebaseAuthService;
+
 

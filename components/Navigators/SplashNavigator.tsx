@@ -18,6 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import FirestoreService from "../../firebase/firestoreService";
 import useUpdateGlobal from "../../hooks/useUpdateGlobal";
 import useSelectGlobal from "../../hooks/useSelectGlobal";
+import AdminLoginScreen from "../AdminLoginScreen";
 const Stack = createStackNavigator();
 
 const SplashNavigator = () => {
@@ -99,6 +100,7 @@ const SplashNavigator = () => {
         component={Splash}
         options={{ headerShown: false }}
       ></Stack.Screen>
+      <Stack.Screen name="Login" component={AdminLoginScreen} options={{ headerTitle:'Admin Login', }}></Stack.Screen>
       <Stack.Screen name="Main" component={BottomTabNavigator}></Stack.Screen>
       <Stack.Screen
         name={ROUTES.SEARCH}

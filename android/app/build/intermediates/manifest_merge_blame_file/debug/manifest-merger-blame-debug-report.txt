@@ -1,0 +1,214 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.thenewsroom"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="33" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:5:5-77
+11-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:3:5-67
+12-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:3:22-64
+13    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+13-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:4:1-68
+13-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:4:18-65
+14    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+14-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:5:1-70
+14-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:5:18-67
+15    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Required to access Google Play Licensing -->
+15-->[com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:16:5-76
+15-->[com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:16:22-73
+16    <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+16-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-73
+16-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-70
+17    <!--
+18         Required to keep CPU alive while downloading files
+19        (NOT to keep screen awake)
+20    -->
+21    <uses-permission android:name="android.permission.WAKE_LOCK" />
+21-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:5-68
+21-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:22-65
+22    <!--
+23         Required to poll the state of the network connection
+24        and respond to changes
+25    -->
+26    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required to read and write the expansion files on shared storage -->
+26-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
+26-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:22-76
+27    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+27-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:5-81
+27-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:22-78
+28    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+29
+30    <queries>
+30-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-18:15
+31
+32        <!-- Query open documents -->
+33        <intent>
+33-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-17:18
+34            <action android:name="android.intent.action.OPEN_DOCUMENT_TREE" />
+34-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-79
+34-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:21-76
+35        </intent>
+36    </queries>
+37
+38    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+38-->[com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:9:5-110
+38-->[com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:9:22-107
+39
+40    <application
+40-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:6:5-25:19
+41        android:name="com.thenewsroom.MainApplication"
+41-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:7:7-38
+42        android:allowBackup="false"
+42-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:11:7-34
+43        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+43-->[androidx.core:core:1.7.0] C:\Users\vishw\.gradle\caches\transforms-3\3c3d67745cc0055a2f3c7aa5c1d315d3\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+44        android:debuggable="true"
+45        android:icon="@mipmap/ic_launcher"
+45-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:9:7-41
+46        android:label="@string/app_name"
+46-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:8:7-39
+47        android:roundIcon="@mipmap/ic_launcher_round"
+47-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:10:7-52
+48        android:theme="@style/AppTheme"
+48-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:12:7-38
+49        android:usesCleartextTraffic="true" >
+49-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:8:9-44
+50        <activity
+50-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:11:9-111
+51            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+51-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:11:19-83
+52            android:exported="false" />
+52-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:11:84-108
+53        <activity
+53-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:13:7-24:18
+54            android:name="com.thenewsroom.MainActivity"
+54-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:14:9-37
+55            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+55-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:16:9-118
+56            android:exported="true"
+56-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:19:9-32
+57            android:label="@string/app_name"
+57-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:15:9-41
+58            android:launchMode="singleTask"
+58-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:17:9-40
+59            android:windowSoftInputMode="adjustResize" >
+59-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:18:9-51
+60            <intent-filter>
+60-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:20:9-23:25
+61                <action android:name="android.intent.action.MAIN" />
+61-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:21:13-65
+61-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:21:21-62
+62
+63                <category android:name="android.intent.category.LAUNCHER" />
+63-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:22:13-73
+63-->C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:22:23-70
+64            </intent-filter>
+65        </activity>
+66
+67        <provider
+67-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+68            android:name="com.imagepicker.ImagePickerProvider"
+68-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-63
+69            android:authorities="com.thenewsroom.imagepickerprovider"
+69-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-71
+70            android:exported="false"
+70-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+71            android:grantUriPermissions="true" >
+71-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+72            <meta-data
+72-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+73                android:name="android.support.FILE_PROVIDER_PATHS"
+73-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+74                android:resource="@xml/imagepicker_provider_paths" />
+74-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+75        </provider>
+76        <provider
+76-->[:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+77            android:name="cl.json.RNShareFileProvider"
+77-->[:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-55
+78            android:authorities="com.thenewsroom.rnshare.fileprovider"
+78-->[:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-72
+79            android:exported="false"
+79-->[:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+80            android:grantUriPermissions="true" >
+80-->[:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+81            <meta-data
+81-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+82                android:name="android.support.FILE_PROVIDER_PATHS"
+82-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+83                android:resource="@xml/share_download_paths" />
+83-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+84        </provider>
+85        <provider
+85-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:9-40:20
+86            android:name="com.RNFetchBlob.Utils.FileProvider"
+86-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:13-62
+87            android:authorities="com.thenewsroom.provider"
+87-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-60
+88            android:exported="false"
+88-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:13-37
+89            android:grantUriPermissions="true" >
+89-->[:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:13-47
+90            <meta-data
+90-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+91                android:name="android.support.FILE_PROVIDER_PATHS"
+91-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+92                android:resource="@xml/provider_paths" />
+92-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+93        </provider>
+94        <provider
+94-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:9-30:20
+95            android:name="expo.modules.filesystem.FileSystemFileProvider"
+95-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-74
+96            android:authorities="com.thenewsroom.FileSystemFileProvider"
+96-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-74
+97            android:exported="false"
+97-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-37
+98            android:grantUriPermissions="true" >
+98-->[:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-47
+99            <meta-data
+99-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+100                android:name="android.support.FILE_PROVIDER_PATHS"
+100-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+101                android:resource="@xml/file_system_provider_paths" />
+101-->[:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+102        </provider>
+103
+104        <meta-data
+104-->[:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:89
+105            android:name="org.unimodules.core.AppLoader#react-native-headless"
+105-->[:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-79
+106            android:value="expo.modules.adapters.react.apploader.RNHeadlessAppLoader" />
+106-->[:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-86
+107
+108        <provider
+108-->[androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+109            android:name="androidx.startup.InitializationProvider"
+109-->[androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+110            android:authorities="com.thenewsroom.androidx-startup"
+110-->[androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+111            android:exported="false" >
+111-->[androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+112            <meta-data
+112-->[androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+113                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+113-->[androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+114                android:value="androidx.startup" />
+114-->[androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+115            <meta-data
+115-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+116                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+116-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+117                android:value="androidx.startup" />
+117-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+118        </provider>
+119    </application>
+120
+121</manifest>

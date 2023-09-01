@@ -1,0 +1,645 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\014c1961d36475190c3b128ca2cc5a5c\transformed\jetified-flipper-network-plugin-0.125.0\AndroidManifest.xml:8:1-15:12
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\cbc88ae85bcc7c3d45fd45bcea51858b\transformed\jetified-flipper-fresco-plugin-0.125.0\AndroidManifest.xml:8:1-15:12
+MERGED from [com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:8:1-18:12
+MERGED from [:react-native-async-storage_async-storage] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:expo] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-date-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-date-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-gesture-handler] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:react-native-pager-view] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-pager-view\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-reanimated] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-reanimated\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-safe-area-context] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-screens] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:react-native-svg] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-tts] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-tts\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-vector-icons] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-video] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-video\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-view-shot] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-view-shot\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-43:12
+MERGED from [:expo-application] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-application\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-av] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-av\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-constants] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-constants\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-33:12
+MERGED from [:expo-font] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-font\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-keep-awake] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-keep-awake\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-local-authentication] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-local-authentication\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-10:12
+MERGED from [:expo-screen-capture] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-screen-capture\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.react:react-android:0.71.6] C:\Users\vishw\.gradle\caches\transforms-3\80bcec10edf7b36a7acc4848e4b58fa9\transformed\jetified-react-android-0.71.6-debug\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\8aaa4e4436d91524d951d24ae0d57cef\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\4aaddbb748d63cc92d32864db41de456\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\55ab8b6ff959bd4fadbaf69510faee47\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.react:hermes-android:0.71.6] C:\Users\vishw\.gradle\caches\transforms-3\dfa009291e3f479b7cb2ac1d63e2e8f7\transformed\jetified-hermes-android-0.71.6-debug\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fbjni:fbjni:0.3.0] C:\Users\vishw\.gradle\caches\transforms-3\839e63e695132860efbc878bf673a792\transformed\jetified-fbjni-0.3.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:flipper:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\8d2d465396fbc35cd57b3622e1220489\transformed\jetified-flipper-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:stetho:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\20916074075fc38e64c39baaa46aa981\transformed\jetified-stetho-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fresco:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\3492b292db4e7f1b08086ca6d344faa3\transformed\jetified-fresco-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:soloader:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\ff5408e18abc4dc095382e88306ad07e\transformed\jetified-soloader-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vishw\.gradle\caches\transforms-3\5cc3237fa7acfb226a14dc61826a268f\transformed\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\81bb9df48fec7d5cbc4a24c5804be412\transformed\jetified-drawee-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\dc6cd17982c874eaee82c008e6ff3870\transformed\jetified-nativeimagefilters-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:memory-type-native:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\4575ae57b2b9dcec863f0ea585066647\transformed\jetified-memory-type-native-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:memory-type-java:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\58bfb1bfe4dc67ea4b8e824fa98d6fd1\transformed\jetified-memory-type-java-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-native:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\1a8dc3dedc2a619bdd1299449677ed64\transformed\jetified-imagepipeline-native-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.10.4] C:\Users\vishw\.gradle\caches\transforms-3\146bedc425e239acb06ceaeaa786c185\transformed\jetified-soloader-0.10.4\AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\3f844a1e5c8727dc4afe071f87e8602b\transformed\jetified-memory-type-ashmem-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\20c7db3048b39ec1a153f86421167137\transformed\jetified-imagepipeline-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\4405ad3b089c74d7fe8f69e8f6d66dcc\transformed\jetified-nativeimagetranscoder-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\000e8bd61a2a8701f2f50343829bdd81\transformed\jetified-imagepipeline-base-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\8d16aaf3ffbd08014bd2f2b46ceaeb2e\transformed\material-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.adityaxjha:Android-ScalableVideoView:10e7b4da8b] C:\Users\vishw\.gradle\caches\transforms-3\85ad1dd5bb3b8f0541988a2d2e1e992f\transformed\jetified-Android-ScalableVideoView-10e7b4da8b\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.biometric:biometric:1.2.0-alpha04] C:\Users\vishw\.gradle\caches\transforms-3\58fc82326e16a6c2e5eb1db0ac55a86e\transformed\biometric-1.2.0-alpha04\AndroidManifest.xml:17:1-29:12
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\344321fee8d350f8db05df5ccde971ed\transformed\appcompat-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\82d60e426bfc7180727753af0063e210\transformed\sqlite-framework-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\fb8e4c857a05f42f2ffda550ec8cb5bb\transformed\jetified-appcompat-resources-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.autofill:autofill:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\584a98d75726e637ae0da959bef8219d\transformed\jetified-autofill-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\80423c634801d64594a18b8d92d7b371\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\41aea3076a11cb980ff97d59e2af4a71\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\567088ef19b94de8c4ed9ae63c3c9801\transformed\jetified-fragment-ktx-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.4.0] C:\Users\vishw\.gradle\caches\transforms-3\508e51a36acb197cc312b1e2a3e4cc3f\transformed\jetified-activity-ktx-1.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\bf1edd33b7b113277a5bc2e573cba71c\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\663cf9cda3be9fce6369177c5cb51d97\transformed\fragment-1.4.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.4.0] C:\Users\vishw\.gradle\caches\transforms-3\a15587f910e55469c76240c98a921755\transformed\jetified-activity-1.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.tracing:tracing:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\96b99099ebc1059b87f2c6283045269a\transformed\jetified-tracing-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fresco:middleware:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\ef82819b6e6a0d5f0a7d5fe8c061c056\transformed\jetified-middleware-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:ui-common:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\cc6560ea61c86be44e23aa392748cca0\transformed\jetified-ui-common-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.exoplayer:extension-okhttp:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\7a1eb8cddfe4d1b1e7400f0c03128ec4\transformed\jetified-extension-okhttp-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\3c6b0153445da8c76b3f732b887ce385\transformed\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\b7bc4eb305da2470ddf6dc0cbbd8ecb9\transformed\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\1f9b1ef711eb96c4766713ed4ac39e3c\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\19e1787c83a35bb271b0f460d76c429d\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\vishw\.gradle\caches\transforms-3\cdd12e7b3df725dc5450c6191e9b8b4e\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\vishw\.gradle\caches\transforms-3\99ee9eaf15e6fe630d8dbce728864c0d\transformed\exifinterface-1.3.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\ee71c7251ed6436129b63abec9196d74\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6e8ebbbbe6cfcd4ee38db92f45591bf3\transformed\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\341e58976e25b82e21f0583dcc0d3308\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\bf8c44cf8c541a31cdac8b655dfea90c\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\1e143d6fab44b3df81b776a553315ca0\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\06d3a09d3c46f65b7542b2d11934d234\transformed\jetified-exoplayer-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\f41395930543d9f7a948c6b0c66479ed\transformed\jetified-exoplayer-ui-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\vishw\.gradle\caches\transforms-3\3c7ddeb3b19efa7407b4f74c8eb99d4f\transformed\recyclerview-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\a3fa70192d02a4684f6f57e1167a3995\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\ef3e84970a57841bd50842cbd71fe9b7\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\vishw\.gradle\caches\transforms-3\7f88f57411207de0295ab20af6d7b106\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\3e539e15021aa49a512d29b1fe05a57f\transformed\jetified-exoplayer-dash-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\082563c8537eaa8c324a41e5c36c634d\transformed\jetified-exoplayer-hls-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-rtsp:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\1919f2366768bba6abbec0a42c8c9761\transformed\jetified-exoplayer-rtsp-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\b180615b4a428b62469f7966f0b6d967\transformed\jetified-exoplayer-smoothstreaming-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\e2f8a8cb7f17da21e9ab74e59d81f3b6\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\c9172308208b4f616e16e5cefced94b7\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\7e34197efe20d87a4e4e509ee9becbbe\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.4.3] C:\Users\vishw\.gradle\caches\transforms-3\c22651b7153eeb0bc06e1d2a677f2a15\transformed\media-1.4.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\2c7431cc873562b3204810ab040f5f03\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.7.0] C:\Users\vishw\.gradle\caches\transforms-3\3c3d67745cc0055a2f3c7aa5c1d315d3\transformed\core-1.7.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\36fe3f6941d1c7db66a00718ab724b42\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6888ee006a8f6a0b8d3132e67479ed67\transformed\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\9c0976f390aa65439b67888e9f1ebf5f\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\e9132e98b009ad6b8a966ddb806b6d90\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\adc564342e81e1cdcb7dc892284a2ff4\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\vishw\.gradle\caches\transforms-3\3b948a260b9da85c66d197be09c59024\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\d2aa1b2f64e4edfebc06462b78bc5e27\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\db958de42644c8e1439ecea6dbf28e57\transformed\jetified-exoplayer-datasource-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\565a93e0e20ff1dcc390528285dc4c94\transformed\jetified-exoplayer-database-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\86046fb16511fb6178c93df570512af1\transformed\jetified-exoplayer-extractor-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\6ac0c545f3a92e88751395375cd13903\transformed\jetified-exoplayer-decoder-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\b24c00f952786c28d98c6d0f046918f7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\37f3ab0829c286c8be5200c4828dc0dd\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\1f1d85f162f14db1be2a745335b28522\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\ecdb4f3c09c34d9f7bc5353fd9fd0749\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\37fefe78d3788b722af0811bca04a73c\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\8d1054195b24bfe3a5ac3c4459bca605\transformed\jetified-lifecycle-livedata-core-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\vishw\.gradle\caches\transforms-3\cdf17061e0e13a945634e7c4015d9c94\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\8b1634a6cc938648470280d9706d78d4\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\bc1a2b86e571d856f0db442236f137fc\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.henninghall:numberpickerview:v1.1.5] C:\Users\vishw\.gradle\caches\transforms-3\f09bc3e978c4e376937a9bca4eb6895d\transformed\jetified-numberpickerview-v1.1.5\AndroidManifest.xml:2:1-11:12
+MERGED from [net.time4j:time4j-android:4.8-2021a] C:\Users\vishw\.gradle\caches\transforms-3\e04771aa52adea65ce5917f4755cec32\transformed\jetified-time4j-android-4.8-2021a\AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.fresco:fbcore:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\70af557bc00b9664155005c44fcedc70\transformed\jetified-fbcore-2.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6a5c9144e6e53969e963d83e8e29a695\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:2:1-13:12
+	package
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:3:5-67
+MERGED from [com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:15:5-67
+MERGED from [com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:15:5-67
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-67
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-67
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-67
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:3:22-64
+uses-permission#android.permission.USE_BIOMETRIC
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:4:1-68
+MERGED from [:expo-local-authentication] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-local-authentication\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-72
+MERGED from [:expo-local-authentication] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-local-authentication\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-72
+MERGED from [androidx.biometric:biometric:1.2.0-alpha04] C:\Users\vishw\.gradle\caches\transforms-3\58fc82326e16a6c2e5eb1db0ac55a86e\transformed\biometric-1.2.0-alpha04\AndroidManifest.xml:24:5-72
+MERGED from [androidx.biometric:biometric:1.2.0-alpha04] C:\Users\vishw\.gradle\caches\transforms-3\58fc82326e16a6c2e5eb1db0ac55a86e\transformed\biometric-1.2.0-alpha04\AndroidManifest.xml:24:5-72
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:4:18-65
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:5:1-70
+MERGED from [:expo-local-authentication] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-local-authentication\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-74
+MERGED from [:expo-local-authentication] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-local-authentication\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-74
+MERGED from [androidx.biometric:biometric:1.2.0-alpha04] C:\Users\vishw\.gradle\caches\transforms-3\58fc82326e16a6c2e5eb1db0ac55a86e\transformed\biometric-1.2.0-alpha04\AndroidManifest.xml:27:5-74
+MERGED from [androidx.biometric:biometric:1.2.0-alpha04] C:\Users\vishw\.gradle\caches\transforms-3\58fc82326e16a6c2e5eb1db0ac55a86e\transformed\biometric-1.2.0-alpha04\AndroidManifest.xml:27:5-74
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:5:18-67
+application
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:6:5-25:19
+MERGED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:6:5-25:19
+MERGED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:6:5-25:19
+MERGED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:5-41:19
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:5-41:19
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-31:19
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:5-31:19
+MERGED from [:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:19
+MERGED from [:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-11:19
+MERGED from [com.facebook.react:react-android:0.71.6] C:\Users\vishw\.gradle\caches\transforms-3\80bcec10edf7b36a7acc4848e4b58fa9\transformed\jetified-react-android-0.71.6-debug\AndroidManifest.xml:9:5-20
+MERGED from [com.facebook.react:react-android:0.71.6] C:\Users\vishw\.gradle\caches\transforms-3\80bcec10edf7b36a7acc4848e4b58fa9\transformed\jetified-react-android-0.71.6-debug\AndroidManifest.xml:9:5-20
+MERGED from [com.facebook.soloader:soloader:0.10.4] C:\Users\vishw\.gradle\caches\transforms-3\146bedc425e239acb06ceaeaa786c185\transformed\jetified-soloader-0.10.4\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.10.4] C:\Users\vishw\.gradle\caches\transforms-3\146bedc425e239acb06ceaeaa786c185\transformed\jetified-soloader-0.10.4\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\8d16aaf3ffbd08014bd2f2b46ceaeb2e\transformed\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\8d16aaf3ffbd08014bd2f2b46ceaeb2e\transformed\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\41aea3076a11cb980ff97d59e2af4a71\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\41aea3076a11cb980ff97d59e2af4a71\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.core:core:1.7.0] C:\Users\vishw\.gradle\caches\transforms-3\3c3d67745cc0055a2f3c7aa5c1d315d3\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.7.0] C:\Users\vishw\.gradle\caches\transforms-3\3c3d67745cc0055a2f3c7aa5c1d315d3\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\vishw\.gradle\caches\transforms-3\3b948a260b9da85c66d197be09c59024\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\vishw\.gradle\caches\transforms-3\3b948a260b9da85c66d197be09c59024\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [net.time4j:time4j-android:4.8-2021a] C:\Users\vishw\.gradle\caches\transforms-3\e04771aa52adea65ce5917f4755cec32\transformed\jetified-time4j-android-4.8-2021a\AndroidManifest.xml:11:5-20
+MERGED from [net.time4j:time4j-android:4.8-2021a] C:\Users\vishw\.gradle\caches\transforms-3\e04771aa52adea65ce5917f4755cec32\transformed\jetified-time4j-android-4.8-2021a\AndroidManifest.xml:11:5-20
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:11:5-20
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:11:5-20
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.7.0] C:\Users\vishw\.gradle\caches\transforms-3\3c3d67745cc0055a2f3c7aa5c1d315d3\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:8:7-39
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:8:7-39
+	tools:ignore
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:10:9-48
+	android:roundIcon
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:10:7-52
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:10:7-52
+	tools:targetApi
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:9:9-29
+	android:icon
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:9:7-41
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:9:7-41
+	android:allowBackup
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:11:7-34
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:12:7-38
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:12:7-38
+	android:usesCleartextTraffic
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:8:9-44
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:7:7-38
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:7:7-38
+activity#com.thenewsroom.MainActivity
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:13:7-24:18
+	android:label
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:15:9-41
+	android:launchMode
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:17:9-40
+	android:windowSoftInputMode
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:18:9-51
+	android:exported
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:19:9-32
+	android:configChanges
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:16:9-118
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:20:9-23:25
+action#android.intent.action.MAIN
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:21:13-65
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:21:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:22:13-73
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml:22:23-70
+uses-sdk
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\014c1961d36475190c3b128ca2cc5a5c\transformed\jetified-flipper-network-plugin-0.125.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\014c1961d36475190c3b128ca2cc5a5c\transformed\jetified-flipper-network-plugin-0.125.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\cbc88ae85bcc7c3d45fd45bcea51858b\transformed\jetified-flipper-fresco-plugin-0.125.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\cbc88ae85bcc7c3d45fd45bcea51858b\transformed\jetified-flipper-fresco-plugin-0.125.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:11:5-13:41
+MERGED from [:react-native-async-storage_async-storage] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-async-storage_async-storage] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-date-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-date-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-date-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-date-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-gesture-handler] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-gesture-handler] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-pager-view] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-pager-view\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-pager-view] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-pager-view\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-reanimated] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-reanimated\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-reanimated] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-reanimated\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-safe-area-context] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-safe-area-context] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-svg] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-svg] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-tts] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-tts\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-tts] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-tts\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-vector-icons] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-vector-icons] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-video] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-video\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-video] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-video\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-view-shot] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-view-shot\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-view-shot] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-view-shot\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-application] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-application\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-application] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-application\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-av] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-av\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-av] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-av\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-constants] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-constants\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-constants] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-constants\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-44
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:6:5-44
+MERGED from [:expo-font] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-font\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-font] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-font\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-keep-awake] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-keep-awake\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-keep-awake] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-keep-awake\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-local-authentication] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-local-authentication\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-local-authentication] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-local-authentication\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-screen-capture] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-screen-capture\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-screen-capture] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-screen-capture\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.react:react-android:0.71.6] C:\Users\vishw\.gradle\caches\transforms-3\80bcec10edf7b36a7acc4848e4b58fa9\transformed\jetified-react-android-0.71.6-debug\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.react:react-android:0.71.6] C:\Users\vishw\.gradle\caches\transforms-3\80bcec10edf7b36a7acc4848e4b58fa9\transformed\jetified-react-android-0.71.6-debug\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\8aaa4e4436d91524d951d24ae0d57cef\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\8aaa4e4436d91524d951d24ae0d57cef\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\4aaddbb748d63cc92d32864db41de456\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\4aaddbb748d63cc92d32864db41de456\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\55ab8b6ff959bd4fadbaf69510faee47\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\55ab8b6ff959bd4fadbaf69510faee47\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.react:hermes-android:0.71.6] C:\Users\vishw\.gradle\caches\transforms-3\dfa009291e3f479b7cb2ac1d63e2e8f7\transformed\jetified-hermes-android-0.71.6-debug\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.react:hermes-android:0.71.6] C:\Users\vishw\.gradle\caches\transforms-3\dfa009291e3f479b7cb2ac1d63e2e8f7\transformed\jetified-hermes-android-0.71.6-debug\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fbjni:fbjni:0.3.0] C:\Users\vishw\.gradle\caches\transforms-3\839e63e695132860efbc878bf673a792\transformed\jetified-fbjni-0.3.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fbjni:fbjni:0.3.0] C:\Users\vishw\.gradle\caches\transforms-3\839e63e695132860efbc878bf673a792\transformed\jetified-fbjni-0.3.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:flipper:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\8d2d465396fbc35cd57b3622e1220489\transformed\jetified-flipper-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:flipper:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\8d2d465396fbc35cd57b3622e1220489\transformed\jetified-flipper-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:stetho:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\20916074075fc38e64c39baaa46aa981\transformed\jetified-stetho-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:stetho:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\20916074075fc38e64c39baaa46aa981\transformed\jetified-stetho-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\3492b292db4e7f1b08086ca6d344faa3\transformed\jetified-fresco-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\3492b292db4e7f1b08086ca6d344faa3\transformed\jetified-fresco-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:soloader:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\ff5408e18abc4dc095382e88306ad07e\transformed\jetified-soloader-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:soloader:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\ff5408e18abc4dc095382e88306ad07e\transformed\jetified-soloader-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vishw\.gradle\caches\transforms-3\5cc3237fa7acfb226a14dc61826a268f\transformed\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.5.0] C:\Users\vishw\.gradle\caches\transforms-3\5cc3237fa7acfb226a14dc61826a268f\transformed\jetified-imagepipeline-okhttp3-2.5.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\81bb9df48fec7d5cbc4a24c5804be412\transformed\jetified-drawee-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\81bb9df48fec7d5cbc4a24c5804be412\transformed\jetified-drawee-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\dc6cd17982c874eaee82c008e6ff3870\transformed\jetified-nativeimagefilters-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\dc6cd17982c874eaee82c008e6ff3870\transformed\jetified-nativeimagefilters-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-native:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\4575ae57b2b9dcec863f0ea585066647\transformed\jetified-memory-type-native-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-native:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\4575ae57b2b9dcec863f0ea585066647\transformed\jetified-memory-type-native-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-java:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\58bfb1bfe4dc67ea4b8e824fa98d6fd1\transformed\jetified-memory-type-java-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-java:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\58bfb1bfe4dc67ea4b8e824fa98d6fd1\transformed\jetified-memory-type-java-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-native:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\1a8dc3dedc2a619bdd1299449677ed64\transformed\jetified-imagepipeline-native-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-native:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\1a8dc3dedc2a619bdd1299449677ed64\transformed\jetified-imagepipeline-native-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.10.4] C:\Users\vishw\.gradle\caches\transforms-3\146bedc425e239acb06ceaeaa786c185\transformed\jetified-soloader-0.10.4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.10.4] C:\Users\vishw\.gradle\caches\transforms-3\146bedc425e239acb06ceaeaa786c185\transformed\jetified-soloader-0.10.4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\3f844a1e5c8727dc4afe071f87e8602b\transformed\jetified-memory-type-ashmem-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\3f844a1e5c8727dc4afe071f87e8602b\transformed\jetified-memory-type-ashmem-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\20c7db3048b39ec1a153f86421167137\transformed\jetified-imagepipeline-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\20c7db3048b39ec1a153f86421167137\transformed\jetified-imagepipeline-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\4405ad3b089c74d7fe8f69e8f6d66dcc\transformed\jetified-nativeimagetranscoder-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\4405ad3b089c74d7fe8f69e8f6d66dcc\transformed\jetified-nativeimagetranscoder-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\000e8bd61a2a8701f2f50343829bdd81\transformed\jetified-imagepipeline-base-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\000e8bd61a2a8701f2f50343829bdd81\transformed\jetified-imagepipeline-base-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\8d16aaf3ffbd08014bd2f2b46ceaeb2e\transformed\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\8d16aaf3ffbd08014bd2f2b46ceaeb2e\transformed\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.adityaxjha:Android-ScalableVideoView:10e7b4da8b] C:\Users\vishw\.gradle\caches\transforms-3\85ad1dd5bb3b8f0541988a2d2e1e992f\transformed\jetified-Android-ScalableVideoView-10e7b4da8b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.adityaxjha:Android-ScalableVideoView:10e7b4da8b] C:\Users\vishw\.gradle\caches\transforms-3\85ad1dd5bb3b8f0541988a2d2e1e992f\transformed\jetified-Android-ScalableVideoView-10e7b4da8b\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.biometric:biometric:1.2.0-alpha04] C:\Users\vishw\.gradle\caches\transforms-3\58fc82326e16a6c2e5eb1db0ac55a86e\transformed\biometric-1.2.0-alpha04\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.biometric:biometric:1.2.0-alpha04] C:\Users\vishw\.gradle\caches\transforms-3\58fc82326e16a6c2e5eb1db0ac55a86e\transformed\biometric-1.2.0-alpha04\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\344321fee8d350f8db05df5ccde971ed\transformed\appcompat-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\344321fee8d350f8db05df5ccde971ed\transformed\appcompat-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\82d60e426bfc7180727753af0063e210\transformed\sqlite-framework-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\82d60e426bfc7180727753af0063e210\transformed\sqlite-framework-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\fb8e4c857a05f42f2ffda550ec8cb5bb\transformed\jetified-appcompat-resources-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\fb8e4c857a05f42f2ffda550ec8cb5bb\transformed\jetified-appcompat-resources-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\584a98d75726e637ae0da959bef8219d\transformed\jetified-autofill-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\584a98d75726e637ae0da959bef8219d\transformed\jetified-autofill-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\80423c634801d64594a18b8d92d7b371\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\80423c634801d64594a18b8d92d7b371\transformed\jetified-emoji2-views-helper-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\41aea3076a11cb980ff97d59e2af4a71\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\41aea3076a11cb980ff97d59e2af4a71\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\567088ef19b94de8c4ed9ae63c3c9801\transformed\jetified-fragment-ktx-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\567088ef19b94de8c4ed9ae63c3c9801\transformed\jetified-fragment-ktx-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.4.0] C:\Users\vishw\.gradle\caches\transforms-3\508e51a36acb197cc312b1e2a3e4cc3f\transformed\jetified-activity-ktx-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.4.0] C:\Users\vishw\.gradle\caches\transforms-3\508e51a36acb197cc312b1e2a3e4cc3f\transformed\jetified-activity-ktx-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\bf1edd33b7b113277a5bc2e573cba71c\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\bf1edd33b7b113277a5bc2e573cba71c\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\663cf9cda3be9fce6369177c5cb51d97\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\vishw\.gradle\caches\transforms-3\663cf9cda3be9fce6369177c5cb51d97\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.4.0] C:\Users\vishw\.gradle\caches\transforms-3\a15587f910e55469c76240c98a921755\transformed\jetified-activity-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.4.0] C:\Users\vishw\.gradle\caches\transforms-3\a15587f910e55469c76240c98a921755\transformed\jetified-activity-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\96b99099ebc1059b87f2c6283045269a\transformed\jetified-tracing-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\96b99099ebc1059b87f2c6283045269a\transformed\jetified-tracing-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.fresco:middleware:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\ef82819b6e6a0d5f0a7d5fe8c061c056\transformed\jetified-middleware-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:middleware:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\ef82819b6e6a0d5f0a7d5fe8c061c056\transformed\jetified-middleware-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:ui-common:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\cc6560ea61c86be44e23aa392748cca0\transformed\jetified-ui-common-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:ui-common:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\cc6560ea61c86be44e23aa392748cca0\transformed\jetified-ui-common-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.exoplayer:extension-okhttp:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\7a1eb8cddfe4d1b1e7400f0c03128ec4\transformed\jetified-extension-okhttp-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:extension-okhttp:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\7a1eb8cddfe4d1b1e7400f0c03128ec4\transformed\jetified-extension-okhttp-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\3c6b0153445da8c76b3f732b887ce385\transformed\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\3c6b0153445da8c76b3f732b887ce385\transformed\jetified-lifecycle-runtime-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\b7bc4eb305da2470ddf6dc0cbbd8ecb9\transformed\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\b7bc4eb305da2470ddf6dc0cbbd8ecb9\transformed\jetified-lifecycle-viewmodel-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\1f9b1ef711eb96c4766713ed4ac39e3c\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\1f9b1ef711eb96c4766713ed4ac39e3c\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\19e1787c83a35bb271b0f460d76c429d\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\19e1787c83a35bb271b0f460d76c429d\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\vishw\.gradle\caches\transforms-3\cdd12e7b3df725dc5450c6191e9b8b4e\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\vishw\.gradle\caches\transforms-3\cdd12e7b3df725dc5450c6191e9b8b4e\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\vishw\.gradle\caches\transforms-3\99ee9eaf15e6fe630d8dbce728864c0d\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\vishw\.gradle\caches\transforms-3\99ee9eaf15e6fe630d8dbce728864c0d\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\ee71c7251ed6436129b63abec9196d74\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\ee71c7251ed6436129b63abec9196d74\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6e8ebbbbe6cfcd4ee38db92f45591bf3\transformed\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6e8ebbbbe6cfcd4ee38db92f45591bf3\transformed\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\341e58976e25b82e21f0583dcc0d3308\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\341e58976e25b82e21f0583dcc0d3308\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\bf8c44cf8c541a31cdac8b655dfea90c\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\bf8c44cf8c541a31cdac8b655dfea90c\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\1e143d6fab44b3df81b776a553315ca0\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\1e143d6fab44b3df81b776a553315ca0\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\06d3a09d3c46f65b7542b2d11934d234\transformed\jetified-exoplayer-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\06d3a09d3c46f65b7542b2d11934d234\transformed\jetified-exoplayer-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\f41395930543d9f7a948c6b0c66479ed\transformed\jetified-exoplayer-ui-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\f41395930543d9f7a948c6b0c66479ed\transformed\jetified-exoplayer-ui-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\vishw\.gradle\caches\transforms-3\3c7ddeb3b19efa7407b4f74c8eb99d4f\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\vishw\.gradle\caches\transforms-3\3c7ddeb3b19efa7407b4f74c8eb99d4f\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\a3fa70192d02a4684f6f57e1167a3995\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\a3fa70192d02a4684f6f57e1167a3995\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\ef3e84970a57841bd50842cbd71fe9b7\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\ef3e84970a57841bd50842cbd71fe9b7\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\vishw\.gradle\caches\transforms-3\7f88f57411207de0295ab20af6d7b106\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\vishw\.gradle\caches\transforms-3\7f88f57411207de0295ab20af6d7b106\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\3e539e15021aa49a512d29b1fe05a57f\transformed\jetified-exoplayer-dash-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\3e539e15021aa49a512d29b1fe05a57f\transformed\jetified-exoplayer-dash-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\082563c8537eaa8c324a41e5c36c634d\transformed\jetified-exoplayer-hls-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\082563c8537eaa8c324a41e5c36c634d\transformed\jetified-exoplayer-hls-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-rtsp:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\1919f2366768bba6abbec0a42c8c9761\transformed\jetified-exoplayer-rtsp-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-rtsp:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\1919f2366768bba6abbec0a42c8c9761\transformed\jetified-exoplayer-rtsp-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\b180615b4a428b62469f7966f0b6d967\transformed\jetified-exoplayer-smoothstreaming-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\b180615b4a428b62469f7966f0b6d967\transformed\jetified-exoplayer-smoothstreaming-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\e2f8a8cb7f17da21e9ab74e59d81f3b6\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\e2f8a8cb7f17da21e9ab74e59d81f3b6\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\c9172308208b4f616e16e5cefced94b7\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\c9172308208b4f616e16e5cefced94b7\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\7e34197efe20d87a4e4e509ee9becbbe\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\7e34197efe20d87a4e4e509ee9becbbe\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.4.3] C:\Users\vishw\.gradle\caches\transforms-3\c22651b7153eeb0bc06e1d2a677f2a15\transformed\media-1.4.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.4.3] C:\Users\vishw\.gradle\caches\transforms-3\c22651b7153eeb0bc06e1d2a677f2a15\transformed\media-1.4.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\2c7431cc873562b3204810ab040f5f03\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\2c7431cc873562b3204810ab040f5f03\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.7.0] C:\Users\vishw\.gradle\caches\transforms-3\3c3d67745cc0055a2f3c7aa5c1d315d3\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.7.0] C:\Users\vishw\.gradle\caches\transforms-3\3c3d67745cc0055a2f3c7aa5c1d315d3\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\36fe3f6941d1c7db66a00718ab724b42\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\36fe3f6941d1c7db66a00718ab724b42\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6888ee006a8f6a0b8d3132e67479ed67\transformed\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6888ee006a8f6a0b8d3132e67479ed67\transformed\jetified-savedstate-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\9c0976f390aa65439b67888e9f1ebf5f\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\9c0976f390aa65439b67888e9f1ebf5f\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\e9132e98b009ad6b8a966ddb806b6d90\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\e9132e98b009ad6b8a966ddb806b6d90\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\adc564342e81e1cdcb7dc892284a2ff4\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\adc564342e81e1cdcb7dc892284a2ff4\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\vishw\.gradle\caches\transforms-3\3b948a260b9da85c66d197be09c59024\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\vishw\.gradle\caches\transforms-3\3b948a260b9da85c66d197be09c59024\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\d2aa1b2f64e4edfebc06462b78bc5e27\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\d2aa1b2f64e4edfebc06462b78bc5e27\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\db958de42644c8e1439ecea6dbf28e57\transformed\jetified-exoplayer-datasource-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\db958de42644c8e1439ecea6dbf28e57\transformed\jetified-exoplayer-datasource-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\565a93e0e20ff1dcc390528285dc4c94\transformed\jetified-exoplayer-database-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\565a93e0e20ff1dcc390528285dc4c94\transformed\jetified-exoplayer-database-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\86046fb16511fb6178c93df570512af1\transformed\jetified-exoplayer-extractor-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\86046fb16511fb6178c93df570512af1\transformed\jetified-exoplayer-extractor-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\6ac0c545f3a92e88751395375cd13903\transformed\jetified-exoplayer-decoder-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\6ac0c545f3a92e88751395375cd13903\transformed\jetified-exoplayer-decoder-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\b24c00f952786c28d98c6d0f046918f7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\b24c00f952786c28d98c6d0f046918f7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\37f3ab0829c286c8be5200c4828dc0dd\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\37f3ab0829c286c8be5200c4828dc0dd\transformed\lifecycle-runtime-2.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\1f1d85f162f14db1be2a745335b28522\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\1f1d85f162f14db1be2a745335b28522\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\ecdb4f3c09c34d9f7bc5353fd9fd0749\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\ecdb4f3c09c34d9f7bc5353fd9fd0749\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\37fefe78d3788b722af0811bca04a73c\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\37fefe78d3788b722af0811bca04a73c\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\8d1054195b24bfe3a5ac3c4459bca605\transformed\jetified-lifecycle-livedata-core-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\8d1054195b24bfe3a5ac3c4459bca605\transformed\jetified-lifecycle-livedata-core-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\vishw\.gradle\caches\transforms-3\cdf17061e0e13a945634e7c4015d9c94\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\vishw\.gradle\caches\transforms-3\cdf17061e0e13a945634e7c4015d9c94\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\8b1634a6cc938648470280d9706d78d4\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\vishw\.gradle\caches\transforms-3\8b1634a6cc938648470280d9706d78d4\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\bc1a2b86e571d856f0db442236f137fc\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\vishw\.gradle\caches\transforms-3\bc1a2b86e571d856f0db442236f137fc\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.henninghall:numberpickerview:v1.1.5] C:\Users\vishw\.gradle\caches\transforms-3\f09bc3e978c4e376937a9bca4eb6895d\transformed\jetified-numberpickerview-v1.1.5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.henninghall:numberpickerview:v1.1.5] C:\Users\vishw\.gradle\caches\transforms-3\f09bc3e978c4e376937a9bca4eb6895d\transformed\jetified-numberpickerview-v1.1.5\AndroidManifest.xml:7:5-9:41
+MERGED from [net.time4j:time4j-android:4.8-2021a] C:\Users\vishw\.gradle\caches\transforms-3\e04771aa52adea65ce5917f4755cec32\transformed\jetified-time4j-android-4.8-2021a\AndroidManifest.xml:7:5-9:41
+MERGED from [net.time4j:time4j-android:4.8-2021a] C:\Users\vishw\.gradle\caches\transforms-3\e04771aa52adea65ce5917f4755cec32\transformed\jetified-time4j-android-4.8-2021a\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\70af557bc00b9664155005c44fcedc70\transformed\jetified-fbcore-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.6.0] C:\Users\vishw\.gradle\caches\transforms-3\70af557bc00b9664155005c44fcedc70\transformed\jetified-fbcore-2.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6a5c9144e6e53969e963d83e8e29a695\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\vishw\.gradle\caches\transforms-3\6a5c9144e6e53969e963d83e8e29a695\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml
+INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:5:22-75
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:11:9-111
+	android:exported
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:11:84-108
+	android:name
+		ADDED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:11:19-83
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:16:5-76
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:5-76
+MERGED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:5-76
+	android:name
+		ADDED from [com.facebook.flipper:flipper:0.125.0] C:\Users\vishw\.gradle\caches\transforms-3\92ad11363d6a6f1ea5a8b9f3f48d9338\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:16:22-73
+provider#com.imagepicker.ImagePickerProvider
+ADDED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-71
+	android:exported
+		ADDED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-63
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:70
+	android:resource
+		ADDED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+	android:name
+		ADDED from [:react-native-image-picker] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
+provider#cl.json.RNShareFileProvider
+ADDED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:react-native-share] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\react-native-share\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-55
+uses-permission#com.android.vending.CHECK_LICENSE
+ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-73
+	android:name
+		ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-70
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:5-68
+	android:name
+		ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:22-65
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\e2f8a8cb7f17da21e9ab74e59d81f3b6\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\e2f8a8cb7f17da21e9ab74e59d81f3b6\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\b24c00f952786c28d98c6d0f046918f7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\vishw\.gradle\caches\transforms-3\b24c00f952786c28d98c6d0f046918f7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:5-81
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:22-78
+provider#com.RNFetchBlob.Utils.FileProvider
+ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:9-40:20
+	android:grantUriPermissions
+		ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:36:13-47
+	android:authorities
+		ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-60
+	android:exported
+		ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [:rn-fetch-blob] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\rn-fetch-blob\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:13-62
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from C:\Users\vishw\tvisoft\TheNewsroomRN\android\app\src\debug\AndroidManifest.xml:2:1-13:12 reason: com.RNFetchBlob requested WRITE_EXTERNAL_STORAGE
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-80
+MERGED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-80
+queries
+ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-18:15
+intent#action:name:android.intent.action.OPEN_DOCUMENT_TREE
+ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-17:18
+action#android.intent.action.OPEN_DOCUMENT_TREE
+ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-79
+	android:name
+		ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:21-76
+provider#expo.modules.filesystem.FileSystemFileProvider
+ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:9-30:20
+	android:grantUriPermissions
+		ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-47
+	android:authorities
+		ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-74
+	android:exported
+		ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-37
+	tools:replace
+		ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-48
+	android:name
+		ADDED from [:expo-file-system] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-file-system\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-74
+meta-data#org.unimodules.core.AppLoader#react-native-headless
+ADDED from [:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-10:89
+	android:value
+		ADDED from [:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-86
+	android:name
+		ADDED from [:expo-modules-core] C:\Users\vishw\tvisoft\TheNewsroomRN\node_modules\expo-modules-core\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-79
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\41aea3076a11cb980ff97d59e2af4a71\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\41aea3076a11cb980ff97d59e2af4a71\transformed\jetified-startup-runtime-1.0.0\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:30:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.0.0] C:\Users\vishw\.gradle\caches\transforms-3\3393f4c2dacd3424be6618614c2c97cd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\vishw\.gradle\caches\transforms-3\fc49bab9ad5b82206670bef3f766995b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:9:5-110
+	android:name
+		ADDED from [com.android.installreferrer:installreferrer:1.0] C:\Users\vishw\.gradle\caches\transforms-3\1eccaf5e4d9191d46b70b4b246d12fcf\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:9:22-107

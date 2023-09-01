@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import PressableOpacity from "./PressableOpacity";
 import { omit } from "lodash";
 import Share from "react-native-share";
-import { COLORS, ROUTES, isAdmin } from "../constants";
+import { COLORS, ROUTES } from "../constants";
 import { getBase64FromURL } from "../utils/utilsService";
 import FirestoreService from "../firebase/firestoreService";
 import { COLLECTIONS } from "../constants/collections";
@@ -13,6 +13,7 @@ import { useAppDispatch } from "../app/hooks";
 import { update } from "../features/global/globalSlice";
 import useUpdateGlobal from "../hooks/useUpdateGlobal";
 import { useColorScheme } from "nativewind";
+import useSelectGlobal from "../hooks/useSelectGlobal";
 const ShareIcon = (props) => {
   const { isBookmarked, addToBookMark, news, viewref } = props;
   const { id, content, title, imageUrl } = news || {};
@@ -21,7 +22,7 @@ const ShareIcon = (props) => {
     size: 22,
     color: colorScheme === "light" ? COLORS.primary : "#FFA1A5",
   };
-
+  const isAdmin=useSelectGlobal("isAdmin")
   const updateValue = useUpdateGlobal();
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
