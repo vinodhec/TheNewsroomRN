@@ -21,11 +21,12 @@ import colors from "../constants/colors";
 import FirebaseAuthService from "../firebase/firebaseAuthService";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import auth from "@react-native-firebase/auth";
-GoogleSignin.configure({
-  webClientId:
-    "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
-});
+
 async function onGoogleButtonPress() {
+  GoogleSignin.configure({
+    webClientId:
+      "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
+  });
   // Check if your device supports Google Play
   await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
   // Get the users ID token
@@ -72,7 +73,8 @@ const NewsFeedScreen = ({ route, navigation }) => {
       // }
       setSpeechStatus("cancelled");
     });
-    onGoogleButtonPress();
+    // onGoogleButtonPress();
+    FirebaseAuthService.create();
   }, []);
 
   useEffect(() => {

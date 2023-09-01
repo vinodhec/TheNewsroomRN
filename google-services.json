@@ -15,46 +15,10 @@
       },
       "oauth_client": [
         {
-          "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCTUVeBvE8FgydvMvsFNFQw_pM7BXSZC6Q"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "463401124803-gia8oinfgtsvugsklojj0nnhbpkbftg5.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "org.nativescript.TheNewsRoom"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:463401124803:android:06d20a34ed1e6504dff376",
-        "android_client_info": {
-          "package_name": "com.thenewsroom"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "463401124803-lto91ca36mehvjj9fs88u782m0bh9v7h.apps.googleusercontent.com",
+          "client_id": "463401124803-6uv4sm1rj1pev7kt6fnhvg1aq4akg6ab.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.thenewsroom",
+            "package_name": "com.TheNewsroom",
             "certificate_hash": "af134c6ce59c6cff7f8b8d29f6d57e8eee4e429d"
           }
         },

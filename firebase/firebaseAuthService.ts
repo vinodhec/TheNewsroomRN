@@ -1,5 +1,5 @@
 import app from './firebase'
-import { getAuth, signInWithPhoneNumber, RecaptchaVerifier, connectAuthEmulator, signInWithCustomToken, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
+import { getAuth, signInWithPhoneNumber, RecaptchaVerifier, connectAuthEmulator, signInWithCustomToken, GoogleAuthProvider, signInWithPopup, signInWithRedirect, createUserWithEmailAndPassword } from "firebase/auth";
 
 
 const disableEmulator = true;
@@ -89,7 +89,22 @@ const googleSignin = () => {
             // ...
         });
 }
-const FirebaseAuthService = { googleSignin, authWithcustomToken, logout, signin, confirmCode, assignCaptacha, updateProfile, getCurrentUser }
+const create = () => {
+    createUserWithEmailAndPassword(auth, 'test@test.com', 'abcd1234')
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user)
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage)
+            // ..
+        });
+}
+const FirebaseAuthService = { create, googleSignin, authWithcustomToken, logout, signin, confirmCode, assignCaptacha, updateProfile, getCurrentUser }
 
 export default FirebaseAuthService;
 
