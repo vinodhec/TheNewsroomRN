@@ -39,6 +39,7 @@ const LazyLoad = ({
     docs: [],
     count: 0,
   });
+  const isAdmin = useSelectGlobal("isAdmin");
 
   const getTitles = (data: any) => data.map((data: any) => data.title);
   const [loading, setLoading] = useState(false);
@@ -97,6 +98,9 @@ const LazyLoad = ({
 
   useEffect(() => {}, [items]);
   const getData = React.useCallback(() => {
+    if (isAdmin) {
+      return items;
+    }
     let outData = [];
     outData.push(...items);
 
