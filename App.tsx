@@ -14,15 +14,16 @@ import notifee, {
   AndroidStyle,
 } from "@notifee/react-native";
 import messaging from "@react-native-firebase/messaging";
-import useUpdateGlobal from "./hooks/useUpdateGlobal";
-import { useColorScheme } from "nativewind";
-const Test = () => {
-  return (
-    <View>
-      <Text>Hello</Text>
-    </View>
-  );
-};
+
+import {
+  AppOpenAd,
+  InterstitialAd,
+  RewardedAd,
+  BannerAd,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+AppOpenAd.createForAdRequest(TestIds.APP_OPEN);
 console.log({ app });
 
 let persistor = persistStore(store);

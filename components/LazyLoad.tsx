@@ -7,6 +7,17 @@ import { styled, useColorScheme } from "nativewind";
 import { COLORS } from "../constants";
 import { documentId } from "firebase/firestore";
 import colors from "../constants/colors";
+import React from "react";
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__
+  ? TestIds.BANNER
+  : "ca-app-pub-7672557583201463/3482657505";
+
 const StyledView = styled(View);
 
 const LazyLoad = ({
@@ -14,6 +25,7 @@ const LazyLoad = ({
   ListEmptyComponent,
   collectionName,
   transformItems,
+  adStartPosition = 4,
   options,
   updateItems,
   customIds,
@@ -83,14 +95,22 @@ const LazyLoad = ({
     getQueryResults();
   }, [JSON.stringify(options)]);
 
-  useEffect(() => {
-    // updateItems(items);
+  useEffect(() => {}, [items]);
+  const getData = React.useCallback(() => {
+    let outData = [];
+    outData.push(...items);
+
+    // Inject ads into array
+    for (let i = adStartPosition; i < outData.length; i += 5) {
+      outData.splice(i, 0, { type: "ad", id: i });
+    }
+    return outData;
   }, [items]);
 
   return (
     <FlatList
       onEndReachedThreshold={10}
-      data={transformItems ? transformItems(items) : items}
+      data={transformItems ? transformItems(getData()) : getData()}
       keyExtractor={(item: any) => {
         //
         return item?.id || item?.date;
@@ -100,7 +120,19 @@ const LazyLoad = ({
       // }}
       // ItemSeparatorComponent={()=><StyledView className="border-solid divide-solid bg-red-600 flex flex-1  w-full"  ></StyledView>}
       onEndReached={getQueryResults.bind(this, true)}
-      renderItem={content}
+      renderItem={({ item }) => {
+        return item.type === "ad" ? (
+          <BannerAd
+            unitId={adUnitId}
+            size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        ) : (
+          content({ item })
+        );
+      }}
       ListEmptyComponent={ListEmptyComponent}
       contentContainerStyle={{
         padding: 8,

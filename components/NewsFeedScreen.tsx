@@ -1,4 +1,11 @@
-import { View, Text, FlatList, Animated, ViewToken } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  Animated,
+  ViewToken,
+  Button,
+} from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { COLORS, ROUTES } from "../constants";
 import FirestoreService from "../firebase/firestoreService";
@@ -22,27 +29,10 @@ import FirebaseAuthService from "../firebase/firebaseAuthService";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import auth from "@react-native-firebase/auth";
 
-async function onGoogleButtonPress() {
-  GoogleSignin.configure({
-    webClientId:
-      "463401124803-c43cg9r71n53g9qgcuetcs58l9bhjb61.apps.googleusercontent.com",
-  });
-  // Check if your device supports Google Play
-  await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
-  // Get the users ID token
-  const { idToken } = await GoogleSignin.signIn();
-
-  // Create a Google credential with the token
-  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-  // Sign-in the user with the credential
-  return auth().signInWithCredential(googleCredential);
-}
 const NewsFeedScreen = ({ route, navigation }) => {
-  
-  const isAdmin=useSelectGlobal("isAdmin")
+  const isAdmin = useSelectGlobal("isAdmin");
 
-  console.log({isAdmin})
+  console.log({ isAdmin });
   const temp = route.params?.category;
   const groups = route.params?.groups;
   const id = route.params?.id;
@@ -58,8 +48,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
   }
 
   useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    // Unsubscribe from events on unmount
   }, []);
   useEffect(() => {
     Tts.addEventListener("tts-start", (event) => {

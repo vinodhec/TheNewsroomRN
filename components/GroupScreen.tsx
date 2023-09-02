@@ -84,6 +84,7 @@ const GroupScreen = ({ navigation }) => {
       {!reload && (
         <LazyLoad
           collectionName={COLLECTIONS.GROUPS}
+          adStartPosition={7}
           options={{ limit: 5 }}
           updateItems={() => {}}
           content={({ item }) => (

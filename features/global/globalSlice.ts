@@ -6,7 +6,7 @@ export interface GlobalState {
   breaking: any;
   categories: string[],
   isAdmin: boolean,
-  isLogin:boolean,
+  isLogin: boolean,
   groups: string[],
   showNotifications: boolean,
   autoPlayVideos: boolean,
@@ -20,7 +20,7 @@ const initialState: GlobalState = {
   showNotifications: true,
   editNews: null,
   autoPlayVideos: true,
-  isAdmin: false,
+  isAdmin: true,
   isLogin: false,
   defaultSharingApp: 'Whatsapp',
   categories: [
