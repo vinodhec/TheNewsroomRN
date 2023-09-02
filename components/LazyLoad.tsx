@@ -89,6 +89,7 @@ const LazyLoad = ({
 
   return (
     <FlatList
+      onEndReachedThreshold={10}
       data={transformItems ? transformItems(items) : items}
       keyExtractor={(item: any) => {
         //

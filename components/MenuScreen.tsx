@@ -10,8 +10,8 @@ import useSelectGlobal from "../hooks/useSelectGlobal";
 import { selectGlobalValue } from "../features/global/globalSlice";
 
 const MenuScreen = ({ navigation }) => {
-  const isAdmin=useSelectGlobal("isAdmin")
-  console.log({isAdmin})
+  const isAdmin = useSelectGlobal("isAdmin");
+  console.log({ isAdmin });
   const menus = [
     { label: "Bookmarks", icon: "bookmarks", path: ROUTES.BOOKMARKS },
     { label: "About Us", icon: "md-people-sharp", path: ROUTES.ABOUTUS },
@@ -77,36 +77,38 @@ const MenuScreen = ({ navigation }) => {
       >
         {menus.map(({ label, icon, path, externalLink, onPress }, index) => {
           return (
-            <PressableOpacity
-              key={index}
-              onPress={() => {
-                if (path) {
-                  navigation.navigate(path);
-                }
-                if (externalLink) {
-                  Linking.openURL(externalLink);
-                }
-                if (onPress) {
-                  onPress();
-                }
-              }}
-            >
-              <View className=" p-2 pl-4 mb-1 flex-row  items-center">
-                <Icon name={icon} size={22} color={iconColor}></Icon>
-                <Text
-                  className={`ml-3 text-xl text-black dark:text-[${colors.darkColors.text}]`}
-                >
-                  {label}
-                </Text>
-                <View className="ml-auto">
-                  <Icon
-                    name="chevron-forward-sharp"
-                    color={iconColor}
-                    size={22}
-                  ></Icon>
+            label && (
+              <PressableOpacity
+                key={index}
+                onPress={() => {
+                  if (path) {
+                    navigation.navigate(path);
+                  }
+                  if (externalLink) {
+                    Linking.openURL(externalLink);
+                  }
+                  if (onPress) {
+                    onPress();
+                  }
+                }}
+              >
+                <View className=" p-2 pl-4 mb-1 flex-row  items-center">
+                  <Icon name={icon} size={22} color={iconColor}></Icon>
+                  <Text
+                    className={`ml-3 text-xl text-black dark:text-[${colors.darkColors.text}]`}
+                  >
+                    {label}
+                  </Text>
+                  <View className="ml-auto">
+                    <Icon
+                      name="chevron-forward-sharp"
+                      color={iconColor}
+                      size={22}
+                    ></Icon>
+                  </View>
                 </View>
-              </View>
-            </PressableOpacity>
+              </PressableOpacity>
+            )
           );
         })}
       </ScrollView>

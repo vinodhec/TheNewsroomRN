@@ -161,7 +161,7 @@ const SearchScreen = () => {
           }}
           className="text-black text-l mb-4"
         >
-          Filter by Category1
+          Filter by Category
         </Text>
         <ScrollView
           showsHorizontalScrollIndicator={false}

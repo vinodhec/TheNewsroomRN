@@ -1,8 +1,8 @@
-export const COLLECTIONS={
-    GROUPS:'groups',
-    NEWS:'newstest',
-    HIGHLIGHTS:'highlightstest',
-    CONTACTUS:'contactus',
-    BREAKING:'breaking'
-    
+export const COLLECTIONS = {
+    GROUPS: 'groups',
+    NEWS: 'news',
+    HIGHLIGHTS: 'highlightstest',
+    CONTACTUS: 'contactus',
+    BREAKING: 'breaking'
+
 }
