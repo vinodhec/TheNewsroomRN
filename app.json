@@ -19,7 +19,7 @@
       "googleServicesFile": "./google-services.json",
 
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/icon_adaptive_fore.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.TheNewsroom"
