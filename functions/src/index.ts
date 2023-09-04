@@ -32,22 +32,23 @@ exports.sendNotifications = functions.firestore.document('news/{messageId}').onC
 
      })
 
-exports.sendNotifications_new = functions.firestore.document('newstest/{messageId}').onCreate(
+exports.sendNotifications_new = functions.firestore.document('news/{messageId}').onCreate(
      async (snapshot: any) => {
           // Notification details.
           const news = snapshot.data();
-          const hasNoNotifyDelimiter = news.title.substr(news.title.length - 1) === " ";
-          const payload = {
-               data: {
-                    title: news.title,
-                    body: truncate(news.content, 100).replace(/(<([^>]+)>)/ig, ""),
-                    // icon: 'https://www.amazon.in/images/I/81bHhfshu6L._SX679_.jpg',
-                    imageUrl: news.imageUrl ?? ''
-               }
+          const toNofity = news.toNofity ?? true
+          functions.logger.debug('news posted', news)
+          if (toNofity) {
+               const payload = {
+                    data: {
+                         title: news.title,
+                         body: truncate(news.content, 100).replace(/(<([^>]+)>)/ig, ""),
+                         // icon: 'https://www.amazon.in/images/I/81bHhfshu6L._SX679_.jpg',
+                         imageUrl: news.imageUrl ?? ''
+                    }
 
-          }
-          console.log(payload)
-          if (!hasNoNotifyDelimiter) {
+               }
+               console.log(payload)
                admin.messaging().sendToTopic("news_test", payload)
                     .then(function (response: any) {
                          console.log(response)

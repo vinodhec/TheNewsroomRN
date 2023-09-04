@@ -62,9 +62,7 @@ const AdminLoginScreen = ({ navigation }) => {
         setSuccess("Login Successfully");
         console.log("user", data?.user);
 
-        updateValue("user", {
-          isLogin: true,
-        });
+        updateValue("isLogin", true);
         navigation.replace("Main");
       })
       .catch((error) => {
@@ -113,15 +111,15 @@ const AdminLoginScreen = ({ navigation }) => {
         //     size={22}
         //     color={error ? "red" : "green"}
         //   />
-          <Text
-            style={{
-              color: error ? "red" : "green",
-              textAlign: "center",
-              top: 100,
-            }}
-          >
-            {error ?? success}
-          </Text>
+        <Text
+          style={{
+            color: error ? "red" : "green",
+            textAlign: "center",
+            top: 100,
+          }}
+        >
+          {error ?? success}
+        </Text>
         // </View>
       )}
       <Pressable
