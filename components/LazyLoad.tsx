@@ -13,6 +13,7 @@ import {
   BannerAdSize,
   TestIds,
 } from "react-native-google-mobile-ads";
+import useSelectGlobal from "../hooks/useSelectGlobal";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
@@ -32,7 +33,7 @@ const LazyLoad = ({
   isCustom,
 }: any) => {
   const [items, setItems] = useState([]);
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
   const [result, setResults] = useState({
     hasNext: false,
     cursorId: null,
@@ -41,7 +42,6 @@ const LazyLoad = ({
   });
   const isAdmin = useSelectGlobal("isAdmin");
 
-  const getTitles = (data: any) => data.map((data: any) => data.title);
   const [loading, setLoading] = useState(false);
   const [customCursorId, setCustomCursorId] = useState(0);
   const getQueryResults = (loadMore = false) => {
