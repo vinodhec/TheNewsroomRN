@@ -328,7 +328,7 @@ const AddNews = ({ navigation }) => {
         {
           customComponent: (
             <StyledView className="items-end">
-              <StyledView className="justify-end flex-row mt-2">
+              <StyledView className="justify-end flex-row mt-2 dark:text-[#FFA1A5]">
                 <Switch
                   onValueChange={() => {
                     setValue('showGroup', !values['showGroup']);
@@ -372,6 +372,18 @@ const AddNews = ({ navigation }) => {
                 setIsFocus(false);
               }}
             />
+          ),
+        },{
+          customComponent: (
+            <StyledView className="justify-end flex-row mt-2">
+              <Switch
+                onValueChange={() => {
+                  setValue('toNofity', !values['toNofity']);
+                }}
+                value={values['toNofity']}
+              />
+              <Text className="text-black dark:text-[#B6C2CF]">Notification</Text>
+            </StyledView>
           ),
         },
       ].map((fields: any, index) => {
