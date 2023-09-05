@@ -14,6 +14,9 @@ import { update } from "../features/global/globalSlice";
 import useUpdateGlobal from "../hooks/useUpdateGlobal";
 import { useColorScheme } from "nativewind";
 import useSelectGlobal from "../hooks/useSelectGlobal";
+
+const downloadUrl =
+  "The Newsroom - Download @ https://play.google.com/store/apps/details?id=com.tvisoft.TheNewsRoom&hl=en_IN&gl=US";
 const ShareIcon = (props) => {
   const { isBookmarked, addToBookMark, news, viewref } = props;
   const { id, content, title, imageUrl } = news || {};
@@ -22,7 +25,7 @@ const ShareIcon = (props) => {
     size: 22,
     color: colorScheme === "light" ? COLORS.primary : "#FFA1A5",
   };
-  const isAdmin=useSelectGlobal("isAdmin")
+  const isAdmin = useSelectGlobal("isAdmin");
   const updateValue = useUpdateGlobal();
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
@@ -46,8 +49,8 @@ const ShareIcon = (props) => {
     const shareOptions = {
       title: "Share via",
       message: viewref
-        ? "The NewsRoom"
-        : content?.slice(0, 100) + "\nThe Newsroom",
+        ? downloadUrl
+        : content?.slice(0, 100) + "\n" + downloadUrl,
       url: viewref ? uri : image,
       type: "image/*",
       social: Share.Social.WHATSAPP,

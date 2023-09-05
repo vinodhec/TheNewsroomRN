@@ -41,8 +41,9 @@ exports.sendNotifications_new = functions.firestore.document('news/{messageId}')
           if (toNofity) {
                const payload = {
                     data: {
-                         title: news.title,
+                         title: news.title ?? 'Breaking',
                          body: truncate(news.content, 100).replace(/(<([^>]+)>)/ig, ""),
+                         category: news.category,
                          // icon: 'https://www.amazon.in/images/I/81bHhfshu6L._SX679_.jpg',
                          imageUrl: news.imageUrl ?? ''
                     }

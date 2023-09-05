@@ -31,8 +31,8 @@ const Splash = ({ navigation }) => {
   useEffect(() => {
     const timerId = setTimeout(() => {
       ToastAndroid.show("Navigating to Home page", ToastAndroid.SHORT);
-      navigation.navigate(isAdmin && !isLogin ? "Login" : "Main");
-    }, 50000);
+      navigation.replace(isAdmin && !isLogin ? "Login" : "Main");
+    }, 5000);
     return () => {
       clearTimeout(timerId);
     };

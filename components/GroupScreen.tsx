@@ -13,8 +13,7 @@ const RenderOptions = ({ item, navigation, reload }) => {
   const { colorScheme } = useColorScheme();
 
   const [fallBack, setFallBack] = useState(
-    item.imageUrl ??
-      "https://andersnoren.se/themes/koji/wp-content/themes/koji/assets/images/default-fallback-image.png"
+    item.imageUrl ?? "./../assets/placeholder.jpg"
   );
   return (
     <PressableOpacity
@@ -48,9 +47,7 @@ const RenderOptions = ({ item, navigation, reload }) => {
         <Image
           source={{ uri: fallBack }}
           onError={() => {
-            setFallBack(
-              "https://andersnoren.se/themes/koji/wp-content/themes/koji/assets/images/default-fallback-image.png"
-            );
+            setFallBack("./../assets/placeholder.jpg");
           }}
           style={{ minWidth: 80, minHeight: 80 }}
         ></Image>

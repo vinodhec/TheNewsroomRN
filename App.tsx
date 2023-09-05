@@ -6,7 +6,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import { NavigationContainer } from "@react-navigation/native";
 import SplashNavigator from "./components/Navigators/SplashNavigator";
-import { COLORS } from "./constants";
+import { BreakingNewsLabel, COLORS } from "./constants";
 import app from "./firebase/firebase";
 import notifee, {
   EventType,
@@ -30,15 +30,18 @@ let persistor = persistStore(store);
 
 async function onMessageReceived(message) {
   console.log("notifee", message);
+  const { title, body, imageUrl, category } = message.data;
+
   try {
     const channelId = await notifee.createChannel({
       id: "important",
       name: "Important Notifications",
       badge: true,
 
-      // importance: AndroidImportance.HIGH,
+      ...(category === BreakingNewsLabel && {
+        importance: AndroidImportance.HIGH,
+      }),
     });
-    const { title, body, imageUrl } = message.data;
     const style = imageUrl
       ? {
           type: AndroidStyle.BIGPICTURE,

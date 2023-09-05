@@ -15,14 +15,15 @@ import FirestoreService from "../firebase/firestoreService";
 import { COLLECTIONS } from "../constants/collections";
 import useUpdateGlobal from "../hooks/useUpdateGlobal";
 import { useColorScheme } from "nativewind";
+import useSelectGlobal from "../hooks/useSelectGlobal";
 const BreakingNews = () => {
   const breaking: any = useAppSelector(selectGlobalValue("breaking"));
   const updateValue = useUpdateGlobal();
   const { colorScheme, toggleColorScheme } = useColorScheme();
+  const isAdmin = useSelectGlobal("isAdmin");
 
   const [fallBack, setFallBack] = useState(
-    breaking?.imageUrl ??
-      "https://andersnoren.se/themes/koji/wp-content/themes/koji/assets/images/default-fallback-image.png"
+    breaking?.imageUrl ?? "./../assets/placeholder.jpg"
   );
 
   if (!breaking) {
@@ -58,12 +59,15 @@ const BreakingNews = () => {
         <PressableOpacity
           onPress={async () => {
             console.log("deleted", breaking);
-            await FirestoreService.deleteDocument(
-              COLLECTIONS.BREAKING,
-              breaking?.id.replaceAll("breaking/", "")
-            );
+            if (isAdmin) {
+              await FirestoreService.deleteDocument(
+                COLLECTIONS.BREAKING,
+                breaking?.id.replaceAll("breaking/", "")
+              );
+              ToastAndroid.show("Breaking is deleted", ToastAndroid.LONG);
+            }
+
             updateValue("breaking", null);
-            ToastAndroid.show("Breaking is deleted", ToastAndroid.LONG);
           }}
         >
           <Icon
@@ -77,9 +81,7 @@ const BreakingNews = () => {
           <Image
             source={{ uri: fallBack }}
             onError={() => {
-              setFallBack(
-                "https://andersnoren.se/themes/koji/wp-content/themes/koji/assets/images/default-fallback-image.png"
-              );
+              setFallBack("./../assets/placeholder.jpg");
             }}
             style={{ minWidth: 80, minHeight: 80 }}
           ></Image>
