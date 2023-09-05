@@ -100,6 +100,7 @@ const AdminLoginScreen = ({ navigation }) => {
         {
           name: "password",
           label: "Password",
+          keyboardType: "numeric",
         },
       ].map((fields: any, index) => {
         return <Input {...fields} key={index} control={control}></Input>;

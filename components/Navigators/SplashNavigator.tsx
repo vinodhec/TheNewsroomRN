@@ -27,12 +27,14 @@ const SplashNavigator = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const updateValue = useUpdateGlobal();
   const colorSchemeGlobal = useSelectGlobal("colorScheme");
-
+  console.log(colorScheme);
   useEffect(() => {
+    console.log({ colorScheme });
     updateValue("colorScheme", colorScheme);
   }, [colorScheme]);
   useEffect(() => {
-    if (colorSchemeGlobal !== colorScheme) {
+    console.log({ colorSchemeGlobal }, { colorScheme });
+    if (colorSchemeGlobal && colorSchemeGlobal !== colorScheme) {
       toggleColorScheme();
     }
     FirestoreService.getDocuments(COLLECTIONS.BREAKING, {
@@ -100,7 +102,11 @@ const SplashNavigator = () => {
         component={Splash}
         options={{ headerShown: false }}
       ></Stack.Screen>
-      <Stack.Screen name="Login" component={AdminLoginScreen} options={{ headerTitle:'Admin Login', }}></Stack.Screen>
+      <Stack.Screen
+        name="Login"
+        component={AdminLoginScreen}
+        options={{ headerTitle: "Admin Login" }}
+      ></Stack.Screen>
       <Stack.Screen name="Main" component={BottomTabNavigator}></Stack.Screen>
       <Stack.Screen
         name={ROUTES.SEARCH}

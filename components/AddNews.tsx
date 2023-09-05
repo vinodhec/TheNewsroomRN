@@ -191,40 +191,67 @@ const AddNews = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
-    setIsLoading(true);
-    let imageUrl;
-    if (image) {
-      imageUrl = await FirebaseStorageService.uploadSingleImage(image);
-    }
+    try {
+      setIsLoading(true);
+      let imageUrl;
+      if (image) {
+        imageUrl = await FirebaseStorageService.uploadSingleImage(image);
+      }
 
-    let values = data;
-    if (image) {
-      values = { ...data, imageUrl, isVideo };
-    }
+      let values = data;
+      if (image) {
+        values = { ...data, imageUrl, isVideo };
+      }
 
-    if (data.category === BreakingNewsLabel) {
-      const breakingValues = pick(values, ["title", "content", "imageUrl"]);
-      let path;
-      try {
+      if (data.category === BreakingNewsLabel) {
+        const breakingValues = pick(values, ["title", "content", "imageUrl"]);
+        let path;
+
         const res = await FirestoreService.createDocument(
           COLLECTIONS.BREAKING,
           breakingValues
         );
         path = res.path;
-      } catch (error) {
-        Alert.alert("Error", JSON.stringify(error));
-      }
-      dispatch(
-        update({
-          valueType: "breaking",
-          value: {
-            ...breakingValues,
-            id: path.replace(COLLECTIONS.GROUPS, ""),
+
+        dispatch(
+          update({
+            valueType: "breaking",
+            value: {
+              ...breakingValues,
+              id: path.replace(COLLECTIONS.GROUPS, ""),
+            },
+          } as any)
+        );
+        setIsLoading(false);
+        Alert.alert("Success", `Breaking News has been posted`, [
+          {
+            text: "Ok",
+            onPress: () => {
+              navigation.push(ROUTES.NEWSFEED);
+            },
           },
-        } as any)
-      );
+        ]);
+        return;
+      }
+
+      if (edit) {
+        await FirestoreService.updateDocument(
+          COLLECTIONS.NEWS,
+          data.id,
+          values
+        );
+        reset({});
+        setEdit(false);
+      } else {
+        const { path } = await FirestoreService.createDocument(
+          COLLECTIONS.NEWS,
+          values
+        );
+      }
       setIsLoading(false);
-      Alert.alert("Success", `Breaking News has been posted`, [
+      setEdit(false);
+      dispatch(update({ valueType: "editNews", value: null } as any));
+      Alert.alert("Success", `News has been ${edit ? "updated" : "posted"}`, [
         {
           text: "Ok",
           onPress: () => {
@@ -232,30 +259,9 @@ const AddNews = ({ navigation }) => {
           },
         },
       ]);
-      return;
+    } catch (error) {
+      Alert.alert("Error", JSON.stringify(error));
     }
-
-    if (edit) {
-      await FirestoreService.updateDocument(COLLECTIONS.NEWS, data.id, values);
-      reset({});
-      setEdit(false);
-    } else {
-      const { path } = await FirestoreService.createDocument(
-        COLLECTIONS.NEWS,
-        values
-      );
-    }
-    setIsLoading(false);
-    setEdit(false);
-    dispatch(update({ valueType: "editNews", value: null } as any));
-    Alert.alert("Success", `News has been ${edit ? "updated" : "posted"}`, [
-      {
-        text: "Ok",
-        onPress: () => {
-          navigation.push(ROUTES.NEWSFEED);
-        },
-      },
-    ]);
   };
 
   useEffect(() => {

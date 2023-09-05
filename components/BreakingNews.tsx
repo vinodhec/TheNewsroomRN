@@ -6,10 +6,9 @@ import {
   ToastAndroid,
   View,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import PressableOpacity from "./PressableOpacity";
-import { first } from "rxjs";
 import { useAppSelector } from "../app/hooks";
 import { selectGlobalValue } from "../features/global/globalSlice";
 import FirestoreService from "../firebase/firestoreService";
@@ -99,5 +98,3 @@ const BreakingNews = () => {
 };
 
 export default BreakingNews;
-
-const styles = StyleSheet.create({});

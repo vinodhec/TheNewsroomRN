@@ -3,7 +3,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Icon from "react-native-vector-icons/Ionicons";
-import { MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
+import { MaterialIcons, Entypo } from "@expo/vector-icons";
 
 import HighlightScreen from "../HighlightScreen";
 import MenuScreen from "../MenuScreen";
@@ -55,8 +55,8 @@ const BottomTabNavigator = ({ navigation }) => {
             if (route.name === ROUTES.HOME) {
               iconName = focused ? "ios-home-sharp" : "ios-home-outline";
             } else if (route.name === ROUTES.HIGHLIGHT) {
-              iconName = focused ? "sticky-note-2" : "sticky-note";
-              IconWrapper = focused ? MaterialIcons : FontAwesome5;
+              iconName = focused ? "text-document-inverted" : "text-document";
+              IconWrapper = Entypo;
             } else if (route.name === ROUTES.GROUP) {
               iconName = focused ? "wallet" : "wallet-outline";
             } else if (route.name === ROUTES.MENU) {
