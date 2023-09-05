@@ -54,7 +54,7 @@ const RenderOptions = ({ item, navigation, reload }) => {
           }}
           style={{ minWidth: 80, minHeight: 80 }}
         ></Image>
-        <View className="grow-1 ml-4">
+        <View className="grow-1 ml-4" style={{ width: "80%" }}>
           <Text
             className={`text-l font-bold text-black dark:text-[${colors.darkColors.text}]`}
           >

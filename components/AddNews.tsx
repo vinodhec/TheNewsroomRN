@@ -10,43 +10,43 @@ import {
   Modal,
   Pressable,
   ActivityIndicator,
-} from 'react-native';
+} from "react-native";
 
-import React, { useEffect, useState } from 'react';
-import { StyledView } from './StyledComponents';
-import { useController, useForm } from 'react-hook-form';
-import { Dropdown } from 'react-native-element-dropdown';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { selectGlobalValue, update } from '../features/global/globalSlice';
-import { ScrollView } from 'react-native-gesture-handler';
-import PressableOpacity from './PressableOpacity';
-import FirestoreService from '../firebase/firestoreService';
-import { COLLECTIONS } from '../constants/collections';
-import { BreakingNewsLabel, COLORS, ROUTES, STORAGE_PATH } from '../constants';
-import { launchImageLibrary } from 'react-native-image-picker';
-import FirebaseStorageService from '../firebase/firebaseStorageService';
-import { pick } from 'lodash';
-import UploadImage from './UploadImage';
-import useUpdateGlobal from '../hooks/useUpdateGlobal';
-import { useColorScheme } from 'nativewind';
-import colors from '../constants/colors';
+import React, { useEffect, useState } from "react";
+import { StyledView } from "./StyledComponents";
+import { useController, useForm } from "react-hook-form";
+import { Dropdown } from "react-native-element-dropdown";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { selectGlobalValue, update } from "../features/global/globalSlice";
+import { ScrollView } from "react-native-gesture-handler";
+import PressableOpacity from "./PressableOpacity";
+import FirestoreService from "../firebase/firestoreService";
+import { COLLECTIONS } from "../constants/collections";
+import { BreakingNewsLabel, COLORS, ROUTES, STORAGE_PATH } from "../constants";
+import { launchImageLibrary } from "react-native-image-picker";
+import FirebaseStorageService from "../firebase/firebaseStorageService";
+import { pick } from "lodash";
+import UploadImage from "./UploadImage";
+import useUpdateGlobal from "../hooks/useUpdateGlobal";
+import { useColorScheme } from "nativewind";
+import colors from "../constants/colors";
 
-const Input = fields => {
+const Input = (fields) => {
   const { name, control, label, ...others } = fields;
   const { field } = useController({
     control,
-    defaultValue: '',
+    defaultValue: "",
     name,
   });
   return (
     <StyledView className="mt-2 p-4">
-      <Text className="text-black dark:text-[#B6C2CF]" >{label ?? name}</Text>
+      <Text className="text-black dark:text-[#B6C2CF]">{label ?? name}</Text>
       <TextInput
         {...others}
         value={field.value}
         onChangeText={field.onChange}
         className="border-[#D2D3D4] border-2 rounded-md text-black "
-        style={{ height: 50,...others?.style }}
+        style={{ height: 50, ...others?.style }}
       />
     </StyledView>
   );
@@ -57,11 +57,10 @@ const AddGroup = ({ modalVisible, setModalVisible, groups, dispatch }) => {
   const [image, setImage] = useState();
   const values = watch();
 
-  const onSubmit = async values => {
+  const onSubmit = async (values) => {
     let imageUrl;
     if (image) {
       imageUrl = await FirebaseStorageService.uploadSingleImage(image);
-
     }
 
     const groupValues = {
@@ -73,51 +72,53 @@ const AddGroup = ({ modalVisible, setModalVisible, groups, dispatch }) => {
     try {
       const { path } = await FirestoreService.createDocument(
         COLLECTIONS.GROUPS,
-        groupValues,
+        groupValues
       );
       dispatch(
         update({
-          valueType: 'groups',
+          valueType: "groups",
           value: [
             ...groups,
             {
               ...groupValues,
-              id: path.replace(COLLECTIONS.GROUPS + '/', ""),
+              id: path.replace(COLLECTIONS.GROUPS + "/", ""),
             },
           ],
-        } as any),
+        } as any)
       );
-      Alert.alert(`Tag ${values?.groupTitle} has been added`)
-      setModalVisible(false)
+      Alert.alert(`Tag ${values?.groupTitle} has been added`);
+      setModalVisible(false);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
   };
   return (
     <Modal
       animationType="slide"
       visible={modalVisible}
       onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
+        Alert.alert("Modal has been closed.");
         setModalVisible(!modalVisible);
-      }}>
-      <ScrollView className=" align-center p-4 text-black dark:text-[#B6C2CF]" keyboardShouldPersistTaps='handled'>
+      }}
+    >
+      <ScrollView
+        className=" align-center p-4 text-black dark:text-[#B6C2CF]"
+        keyboardShouldPersistTaps="handled"
+      >
         {[
-          { name: 'label', label: 'Tag Name' },
+          { name: "label", label: "Tag Name" },
 
           {
-            name: 'groupTitle',
-            label: 'Title',
+            name: "groupTitle",
+            label: "Title",
           },
           {
-            name: 'description',
+            name: "description",
             multiline: true,
             style: { height: 120 },
-            textAlignVertical: 'top',
+            textAlignVertical: "top",
             padding: 8,
             numberOfLines: 5,
-
           },
         ].map((fields: any, index) => {
           if (
@@ -136,10 +137,15 @@ const AddGroup = ({ modalVisible, setModalVisible, groups, dispatch }) => {
           return <Input {...fields} key={index} control={control}></Input>;
         })}
 
-        <UploadImage setIsVideo={() => { }} setImage={setImage} image={image}></UploadImage>
+        <UploadImage
+          setIsVideo={() => {}}
+          setImage={setImage}
+          image={image}
+        ></UploadImage>
         <PressableOpacity
           className="bg-red-600 p-2 rounded-sm  self-end mt-4"
-          onPress={handleSubmit(onSubmit)}>
+          onPress={handleSubmit(onSubmit)}
+        >
           <Text className="text-white text-l">Save</Text>
         </PressableOpacity>
       </ScrollView>
@@ -152,42 +158,39 @@ const AddNews = ({ navigation }) => {
   const [isFocus, setIsFocus] = useState(false);
 
   const { colorScheme } = useColorScheme();
-  const darkMode=colorScheme === "dark"
+  const darkMode = colorScheme === "dark";
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useAppDispatch();
 
   const values = watch();
   const [edit, setEdit] = useState(false);
-  const categories: any = useAppSelector(selectGlobalValue('categories')) ?? [];
-  const groups: any = useAppSelector(selectGlobalValue('groups')) ?? [];
-  const editNews: any = useAppSelector(selectGlobalValue('editNews'));
+  const categories: any = useAppSelector(selectGlobalValue("categories")) ?? [];
+  const groups: any = useAppSelector(selectGlobalValue("groups")) ?? [];
+  const editNews: any = useAppSelector(selectGlobalValue("editNews"));
 
   const [image, setImage] = useState<any>();
   const [isVideo, setIsVideo] = useState(false);
 
   useEffect(() => {
-    console.log('edit news', editNews)
+    console.log("edit news", editNews);
     if (editNews) {
       reset(editNews);
       setEdit(true);
 
       setIsVideo(editNews.isVideo);
-
-    }
-    else {
-      console.log('reset values')
-      reset({})
+    } else {
+      console.log("reset values");
+      reset({});
       setEdit(false);
     }
     () => {
-      console.log('clean up')
+      console.log("clean up");
+    };
+  }, [editNews]);
 
-    }
-  }, [editNews])
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [isLoading, setIsLoading] = useState(false)
-
-  const onSubmit = async data => {
+  const onSubmit = async (data) => {
     setIsLoading(true);
     let imageUrl;
     if (image) {
@@ -200,46 +203,54 @@ const AddNews = ({ navigation }) => {
     }
 
     if (data.category === BreakingNewsLabel) {
-
-
-      const breakingValues = pick(values, ['title', 'content', 'imageUrl'])
-      const { path } = await FirestoreService.createDocument(COLLECTIONS.BREAKING, breakingValues)
-      dispatch(update({ valueType: 'breaking', value: { ...breakingValues, id: path.replace(COLLECTIONS.GROUPS, '') } } as any))
-      setIsLoading(false)
-      Alert.alert('Success', `Breaking News has been posted`, [
+      const breakingValues = pick(values, ["title", "content", "imageUrl"]);
+      let path;
+      try {
+        const res = await FirestoreService.createDocument(
+          COLLECTIONS.BREAKING,
+          breakingValues
+        );
+        path = res.path;
+      } catch (error) {
+        Alert.alert("Error", JSON.stringify(error));
+      }
+      dispatch(
+        update({
+          valueType: "breaking",
+          value: {
+            ...breakingValues,
+            id: path.replace(COLLECTIONS.GROUPS, ""),
+          },
+        } as any)
+      );
+      setIsLoading(false);
+      Alert.alert("Success", `Breaking News has been posted`, [
         {
-          text: 'Ok',
+          text: "Ok",
           onPress: () => {
             navigation.push(ROUTES.NEWSFEED);
           },
         },
       ]);
-      return
+      return;
     }
-
 
     if (edit) {
-
-
-
       await FirestoreService.updateDocument(COLLECTIONS.NEWS, data.id, values);
-      reset({})
+      reset({});
       setEdit(false);
-
     } else {
-
-
       const { path } = await FirestoreService.createDocument(
         COLLECTIONS.NEWS,
-        values,
+        values
       );
     }
-    setIsLoading(false)
+    setIsLoading(false);
     setEdit(false);
-    dispatch(update({ valueType: 'editNews', value: null } as any))
-    Alert.alert('Success', `News has been ${edit ? 'updated' : 'posted'}`, [
+    dispatch(update({ valueType: "editNews", value: null } as any));
+    Alert.alert("Success", `News has been ${edit ? "updated" : "posted"}`, [
       {
-        text: 'Ok',
+        text: "Ok",
         onPress: () => {
           navigation.push(ROUTES.NEWSFEED);
         },
@@ -254,76 +265,87 @@ const AddNews = ({ navigation }) => {
   }, [image]);
 
   if (isLoading) {
-
-    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}><ActivityIndicator size="large" color={COLORS.primary}></ActivityIndicator>
-    </View>
-
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator
+          size="large"
+          color={COLORS.primary}
+        ></ActivityIndicator>
+      </View>
+    );
   }
   return (
     <ScrollView
-      keyboardShouldPersistTaps='handled'
+      keyboardShouldPersistTaps="handled"
       className=" align-center "
-      contentContainerStyle={{ paddingBottom: 100,  backgroundColor:
-        darkMode ? colors.darkColors.body : "white", }}>
+      contentContainerStyle={{
+        paddingBottom: 100,
+        backgroundColor: darkMode ? colors.darkColors.body : "white",
+      }}
+    >
       {[
-        { name: 'title' },
+        { name: "title" },
         {
           customComponent: (
             <Dropdown
-            // className="border-[#D2D3D4] border-2 rounded-md text-black "
-              style={[styles.dropdown,  isFocus && { borderColor: 'blue'}]}
+              // className="border-[#D2D3D4] border-2 rounded-md text-black "
+              style={[styles.dropdown, isFocus && { borderColor: "blue" }]}
               placeholderStyle={styles.placeholderStyle}
               selectedTextStyle={styles.selectedTextStyle}
               inputSearchStyle={styles.inputSearchStyle}
               iconStyle={styles.iconStyle}
-              data={['Breaking', ...categories?.slice(1)]
-                .map(cate => ({ label: cate, value: cate }))}
+              data={["Breaking", ...categories?.slice(1)].map((cate) => ({
+                label: cate,
+                value: cate,
+              }))}
               search
               maxHeight={300}
               labelField="label"
               valueField="value"
-              placeholder={!isFocus ? 'Select Category' : '...'}
+              placeholder={!isFocus ? "Select Category" : "..."}
               searchPlaceholder="Search..."
-              value={values['category']}
+              value={values["category"]}
               onFocus={() => setIsFocus(true)}
               onBlur={() => setIsFocus(false)}
-              onChange={item => {
-                setValue('category', item.value);
+              onChange={(item) => {
+                setValue("category", item.value);
                 setIsFocus(false);
               }}
             />
           ),
         },
         {
-          name: 'content',
+          name: "content",
           multiline: true,
-          textAlignVertical: 'top',
+          textAlignVertical: "top",
           style: { height: 200 },
           padding: 8,
           numberOfLines: 10,
         },
-        { name: 'caption' },
-        { name: 'source' },
+        { name: "caption" },
+        { name: "source" },
         {
           customComponent: (
             <StyledView className="justify-end flex-row mt-2">
               <Switch
                 onValueChange={() => {
-                  setValue('showHighlight', !values['showHighlight']);
+                  setValue("showHighlight", !values["showHighlight"]);
                 }}
-                value={values['showHighlight']}
+                value={values["showHighlight"]}
               />
-              <Text className="text-black dark:text-[#B6C2CF]">Highlight News</Text>
+              <Text className="text-black dark:text-[#B6C2CF]">
+                Highlight News
+              </Text>
             </StyledView>
           ),
         },
         {
-          name: 'highlight',
+          name: "highlight",
           multiline: true,
           style: { height: 120 },
           numberOfLines: 5,
           showOnCondition: true,
-          onlyIf: values['showHighlight'],
+          onlyIf: values["showHighlight"],
         },
         {
           customComponent: (
@@ -331,16 +353,19 @@ const AddNews = ({ navigation }) => {
               <StyledView className="justify-end flex-row mt-2 dark:text-[#FFA1A5]">
                 <Switch
                   onValueChange={() => {
-                    setValue('showGroup', !values['showGroup']);
+                    setValue("showGroup", !values["showGroup"]);
                   }}
-                  value={values['showGroup']}
+                  value={values["showGroup"]}
                 />
-                <Text className="text-black dark:text-[#B6C2CF]">Group News</Text>
+                <Text className="text-black dark:text-[#B6C2CF]">
+                  Group News
+                </Text>
               </StyledView>
-              {values['showGroup'] && (
+              {values["showGroup"] && (
                 <PressableOpacity
                   className="bg-red-600 p-2 rounded-sm "
-                  onPress={() => setModalVisible(true)}>
+                  onPress={() => setModalVisible(true)}
+                >
                   <Text className="text-white	">Add Tag</Text>
                 </PressableOpacity>
               )}
@@ -349,11 +374,17 @@ const AddNews = ({ navigation }) => {
         },
         {
           showOnCondition: true,
-          onlyIf: values['showGroup'],
+          onlyIf: values["showGroup"],
           customComponent: (
             <Dropdown
-              style={[styles.dropdown, isFocus && { borderColor: 'blue',padding:4 }]}
-              placeholderStyle={{...styles.placeholderStyle,color:darkMode?'#B6C2CF':'black'}}
+              style={[
+                styles.dropdown,
+                isFocus && { borderColor: "blue", padding: 4 },
+              ]}
+              placeholderStyle={{
+                ...styles.placeholderStyle,
+                color: darkMode ? "#B6C2CF" : "black",
+              }}
               selectedTextStyle={styles.selectedTextStyle}
               inputSearchStyle={styles.inputSearchStyle}
               iconStyle={styles.iconStyle}
@@ -362,27 +393,30 @@ const AddNews = ({ navigation }) => {
               maxHeight={300}
               labelField="label"
               valueField="id"
-              placeholder={!isFocus ? 'Select Group Tag' : '...'}
+              placeholder={!isFocus ? "Select Group Tag" : "..."}
               searchPlaceholder="Search..."
-              value={values['groups']}
+              value={values["groups"]}
               onFocus={() => setIsFocus(true)}
               onBlur={() => setIsFocus(false)}
-              onChange={item => {
-                setValue('groups', item.id);
+              onChange={(item) => {
+                setValue("groups", item.id);
                 setIsFocus(false);
               }}
             />
           ),
-        },{
+        },
+        {
           customComponent: (
             <StyledView className="justify-end flex-row mt-2">
               <Switch
                 onValueChange={() => {
-                  setValue('toNofity', !values['toNofity']);
+                  setValue("toNofity", !values["toNofity"]);
                 }}
-                value={values['toNofity']}
+                value={values["toNofity"]}
               />
-              <Text className="text-black dark:text-[#B6C2CF]">Notification</Text>
+              <Text className="text-black dark:text-[#B6C2CF]">
+                Notification
+              </Text>
             </StyledView>
           ),
         },
@@ -397,7 +431,11 @@ const AddNews = ({ navigation }) => {
         }
 
         if (fields.customComponent) {
-          return <View key={index} style={{paddingHorizontal:16}}>{fields.customComponent}</View>;
+          return (
+            <View key={index} style={{ paddingHorizontal: 16 }}>
+              {fields.customComponent}
+            </View>
+          );
         }
 
         return <Input {...fields} key={index} control={control}></Input>;
@@ -405,17 +443,20 @@ const AddNews = ({ navigation }) => {
       <UploadImage
         setIsVideo={setIsVideo}
         image={image}
-        setImage={setImage}></UploadImage>
+        setImage={setImage}
+      ></UploadImage>
       <Pressable
         className="bg-red-600 p-2 rounded-sm justify-center items-center"
-        onPress={handleSubmit(onSubmit)}>
-        <Text className="text-white">{edit ? 'Update' : 'Add'} News</Text>
+        onPress={handleSubmit(onSubmit)}
+      >
+        <Text className="text-white">{edit ? "Update" : "Add"} News</Text>
       </Pressable>
       <AddGroup
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         groups={groups}
-        dispatch={dispatch}></AddGroup>
+        dispatch={dispatch}
+      ></AddGroup>
     </ScrollView>
   );
 };
@@ -424,13 +465,13 @@ export default AddNews;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 16,
   },
   dropdown: {
     height: 50,
     marginTop: 16,
-    borderColor: 'gray',
+    borderColor: "gray",
     borderWidth: 2,
     borderRadius: 8,
     paddingHorizontal: 8,
@@ -439,8 +480,8 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   label: {
-    position: 'absolute',
-    backgroundColor: 'white',
+    position: "absolute",
+    backgroundColor: "white",
     left: 22,
     top: 8,
     zIndex: 999,
@@ -463,17 +504,17 @@ const styles = StyleSheet.create({
   },
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 22,
   },
   modalView: {
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -488,18 +529,18 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: '#F194FF',
+    backgroundColor: "#F194FF",
   },
   buttonClose: {
-    backgroundColor: '#2196F3',
+    backgroundColor: "#2196F3",
   },
   textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
   },
   modalText: {
     marginBottom: 15,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
