@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   BackHandler,
   Image,
+  Dimensions,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -30,8 +31,8 @@ const Splash = ({ navigation }) => {
   useEffect(() => {
     const timerId = setTimeout(() => {
       ToastAndroid.show("Navigating to Home page", ToastAndroid.SHORT);
-      navigation.replace(isAdmin && !isLogin ? "Login" : "Main");
-    }, 5000);
+      navigation.navigate(isAdmin && !isLogin ? "Login" : "Main");
+    }, 50000);
     return () => {
       clearTimeout(timerId);
     };
@@ -46,6 +47,7 @@ const Splash = ({ navigation }) => {
     // }
     getHistoryDetails(moment().format("MM-DD")).then((data) => {
       const text = data.split("^&!32$5_4'");
+      console.log({ data });
       setDayinhistory({ content: text?.[0], date: text?.[1] });
     });
   }, []);
@@ -62,7 +64,10 @@ const Splash = ({ navigation }) => {
       className="flex-1 p-4 justify-center items-center border-1"
     >
       <View className="flex-1 justify-center items-center">
-        <Image source={require("./../assets/splash.png")} />
+        <Image
+          source={require("./../assets/i20.png")}
+          style={{ width: 400, height: 400 }}
+        />
         {!dayinhistory.content && <ActivityIndicator></ActivityIndicator>}
         {dayinhistory.content && (
           <View>
