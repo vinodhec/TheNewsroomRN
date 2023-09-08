@@ -48,6 +48,7 @@ const LazyLoad = ({
     console.log({ loadMore });
     if (isCustom && customCursorId < customIds.length) {
       setLoading(true);
+      console.log('Bookmarked function')
       FirestoreService.getDocuments(collectionName, {
         query: [
           [
@@ -63,10 +64,10 @@ const LazyLoad = ({
         );
         setCustomCursorId((customCursorId) => customCursorId + 10);
       });
-    } else {
+    } else if(!isCustom) {
       if (!loading && (!loadMore || result.hasNext)) {
         setLoading(true);
-
+    console.log('Bookmarked function')
         FirestoreService.getDocuments(collectionName, {
           ...options,
           cursorId: loadMore ? result.cursorId : undefined,

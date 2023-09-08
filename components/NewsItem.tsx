@@ -36,10 +36,8 @@ const NewsItem = (props) => {
     imageUrl,
     category,
     isBookmarked,
-
     source,
     caption,
-
     speechStatus,
     id,
     isVideo,
@@ -183,14 +181,16 @@ const NewsItem = (props) => {
           }}
         >
           <Text style={[styles.category, { textDecorationLine: "underline" }]}>
-            {" "}
+          
             {caption}
           </Text>
+
         </PressableOpacity>
         <ShareIcon
           isBookmarked={isBookmarked}
           addToBookMark={() => {
             console.log("toggle");
+            console.log(id);
             dispatch(toggleBookmarks({ id }));
           }}
           news={props}

@@ -48,12 +48,12 @@ const BreakingNews = () => {
             position: "absolute",
             top: 0,
             left: 0,
-            zIndex: 1023,
+            zIndex: 1023,paddingTop:8
           }}
           source={require("./../assets/breakingnews.png")}
         >
-          <Text className="-rotate-45 text-white" style={{ fontSize: 8 }}>
-            Breaking News
+          <Text className="-rotate-45 text-white " style={{ fontSize: 8 }}>
+            Breaking...
           </Text>
         </ImageBackground>
         <PressableOpacity
@@ -87,7 +87,7 @@ const BreakingNews = () => {
           ></Image>
           <View className=" ml-4 pr-3 items-start justify-start">
             <Text className="text-m text-left  text-black dark:text-[#ffffffe6] font-bold">
-              Breaking news
+              Breaking...
             </Text>
             <Text numberOfLines={3} className="text-sm dark:text-[#B6C2CF]">
               {breaking.content}
