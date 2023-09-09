@@ -15,20 +15,20 @@ const MenuScreen = ({ navigation }) => {
     { label: "About Us", icon: "md-people-sharp", path: ROUTES.ABOUTUS },
     // { label: "Themes", icon: "md-color-palette" },
     { label: "Settings", icon: "settings", path: ROUTES.SETTINGS },
-    {
-      label: "Share App",
-      icon: "ios-share-social",
-      onPress: () => {
-        const shareOptions: any = {
-          title: "Share via",
-          message:
-            "Stay informed on the go with TheNewsRoom. Breaking news, personalized updates, and trusted sources all in one place.\n https://play.google.com/store/apps/details?id=com.tvisoft.TheNewsRoom&hl=en&gl=US",
-          // social: Share.Social.WHATSAPP,
-        };
+    // {
+    //   label: "Share App",
+    //   icon: "ios-share-social",
+    //   onPress: () => {
+    //     const shareOptions: any = {
+    //       title: "Share via",
+    //       message:
+    //         "Stay informed on the go with TheNewsRoom. Breaking news, personalized updates, and trusted sources all in one place.\n https://play.google.com/store/apps/details?id=com.tvisoft.TheNewsRoom&hl=en&gl=US",
+    //       // social: Share.Social.WHATSAPP,
+    //     };
 
-        Share.open(shareOptions);
-      },
-    },
+    //     Share.open(shareOptions);
+    //   },
+    // },
     { label: "Contact Us", icon: "mail", path: ROUTES.CONTACT },
     {
       label: "Rate the App",

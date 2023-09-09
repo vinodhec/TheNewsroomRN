@@ -31,7 +31,7 @@ import auth from "@react-native-firebase/auth";
 
 const NewsFeedScreen = ({ route, navigation }) => {
   const isAdmin = useSelectGlobal("isAdmin");
-
+console.log({route})
   console.log({ isAdmin });
   const temp = route.params?.category;
   const groups = route.params?.groups;
@@ -40,6 +40,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
   const dispatch = useAppDispatch();
   const bookmarks: any = useAppSelector(selectGlobalValue("bookmarks")) ?? [];
   console.log({ bookmarks });
+  console.log('bookmarks',bookmarks.length);
   const newsDeleted = useSelectGlobal("newsDeleted");
   const [category, setCategory] = useState(temp === "All" ? "" : temp);
   const [speechStatus, setSpeechStatus] = useState("stopped");
@@ -78,6 +79,8 @@ const NewsFeedScreen = ({ route, navigation }) => {
   useEffect(() => {
     getHistoryDetails(moment().format("MM-DD"));
   }, []);
+  const isbookmarkd=route?.name==='Bookmarks'
+  console.log({isbookmarkd})
   return (
     <StyledView className={`dark:bg-[${colors.darkColors.bgColor}]`}>
       <View>
@@ -94,7 +97,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
             alignItems: "center",
             width: 80,
             position: "absolute",
-            bottom: 260,
+            bottom: 180,
             right: 10,
             height: 80,
             zIndex: 1028,
@@ -107,8 +110,7 @@ const NewsFeedScreen = ({ route, navigation }) => {
         <LazyLoad
           collectionName={COLLECTIONS.NEWS}
           customIds={bookmarks}
-          isCustom={route.params.isCustom}
-          // options={{customIds:bookmarks, isCustom:true}}
+          isCustom={isbookmarkd}
           options={{
             limit: 5,
             query: [
@@ -118,6 +120,13 @@ const NewsFeedScreen = ({ route, navigation }) => {
             ],
           }}
           updateItems={() => {}}
+          ListEmptyComponent={()=>{
+            return(isbookmarkd&&bookmarks.length===0&&
+              <View style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center'}}>
+               <Text className="text-black dark:text-[#B6C2CF]"> No Bookmark News... </Text>
+              </View>
+            )
+          }}
           content={({ item }) => {
             let isBookmarked;
             try {
