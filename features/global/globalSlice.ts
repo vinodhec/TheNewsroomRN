@@ -20,7 +20,7 @@ const initialState: GlobalState = {
   showNotifications: true,
   editNews: null,
   autoPlayVideos: true,
-  isAdmin: false,
+  isAdmin: true,
   isLogin: false,
   defaultSharingApp: 'Whatsapp',
   categories: [

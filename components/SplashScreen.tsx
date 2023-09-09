@@ -22,6 +22,7 @@ import colors from "../constants/colors";
 import useSelectGlobal from "../hooks/useSelectGlobal";
 import { onAuthStateChanged } from "firebase/auth";
 import FirebaseAuthService from "../firebase/firebaseAuthService";
+import useUpdateGlobal from "../hooks/useUpdateGlobal";
 
 const Splash = ({ navigation }) => {
   const [dayinhistory, setDayinhistory] = useState({ content: "", date: "" });
