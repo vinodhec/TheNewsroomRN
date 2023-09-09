@@ -47,7 +47,11 @@ const Input = (fields) => {
 };
 
 const AdminLoginScreen = ({ navigation }) => {
-  const { control, handleSubmit, setValue, watch } = useForm();
+  const { control, handleSubmit, setValue, watch } = useForm({
+    defaultValues: {
+      email: "thenewsroomnr@gmail.com",
+    },
+  });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -96,6 +100,7 @@ const AdminLoginScreen = ({ navigation }) => {
         {
           name: "email",
           label: "Email ID",
+          value: "thenewsroomnr@gmail.com",
         },
         {
           name: "password",

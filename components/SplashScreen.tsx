@@ -20,12 +20,17 @@ import * as LocalAuthentication from "expo-local-authentication";
 import { useColorScheme } from "nativewind";
 import colors from "../constants/colors";
 import useSelectGlobal from "../hooks/useSelectGlobal";
+import { onAuthStateChanged } from "firebase/auth";
+import FirebaseAuthService from "../firebase/firebaseAuthService";
+import useUpdateGlobal from "../hooks/useUpdateGlobal";
 
 const Splash = ({ navigation }) => {
   const [dayinhistory, setDayinhistory] = useState({ content: "", date: "" });
 
   const isAdmin = useSelectGlobal("isAdmin");
   const isLogin = useSelectGlobal("isLogin");
+  const updateValue = useUpdateGlobal();
+
   console.log({ isAdmin });
   console.log({ isLogin });
   useEffect(() => {
@@ -45,6 +50,14 @@ const Splash = ({ navigation }) => {
     //   BackHandler.exitApp();
 
     // }
+    onAuthStateChanged(FirebaseAuthService.auth, function (user) {
+      if (user) {
+        updateValue("isLogin", true);
+      } else {
+        updateValue("isLogin", false);
+      }
+    });
+
     getHistoryDetails(moment().format("MM-DD")).then((data) => {
       const text = data.split("^&!32$5_4'");
       console.log({ data });

@@ -17,9 +17,7 @@ import useSelectGlobal from "../hooks/useSelectGlobal";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
-  : "ca-app-pub-7672557583201463/3482657505";
-
-const StyledView = styled(View);
+  : "ca-app-pub-7672557583201463/6942464325";
 
 const LazyLoad = ({
   content,
@@ -49,7 +47,7 @@ const LazyLoad = ({
     console.log({ loadMore });
     if (isCustom && customCursorId < customIds.length) {
       setLoading(true);
-      console.log('Bookmarked function')
+      console.log("Bookmarked function");
       FirestoreService.getDocuments(collectionName, {
         query: [
           [
@@ -65,10 +63,10 @@ const LazyLoad = ({
         );
         setCustomCursorId((customCursorId) => customCursorId + 10);
       });
-    } else if(!isCustom) {
+    } else if (!isCustom) {
       if (!loading && (!loadMore || result.hasNext)) {
         setLoading(true);
-    console.log('Bookmarked function')
+        console.log("Bookmarked function");
         FirestoreService.getDocuments(collectionName, {
           ...options,
           cursorId: loadMore ? result.cursorId : undefined,
