@@ -27,6 +27,7 @@ const LazyLoad = ({
   adStartPosition = 4,
   options,
   updateItems,
+  height=600,
   customIds,
   isCustom,
 }: any) => {
@@ -118,6 +119,7 @@ const LazyLoad = ({
         //
         return item?.id || item?.date;
       }}
+      
       // onViewableItemsChanged={({ viewableItems: vItems }) => {
       //   viewableItems.value = vItems;
       // }}
@@ -140,8 +142,12 @@ const LazyLoad = ({
       contentContainerStyle={{
         padding: 8,
         paddingTop: 16,
+        // height: Dimensions.get("screen").height,
+      // flex:1,
         backgroundColor:
           colorScheme !== "dark" ? "transparent" : colors.darkColors.bgColor,
+          // overflow:'scroll',
+
       }}
       ListFooterComponent={() => {
         return (
@@ -158,7 +164,7 @@ const LazyLoad = ({
       //     getQueryResults(true);
       //   }}
 
-      //   height={height ?? 300}
+      // height={ Dimensions.get("screen").height}
 
       //   hasMore={result.hasNext}
     >

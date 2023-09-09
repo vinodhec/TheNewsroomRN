@@ -5,6 +5,7 @@ import {
   Animated,
   ViewToken,
   Button,
+  Dimensions,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { COLORS, ROUTES } from "../constants";
@@ -82,7 +83,7 @@ console.log({route})
   const isbookmarkd=route?.name==='Bookmarks'
   console.log({isbookmarkd})
   return (
-    <StyledView className={`dark:bg-[${colors.darkColors.bgColor}]`}>
+    <StyledView className={`dark:bg-[${colors.darkColors.bgColor}] height:${Dimensions.get("screen").height}`}>
       <View>
         <BreakingNews></BreakingNews>
       </View>

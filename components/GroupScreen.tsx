@@ -1,4 +1,4 @@
-import { View, Text, Image, Alert } from "react-native";
+import { View, Text, Image, Alert, Dimensions } from "react-native";
 import React, { useState } from "react";
 import { COLLECTIONS } from "../constants/collections";
 import { StyledView } from "./StyledComponents";
@@ -38,7 +38,7 @@ const RenderOptions = ({ item, navigation, reload }) => {
       }}
     >
       <View
-        className={`flex-row p-4 mb-2 bg-white dark:bg-[${colors.darkColors.body}]`}
+        className={`flex-row p-4 mb-2 dark:bg-[${colors.darkColors.body}]`}
         style={{
           backgroundColor:
             colorScheme === "dark" ? colors.darkColors.body : "white",
@@ -77,7 +77,10 @@ const GroupScreen = ({ navigation }) => {
   const [reload, setReload] = useState(false);
 
   return (
-    <StyledView className={`bg-white dark:bg-[${colors.darkColors.body}]`}>
+    <StyledView
+      className={`dark:bg-[${colors.darkColors.body}]`}
+      // style={{ height: Dimensions.get("screen").height - 200, flex: 1 }}
+    >
       {!reload && (
         <LazyLoad
           collectionName={COLLECTIONS.GROUPS}
