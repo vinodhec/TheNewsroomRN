@@ -17,9 +17,7 @@ import useSelectGlobal from "../hooks/useSelectGlobal";
 
 const adUnitId = __DEV__
   ? TestIds.BANNER
-  : "ca-app-pub-7672557583201463/3482657505";
-
-const StyledView = styled(View);
+  : "ca-app-pub-7672557583201463/6942464325";
 
 const LazyLoad = ({
   content,

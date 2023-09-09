@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "TheNewsroom",
-    "slug": "TheNewsroomExpo",
+    "name": "The Newsroom",
+    "slug": "the-newsroom",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,19 +22,19 @@
         "foregroundImage": "./assets/icon_adaptive_fore.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.TheNewsroom"
+      "package": "com.tvisoft.TheNewsRoom"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "1b4e2095-c906-461d-8122-aeac92db5b82"
+        "projectId": "45e524e9-cb5e-445b-8f23-3dc49510c658"
       }
     }
   },
 
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-7672557583201463~8025657302"
+    "android_app_id": "ca-app-pub-7672557583201463~4529595427"
   }
 }

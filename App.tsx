@@ -23,6 +23,8 @@ import {
   TestIds,
 } from "react-native-google-mobile-ads";
 
+messaging().setBackgroundMessageHandler(onMessageReceived);
+
 AppOpenAd.createForAdRequest(TestIds.APP_OPEN);
 console.log({ app });
 
@@ -79,7 +81,6 @@ const App = () => {
       .subscribeToTopic("news_test")
       .then(() => console.log("Subscribed to topic!"));
     messaging().onMessage(onMessageReceived);
-    messaging().setBackgroundMessageHandler(onMessageReceived);
     // onMessageReceived({
     //   data: {
     //     notifee: {
