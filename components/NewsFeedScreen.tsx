@@ -32,22 +32,18 @@ import auth from "@react-native-firebase/auth";
 
 const NewsFeedScreen = ({ route, navigation }) => {
   const isAdmin = useSelectGlobal("isAdmin");
-console.log({route})
-  console.log({ isAdmin });
+
   const temp = route.params?.category;
   const groups = route.params?.groups;
   const id = route.params?.id;
   const updateValue = useUpdateGlobal();
   const dispatch = useAppDispatch();
   const bookmarks: any = useAppSelector(selectGlobalValue("bookmarks")) ?? [];
-  console.log({ bookmarks });
-  console.log('bookmarks',bookmarks.length);
+
   const newsDeleted = useSelectGlobal("newsDeleted");
   const [category, setCategory] = useState(temp === "All" ? "" : temp);
   const [speechStatus, setSpeechStatus] = useState("stopped");
-  function onAuthStateChanged(user) {
-    console.log(user);
-  }
+  function onAuthStateChanged(user) {}
 
   useEffect(() => {
     // Unsubscribe from events on unmount
@@ -69,7 +65,6 @@ console.log({route})
       setSpeechStatus("cancelled");
     });
     // onGoogleButtonPress();
-    FirebaseAuthService.create();
   }, []);
 
   useEffect(() => {
@@ -80,10 +75,14 @@ console.log({route})
   useEffect(() => {
     getHistoryDetails(moment().format("MM-DD"));
   }, []);
-  const isbookmarkd=route?.name==='Bookmarks'
-  console.log({isbookmarkd})
+  const isbookmarkd = route?.name === "Bookmarks";
+
   return (
-    <StyledView className={`dark:bg-[${colors.darkColors.bgColor}] height:${Dimensions.get("screen").height}`}>
+    <StyledView
+      className={`dark:bg-[${colors.darkColors.bgColor}] height:${
+        Dimensions.get("screen").height
+      }`}
+    >
       <View>
         <BreakingNews></BreakingNews>
       </View>
@@ -121,19 +120,31 @@ console.log({route})
             ],
           }}
           updateItems={() => {}}
-          ListEmptyComponent={()=>{
-            return(isbookmarkd&&bookmarks.length===0&&
-              <View style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center'}}>
-               <Text className="text-black dark:text-[#B6C2CF]"> No Bookmark News... </Text>
-              </View>
-            )
+          ListEmptyComponent={() => {
+            return (
+              isbookmarkd &&
+              bookmarks.length === 0 && (
+                <View
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Text className="text-black dark:text-[#B6C2CF]">
+                    {" "}
+                    No Bookmark News...{" "}
+                  </Text>
+                </View>
+              )
+            );
           }}
           content={({ item }) => {
             let isBookmarked;
             try {
               isBookmarked = bookmarks?.includes(item?.id);
             } catch (error) {
-              console.log({ bookmarks });
               console.error(error);
             }
 

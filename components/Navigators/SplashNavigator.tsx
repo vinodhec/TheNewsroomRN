@@ -27,13 +27,11 @@ const SplashNavigator = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const updateValue = useUpdateGlobal();
   const colorSchemeGlobal = useSelectGlobal("colorScheme");
-  console.log(colorScheme);
+
   useEffect(() => {
-    console.log({ colorScheme });
     updateValue("colorScheme", colorScheme);
   }, [colorScheme]);
   useEffect(() => {
-    console.log({ colorSchemeGlobal }, { colorScheme });
     if (colorSchemeGlobal && colorSchemeGlobal !== colorScheme) {
       toggleColorScheme();
     }
@@ -44,6 +42,8 @@ const SplashNavigator = () => {
     }).then((data) => {
       if (data?.length > 0) {
         dispatch(update({ valueType: "breaking", value: data?.[0] } as any));
+      } else {
+        dispatch(update({ valueType: "breaking", value: null } as any));
       }
     });
   }, []);

@@ -26,12 +26,11 @@ import {
 messaging().setBackgroundMessageHandler(onMessageReceived);
 
 AppOpenAd.createForAdRequest(TestIds.APP_OPEN);
-console.log({ app });
 
 let persistor = persistStore(store);
 
 async function onMessageReceived(message) {
-  console.log("notifee", message);
+  console.log({ message });
   const { title, body, imageUrl, category } = message.data;
 
   try {
@@ -51,7 +50,7 @@ async function onMessageReceived(message) {
         }
       : {
           type: AndroidStyle.BIGTEXT,
-          text: body?.slice(0, 50),
+          text: body,
         };
     await notifee.displayNotification({
       title,
@@ -68,9 +67,7 @@ async function onMessageReceived(message) {
         color: COLORS.primary,
       },
     });
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
 }
 
 // messaging().setBackgroundMessageHandler(onMessageReceived);

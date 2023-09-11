@@ -32,7 +32,6 @@ const SearchScreen = () => {
   useEffect(() => {
     if (selectedCategory) {
       setQuery((query) => {
-        console.log({ selectedCategory });
         return isCustomDateSelected || selectedDate
           ? [getSelectedCategoryQuery(), ...getDateQuery()]
           : [getSelectedCategoryQuery()];
@@ -76,7 +75,6 @@ const SearchScreen = () => {
   }
   useEffect(() => {
     if (date && date1 && (isCustomDateSelected || selectedDate)) {
-      console.log({ date, date1 });
       setQuery((query) => {
         return selectedCategory
           ? [getSelectedCategoryQuery(), ...getDateQuery()]

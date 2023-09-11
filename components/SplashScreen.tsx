@@ -31,8 +31,6 @@ const Splash = ({ navigation }) => {
   const isLogin = useSelectGlobal("isLogin");
   const updateValue = useUpdateGlobal();
 
-  console.log({ isAdmin });
-  console.log({ isLogin });
   useEffect(() => {
     const timerId = setTimeout(() => {
       ToastAndroid.show("Navigating to Home page", ToastAndroid.SHORT);
@@ -60,7 +58,7 @@ const Splash = ({ navigation }) => {
 
     getHistoryDetails(moment().format("MM-DD")).then((data) => {
       const text = data.split("^&!32$5_4'");
-      console.log({ data });
+
       setDayinhistory({ content: text?.[0], date: text?.[1] });
     });
   }, []);

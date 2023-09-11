@@ -27,7 +27,7 @@ const LazyLoad = ({
   adStartPosition = 4,
   options,
   updateItems,
-  height=600,
+  height = 600,
   customIds,
   isCustom,
 }: any) => {
@@ -44,10 +44,9 @@ const LazyLoad = ({
   const [loading, setLoading] = useState(false);
   const [customCursorId, setCustomCursorId] = useState(0);
   const getQueryResults = (loadMore = false) => {
-    console.log({ loadMore });
     if (isCustom && customCursorId < customIds.length) {
       setLoading(true);
-      console.log("Bookmarked function");
+
       FirestoreService.getDocuments(collectionName, {
         query: [
           [
@@ -66,7 +65,7 @@ const LazyLoad = ({
     } else if (!isCustom) {
       if (!loading && (!loadMore || result.hasNext)) {
         setLoading(true);
-        console.log("Bookmarked function");
+
         FirestoreService.getDocuments(collectionName, {
           ...options,
           cursorId: loadMore ? result.cursorId : undefined,
@@ -76,8 +75,6 @@ const LazyLoad = ({
           .then((results) => {
             setLoading(false);
             const { docs, cursorId } = results;
-
-            console.log(options, docs);
 
             setItems((pp: any) => (loadMore ? [...pp, ...docs] : docs));
 
@@ -92,7 +89,6 @@ const LazyLoad = ({
   //
 
   useEffect(() => {
-    console.log(options);
     getQueryResults();
   }, [JSON.stringify(options)]);
 
@@ -119,7 +115,6 @@ const LazyLoad = ({
         //
         return item?.id || item?.date;
       }}
-      
       // onViewableItemsChanged={({ viewableItems: vItems }) => {
       //   viewableItems.value = vItems;
       // }}
@@ -143,11 +138,10 @@ const LazyLoad = ({
         padding: 8,
         paddingTop: 16,
         // height: Dimensions.get("screen").height,
-      // flex:1,
+        // flex:1,
         backgroundColor:
           colorScheme !== "dark" ? "transparent" : colors.darkColors.bgColor,
-          // overflow:'scroll',
-
+        // overflow:'scroll',
       }}
       ListFooterComponent={() => {
         return (

@@ -50,7 +50,7 @@ const NewsItem = (props) => {
 
   const [speakStatus, setSpeakStatus] = useState("");
 
-  // console.log(Dimensions.get('screen').width);
+  //
 
   useEffect(() => {
     if (
@@ -181,16 +181,12 @@ const NewsItem = (props) => {
           }}
         >
           <Text style={[styles.category, { textDecorationLine: "underline" }]}>
-          
             {caption}
           </Text>
-
         </PressableOpacity>
         <ShareIcon
           isBookmarked={isBookmarked}
           addToBookMark={() => {
-            console.log("toggle");
-            console.log(id);
             dispatch(toggleBookmarks({ id }));
           }}
           news={props}

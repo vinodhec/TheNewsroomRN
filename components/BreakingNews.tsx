@@ -27,7 +27,6 @@ const BreakingNews = () => {
   );
 
   if (!breaking) {
-    console.log("no breaking");
     return;
   }
 
@@ -48,7 +47,8 @@ const BreakingNews = () => {
             position: "absolute",
             top: 0,
             left: 0,
-            zIndex: 1023,paddingTop:8
+            zIndex: 1023,
+            paddingTop: 8,
           }}
           source={require("./../assets/breakingnews.png")}
         >
@@ -58,7 +58,6 @@ const BreakingNews = () => {
         </ImageBackground>
         <PressableOpacity
           onPress={async () => {
-            console.log("deleted", breaking);
             if (isAdmin) {
               await FirestoreService.deleteDocument(
                 COLLECTIONS.BREAKING,

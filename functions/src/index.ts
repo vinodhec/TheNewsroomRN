@@ -50,7 +50,12 @@ exports.sendNotifications_new = functions.firestore.document('news/{messageId}')
 
                }
                console.log(payload)
-               admin.messaging().sendToTopic("news_test", payload)
+               admin.messaging().sendToTopic("news_test", payload, {
+                    // Required for background/quit data-only messages on iOS
+                    contentAvailable: true,
+                    // Required for background/quit data-only messages on Android
+                    priority: 'high',
+               },)
                     .then(function (response: any) {
                          console.log(response)
                     })

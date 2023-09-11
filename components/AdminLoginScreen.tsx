@@ -58,13 +58,10 @@ const AdminLoginScreen = ({ navigation }) => {
   const updateValue = useUpdateGlobal();
   const onSubmit = async (data) => {
     const values = { ...data };
-    console.log({ values });
 
     FirebaseAuthService.adminLogin(values?.email, values?.password)
       .then((data) => {
-        console.log({ data });
         setSuccess("Login Successfully");
-        console.log("user", data?.user);
 
         updateValue("isLogin", true);
         navigation.replace("Main");

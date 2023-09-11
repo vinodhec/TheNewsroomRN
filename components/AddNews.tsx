@@ -88,9 +88,7 @@ const AddGroup = ({ modalVisible, setModalVisible, groups, dispatch }) => {
       );
       Alert.alert(`Tag ${values?.groupTitle} has been added`);
       setModalVisible(false);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   return (
     <Modal
@@ -172,20 +170,16 @@ const AddNews = ({ navigation }) => {
   const [isVideo, setIsVideo] = useState(false);
 
   useEffect(() => {
-    console.log("edit news", editNews);
     if (editNews) {
       reset(editNews);
       setEdit(true);
 
       setIsVideo(editNews.isVideo);
     } else {
-      console.log("reset values");
       reset({});
       setEdit(false);
     }
-    () => {
-      console.log("clean up");
-    };
+    () => {};
   }, [editNews]);
 
   const [isLoading, setIsLoading] = useState(false);

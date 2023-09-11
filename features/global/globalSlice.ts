@@ -74,7 +74,7 @@ export const globalSlice = createSlice({
 
     },
     toggleBookmarks: (state, { payload: { id } }) => {
-      console.log({ id }, state['bookmarks'])
+
       if (state['bookmarks'].includes(id)) {
         state['bookmarks'] = state['bookmarks'].filter(a => a !== id)
       }
