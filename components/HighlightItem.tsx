@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { ref } from "firebase/database";
 import ViewShot from "react-native-view-shot";
 import { ROUTES } from "../constants";
@@ -14,10 +14,9 @@ const HighlightItem = ({ item }) => {
   const ref = useRef();
   const navigation = useNavigation();
   const { colorScheme } = useColorScheme();
-  console.log("HighlightItem", item);
-  // console.log('HighlightItem',item?.value)
-  // console.log('HighlightItem',item?.value)
+console.log('HighlightItem',item)
   const isItems = item?.value?.length > 0;
+const [isHighlight,setIsHighlight]=useState(false)
   return (
     isItems ? (
       <ViewShot ref={ref}>
@@ -41,7 +40,10 @@ const HighlightItem = ({ item }) => {
           >
             {item?.date}
           </Text>
-          {item?.value?.map(({ highlight, id }) => {
+          {item?.value?.map(({ highlight,showHighlight, id }) => {
+            console.log({highlight})
+           
+           
             return (
               <PressableOpacity
                 onPress={() => {

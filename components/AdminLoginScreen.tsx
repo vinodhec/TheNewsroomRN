@@ -6,7 +6,7 @@ import {
   Pressable,
   ActivityIndicator,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyledView } from "./StyledComponents";
 import { useController, useForm } from "react-hook-form";
 import { ScrollView } from "react-native-gesture-handler";
@@ -26,7 +26,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 //     const errorCode = error.code;
 //     const errorMessage = error.message;
 const Input = (fields) => {
-  const { name, control, label, ...others } = fields;
+  const { name, control, label, setValue, ...others } = fields;
   const { field } = useController({
     control,
     defaultValue: "",
@@ -47,15 +47,21 @@ const Input = (fields) => {
 };
 
 const AdminLoginScreen = ({ navigation }) => {
+  // interface IFormInputs {
+  //   email?: string
+  //   password?: any
+  // }
   const { control, handleSubmit, setValue, watch } = useForm({
     defaultValues: {
       email: "thenewsroomnr@gmail.com",
     },
   });
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const updateValue = useUpdateGlobal();
+
   const onSubmit = async (data) => {
     const values = { ...data };
     console.log({ values });
@@ -64,21 +70,35 @@ const AdminLoginScreen = ({ navigation }) => {
       .then((data) => {
         console.log({ data });
         setSuccess("Login Successfully");
-        console.log("user", data?.user);
+        // console.log("user", data?.user);
 
         updateValue("isLogin", true);
         navigation.replace("Main");
       })
       .catch((error) => {
-        if (error) {
-          setError("User not found");
-        }
-        console.error(error);
+        console.log({ error });
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error({ errorCode, errorMessage });
+        if (error) {
+          setError("User not found");
+        }
+        if (errorCode === "auth/wrong-password") {
+          setError("Incorrect Password");
+        } else if (errorCode === "auth/missing-email") {
+          setError("Please enter your Email Id");
+        }
       });
   };
+
+  // useEffect(()=>{
+  //   watch(async(value, { name }) =>{
+  //     console.log(value, name);
+  //     await value?.password&&(value?.password?.length===7)&&onSubmit(value)
+  //   }
+
+  //   )
+  // },[])
 
   if (isLoading) {
     return (
@@ -106,6 +126,11 @@ const AdminLoginScreen = ({ navigation }) => {
           name: "password",
           label: "Password",
           keyboardType: "numeric",
+          autoFocus: true,
+          textContentType: "password",
+          maxLength: 7,
+          secureTextEntry: true,
+          autoComplete: "password",
         },
       ].map((fields: any, index) => {
         return <Input {...fields} key={index} control={control}></Input>;
