@@ -28,9 +28,10 @@ const HighlightScreen = ({ navigation }) => {
 
           return updatedItems;
         }}
-        options={{ limit: 5, query: [["showHighlight", "==", true]] }}
+        options={{ limit: 10, query: [["showHighlight", "==", true]] }}
         updateItems={() => {}}
         content={({ item, index }) => {
+
           return <HighlightItem item={item}></HighlightItem>;
         }}
       ></LazyLoad>

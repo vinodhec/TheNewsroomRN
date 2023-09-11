@@ -65,7 +65,6 @@ const LazyLoad = ({
     } else if (!isCustom) {
       if (!loading && (!loadMore || result.hasNext)) {
         setLoading(true);
-
         FirestoreService.getDocuments(collectionName, {
           ...options,
           cursorId: loadMore ? result.cursorId : undefined,
