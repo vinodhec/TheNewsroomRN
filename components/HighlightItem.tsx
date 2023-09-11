@@ -14,13 +14,21 @@ const HighlightItem = ({ item }) => {
   const ref = useRef();
   const navigation = useNavigation();
   const { colorScheme } = useColorScheme();
+
+  //
+  //
   const isItems = item?.value?.length > 0;
-const [isHighlight,setIsHighlight]=useState(false)
-  return (
-    isItems ? (
-      <ViewShot ref={ref}>
-        <StyledView
-          className={`bg-white mb-5 p-2 dark:bg-[${colors.darkColors.body}]`}
+  return isItems ? (
+    <ViewShot ref={ref}>
+      <StyledView
+        className={`bg-white mb-5 p-2 dark:bg-[${colors.darkColors.body}]`}
+        style={{
+          backgroundColor:
+            colorScheme === "dark" ? colors.darkColors.body : "white",
+        }}
+      >
+        <Text
+          className="self-center"
           style={{
             paddingVertical: 4,
             paddingHorizontal: 12,
@@ -30,27 +38,20 @@ const [isHighlight,setIsHighlight]=useState(false)
             borderRadius: 29,
           }}
         >
-          <Text
-            className="self-center"
-            style={{
-              paddingVertical: 4,
-              paddingHorizontal: 12,
-              backgroundColor:
-                colorScheme === "dark" ? "#FFA1A5" : "rgba(200, 33, 40, 0.1)",
-              color: colorScheme === "dark" ? colors.white : colors.black,
-              borderRadius: 29,
-            }}
-          >
-            {item?.date}
-          </Text>
-          {item?.value?.map(({ highlight,showHighlight, id }) => {
-            console.log({highlight})
-           
-           
-            return (
-              <PressableOpacity
-                onPress={() => {
-                  navigation.navigate(ROUTES.NEWSFEED_ID, { id });
+          {item?.date}
+        </Text>
+        {item?.value?.map(({ highlight, id }) => {
+          return (
+            <PressableOpacity
+              onPress={() => {
+                navigation.navigate(ROUTES.NEWSFEED_ID, { id });
+              }}
+            >
+              <Text
+                className={`text-black dark:text-[${colors.darkColors.text}]`}
+                style={{
+                  lineHeight: 18,
+                  marginTop: 16,
                 }}
                 key={id}
               >
