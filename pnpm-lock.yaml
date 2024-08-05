@@ -82,6 +82,9 @@ importers:
       react-native-gesture-handler:
         specifier: ^2.9.0
         version: registry.npmjs.org/react-native-gesture-handler@2.12.1(react-native@0.71.6)(react@18.2.0)
+      react-native-google-mobile-ads:
+        specifier: ^12.1.1
+        version: registry.npmjs.org/react-native-google-mobile-ads@12.1.2(react@18.2.0)
       react-native-image-picker:
         specifier: ^5.3.1
         version: registry.npmjs.org/react-native-image-picker@5.6.1(react-native@0.71.6)(react@18.2.0)
@@ -3474,6 +3477,12 @@ packages:
       '@hapi/hoek': registry.npmjs.org/@hapi/hoek@9.3.0
     dev: false
 
+  registry.npmjs.org/@iabtcf/core@1.5.6:
+    resolution: {integrity: sha512-u2q9thI9vLurYZdGtyJsDYOqoeLc4EgQsYGSc+UVibYII61B/ENJPZS6eFlML1F0hSoTR/goptpo5nGRDkKd2w==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/@iabtcf/core/-/core-1.5.6.tgz}
+    name: '@iabtcf/core'
+    version: 1.5.6
+    dev: false
+
   registry.npmjs.org/@jest/create-cache-key-function@29.6.3:
     resolution: {integrity: sha512-kzSK9XAxtD1kRPJKxsmD0YKw2fyXveP+5ikeQkCYCHeacWW1EGYMTgjDIM/Di4Uhttx7lnHwrNpz2xn+0rTp8g==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/@jest/create-cache-key-function/-/create-cache-key-function-29.6.3.tgz}
     name: '@jest/create-cache-key-function'
@@ -6229,6 +6238,13 @@ packages:
       '@react-native/normalize-color': registry.npmjs.org/@react-native/normalize-color@2.1.0
       invariant: registry.npmjs.org/invariant@2.2.4
       prop-types: registry.npmjs.org/prop-types@15.8.1
+    dev: false
+
+  registry.npmjs.org/dequal@2.0.3:
+    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/dequal/-/dequal-2.0.3.tgz}
+    name: dequal
+    version: 2.0.3
+    engines: {node: '>=6'}
     dev: false
 
   registry.npmjs.org/destroy@1.2.0:
@@ -11151,6 +11167,18 @@ packages:
       react-native: registry.npmjs.org/react-native@0.71.6(@babel/core@7.22.11)(react@18.2.0)
     dev: false
 
+  registry.npmjs.org/react-native-google-mobile-ads@12.1.2(react@18.2.0):
+    resolution: {integrity: sha512-0TUqLLwPY3iPst3u8+FBQ8zLieFXzz5eeocMJJ/C8mMuncX64X7xDBj0PoaNt9U28m0XdlRp5gYzjja9Fej6Zg==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/react-native-google-mobile-ads/-/react-native-google-mobile-ads-12.1.2.tgz}
+    id: registry.npmjs.org/react-native-google-mobile-ads/12.1.2
+    name: react-native-google-mobile-ads
+    version: 12.1.2
+    dependencies:
+      '@iabtcf/core': registry.npmjs.org/@iabtcf/core@1.5.6
+      use-deep-compare-effect: registry.npmjs.org/use-deep-compare-effect@1.8.1(react@18.2.0)
+    transitivePeerDependencies:
+      - react
+    dev: false
+
   registry.npmjs.org/react-native-gradle-plugin@0.71.19:
     resolution: {integrity: sha512-1dVk9NwhoyKHCSxcrM6vY6cxmojeATsBobDicX0ZKr7DgUF2cBQRTKsimQFvzH8XhOVXyH8p4HyDSZNIFI8OlQ==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.19.tgz}
     name: react-native-gradle-plugin
@@ -13104,6 +13132,23 @@ packages:
     dependencies:
       querystringify: registry.npmjs.org/querystringify@2.2.0
       requires-port: registry.npmjs.org/requires-port@1.0.0
+    dev: false
+
+  registry.npmjs.org/use-deep-compare-effect@1.8.1(react@18.2.0):
+    resolution: {integrity: sha512-kbeNVZ9Zkc0RFGpfMN3MNfaKNvcLNyxOAAd9O4CBZ+kCBXXscn9s/4I+8ytUER4RDpEYs5+O6Rs4PqiZ+rHr5Q==, registry: https://node.bit.cloud/, tarball: https://registry.npmjs.org/use-deep-compare-effect/-/use-deep-compare-effect-1.8.1.tgz}
+    id: registry.npmjs.org/use-deep-compare-effect/1.8.1
+    name: use-deep-compare-effect
+    version: 1.8.1
+    engines: {node: '>=10', npm: '>=6'}
+    peerDependencies:
+      react: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      '@babel/runtime': registry.npmjs.org/@babel/runtime@7.20.0
+      dequal: registry.npmjs.org/dequal@2.0.3
+      react: registry.npmjs.org/react@18.2.0
     dev: false
 
   registry.npmjs.org/use-latest-callback@0.1.6(react@18.2.0):

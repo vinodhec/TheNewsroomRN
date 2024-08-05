@@ -23,7 +23,7 @@
     },
     "firebase": {
         "scope": "tvisoft_bit.utility",
-        "version": "0.0.26",
+        "version": "0.0.45",
         "mainFile": "index.ts",
         "rootDir": "utility/firebase"
     },

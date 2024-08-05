@@ -1,28 +1,26 @@
-import { collection, addDoc, getDoc, doc, getDocs, limit as dbLimit, orderBy as dbOrderBy, query as dbQuery, where, GeoPoint, serverTimestamp, collectionGroup, setDoc, startAfter, getCountFromServer, updateDoc, deleteDoc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, getDoc, doc, getDocs, limit as dbLimit, orderBy as dbOrderBy, query as dbQuery, where, GeoPoint, serverTimestamp, collectionGroup, setDoc, startAfter, getCountFromServer, updateDoc, deleteDoc, onSnapshot, runTransaction as rT } from "firebase/firestore";
 
 import { concatMap, from, lastValueFrom, map, Observable, of } from 'rxjs';
 import { omit } from 'lodash';
 import { config } from "./firebase";
 
 
-console.log('storage execution')
 
 
-
+function runTransaction(fn) {
+    return rT(config.db, fn);
+}
 
 const getCollectionRef = (collectionName, isCollectionGroup?): any => {
-    console.log(config)
     return !!isCollectionGroup ? collectionGroup(config.db, collectionName) : collection(config.db, collectionName)
 }
 
 const getDocumentRef = (collectionName, documentID) => {
-    console.log(collectionName, documentID)
     return doc(config.db, collectionName, documentID);
 
 }
 
 const createDocument = async (collectionName, values) => {
-    console.log(collectionName, values)
 
     const doc = await addDoc(getCollectionRef(collectionName), { ...values, timestamp: serverTimestamp() });
     return doc;
@@ -93,7 +91,7 @@ const updateDocument = async (collectionName, docId, values) => {
 
 const getQueries = (collectionName, options) => {
 
-    let { count, query, orderBy, limit, orderByDir, isCollectionGroup, cursorId, isStream } = options;
+    let { count, query, orderBy, secondaryOrderBy, secondaryOrderByDir, limit, orderByDir, isCollectionGroup, cursorId, isStream } = options;
     limit = limit ?? 10;
     let formattedQueries: any = [];
 
@@ -124,6 +122,10 @@ const getQueries = (collectionName, options) => {
     }
     if (orderBy) {
         formattedQueries.push(dbOrderBy(orderBy, orderByDir))
+    }
+
+    if (secondaryOrderBy) {
+        formattedQueries.push(dbOrderBy(secondaryOrderBy, secondaryOrderByDir))
     }
 
     if (cursorId) {
@@ -250,6 +252,6 @@ const getDocuments = (collectionName, options): any => {
 
 // getDocuments('properties', { query: [["locality", "==", "navalur"], ["city", "==", "chennai"], ["propertyGroup", "==", "Commerical"]] }).then((data) =>
 
-const FirestoreService = { getDocumentsStream, createDocument, getDocumentByID, getDocuments, updateDocument, createDocumentById, GeoPoint, deleteDocument }
+const FirestoreService = { runTransaction, getDocumentRef, getDocumentsStream, createDocument, getDocumentByID, getDocuments, updateDocument, createDocumentById, GeoPoint, deleteDocument }
 
 export default FirestoreService;
